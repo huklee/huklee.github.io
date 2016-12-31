@@ -153,12 +153,12 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                6
+                7
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                1
-                <span>tag</span>
+                6
+                <span>tags</span>
             </div>
         </div>
         
@@ -200,6 +200,161 @@
 
             
             <section id="main">
+    <article id="post-Effective-C-Chap-01" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/01/01/Effective-C-Chap-01/">Effective C++ Summary - Chap 01.</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/01/Effective-C-Chap-01/">
+            <time datetime="2016-12-31T15:09:38.000Z" itemprop="datePublished">2017-01-01</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/EC/">EC++</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Chap-1-C-에-왔으면-C-의-법을-따릅시다"><a href="#Chap-1-C-에-왔으면-C-의-법을-따릅시다" class="headerlink" title="Chap 1. C++에 왔으면 C++의 법을 따릅시다."></a>Chap 1. C++에 왔으면 C++의 법을 따릅시다.</h2><h3 id="항목-1-C-를-언어들의-연합체-federation-로-바라보는-안목은-필수"><a href="#항목-1-C-를-언어들의-연합체-federation-로-바라보는-안목은-필수" class="headerlink" title="항목 1. C++를 언어들의 연합체(federation) 로 바라보는 안목은 필수"></a>항목 1. C++를 언어들의 연합체(federation) 로 바라보는 안목은 필수</h3><p>C++는 한 가지 프로그래밍 규칙 아래 구성된 통합언어(unified language)가 아니라 네 가지 하위 언어들의 연합체(federation) 라고 보는 것이 언어를 이해하기에 좋다.</p>
+<ol>
+<li>C<ul>
+<li>블록, 문장, 선행 처리자, 기본제공 데이터타입, 배열, 포인터 etc…</li>
+</ul>
+</li>
+<li>OOP로써의 C++<ul>
+<li>클래스를 사용하는 C : 클래스 , 캡슐화, 상속, 다형성, 가상 함수 etc</li>
+</ul>
+</li>
+<li>템플릿 C++<ul>
+<li>Template Meta-programming : TMP</li>
+</ul>
+</li>
+<li>STL<ul>
+<li>템플릿 라이브러리 : container / iterator / algorithm / function object</li>
+</ul>
+</li>
+</ol>
+<h3 id="항목-2-define을-쓰려거든const-enum-inline을-떠올리자"><a href="#항목-2-define을-쓰려거든const-enum-inline을-떠올리자" class="headerlink" title="항목 2. #define을 쓰려거든const, enum, inline을 떠올리자."></a>항목 2. #define을 쓰려거든const, enum, inline을 떠올리자.</h3><p>매크로인 #define를 수식이나 상수에 사용하는 것은 떄때로 예측할 수 없는 결과를 가져올 수 있으며 , 디버깅에 있어서 비효율적이다. 일례로 아래와 같은 컴파일 에러를 생각해 보자.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Bad Example</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ASPECT_RATIO 1.563</span></div><div class="line"><span class="keyword">int</span> ratio = ASPECT_RATIO / <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<p>컴파일러로 코드가 넘어간 후에는ASPECT_RATIO가 symbolic name으로 남지 않고,숫자 상수로 대체되어 버린다. 때문에 컴파일러의 기호 테이블에 들어가 있기 때문에 컴파일 에러라도 나면, 복잡한 코드에서는 이를 바로잡기가 쉽지 않다. 특히나 매크로 함수는 큰 재앙이 될 수도 있다.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Bad Example</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> CALL_WITH_MAX(a,b) f((a) &gt; (b) ? (a) : (b))</span></div><div class="line"><span class="keyword">int</span> a=<span class="number">5</span>, b=<span class="number">0</span>;</div><div class="line">CALL_WITH_MAX(++a, b);</div><div class="line">CALL_WITH_MAX(++a, b + <span class="number">10</span>);</div></pre></td></tr></table></figure>
+<p>위와 함수의 경우 a는 7이 되고, 아래의 경우는 6이 되어버린다. 의도되지 않은 결과가 나와버린다.</p>
+<p>상수를 선언하는 올바른 코드는 아래와 같다.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Good Example</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">double</span> AspectRatio = <span class="number">1.653</span>;</div></pre></td></tr></table></figure>
+<p>클래스 안에서 상수를 사용하고 싶을 때는 static const 혹은 enum을 사용하자.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Good Example</span></div><div class="line"><span class="keyword">class</span> ConstEstimate&#123;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">double</span> FudgeFactor = <span class="number">1.35</span>;</div><div class="line">  <span class="keyword">enum</span> &#123; NumTurns = <span class="number">5</span>&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>매크로 함수의 경우, template function을 사용하면 매크로의 효율적인 코드의 측면을 가져갈 수 있다.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Good Example</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">callWithMax</span> <span class="params">(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b)</span></span></div><div class="line">&#123;</div><div class="line">  f(a &gt; b ? a : b);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/01/01/Effective-C-Chap-01/" data-id="cixddaozm0000sy63zsnfmg26" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/01/01/Effective-C-Chap-01/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/01/Effective-C-Chap-01/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-C-image-library-refrence" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -244,7 +399,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2016/11/27/C-image-library-refrence/" data-id="ciw0i2y6q0000lz63bjczcdcz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2016/11/27/C-image-library-refrence/" data-id="cixddaozy0003sy636ub7nby3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -365,7 +520,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2016/11/25/new-draft/" data-id="ciw0i2y8f0006lz63flpxirrr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2016/11/25/new-draft/" data-id="cixddap0b0009sy63zwbexl0t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -443,8 +598,18 @@
 
 
 
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="true-test" class="article article-type-true" itemscope itemprop="blogPost">
     <div class="article-inner">
+        
+            
+	
+		<a href="/2016/11/25/test/" itemprop="url">
+            <img src="/images/test_640_480.png" class="article-banner" />
+        </a>
+	
+
+
+
         
         
             <header class="article-header">
@@ -467,7 +632,17 @@
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Image/">Image</a>
+    </div>
+
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/image/">image</a>, <a class="tag-link" href="/tags/layout/">layout</a>, <a class="tag-link" href="/tags/test/">test</a>
+    </div>
+
                     </div>
                 
             </header>
@@ -476,8 +651,7 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            
-<p><img src="/images/Screen Shot 2016-11-25 at 6.09.23 PM.png" alt="Test Image"></p>
+            <p><img src="/images/Screen Shot 2016-11-25 at 6.09.23 PM.png" alt="Test Image"></p>
 
         
         </div>
@@ -488,7 +662,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2016/11/25/test/" data-id="ciw0i2y7z0002lz639bq3xrpj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2016/11/25/test/" data-id="cixddap040005sy63p1cfz6k0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -609,7 +783,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2016/11/25/Timezone-Test/" data-id="ciw0i2y830004lz63dk1fk5o3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2016/11/25/Timezone-Test/" data-id="cixddap000004sy63h1mypvs5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -735,7 +909,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2016/11/25/Swift-Tutorial/" data-id="ciw0i2y810003lz6302s400sq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2016/11/25/Swift-Tutorial/" data-id="cixddap060007sy63dkuwafrz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -867,7 +1041,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2016/11/21/hello-world/" data-id="ciw0i2y6v0001lz63cpk6wtpa" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2016/11/21/hello-world/" data-id="cixddaozs0001sy63iwq4oia0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -957,6 +1131,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2017/01/01/Effective-C-Chap-01/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/01/01/Effective-C-Chap-01/" class="title">Effective C++ Summary - Chap 01.</a></p>
+                            <p class="item-date"><time datetime="2016-12-31T15:09:38.000Z" itemprop="datePublished">2017-01-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/11/27/C-image-library-refrence/" class="thumbnail">
     
     
@@ -998,14 +1191,14 @@
                             <a href="/2016/11/25/test/" class="thumbnail">
     
     
-        <span style="background-image:url(/css/images/avatar.png)" alt="image test" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/test_640_480.png)" alt="image test" class="thumbnail-image"></span>
     
 </a>
 
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Image/">Image</a></p>
                             <p class="item-title"><a href="/2016/11/25/test/" class="title">image test</a></p>
                             <p class="item-date"><time datetime="2016-11-25T08:48:03.000Z" itemprop="datePublished">2016-11-25</time></p>
                         </div>
@@ -1030,37 +1223,25 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/11/25/Swift-Tutorial/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/11/25/Swift-Tutorial/" class="title">Swift Tutorial</a></p>
-                            <p class="item-date"><time datetime="2016-11-25T08:12:10.000Z" itemprop="datePublished">2016-11-25</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
 
     
         
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Image/">Image</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
     
         
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">6</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">6</span></li></ul>
         </div>
     </div>
 
@@ -1069,7 +1250,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift-Cocoa-AppCode/">Swift, Cocoa, AppCode</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EC/">EC++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift-Cocoa-AppCode/">Swift, Cocoa, AppCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image/">image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1078,7 +1259,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Swift-Cocoa-AppCode/" style="font-size: 10px;">Swift, Cocoa, AppCode</a>
+            <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/EC/" style="font-size: 10px;">EC++</a> <a href="/tags/Swift-Cocoa-AppCode/" style="font-size: 10px;">Swift, Cocoa, AppCode</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
         </div>
     </div>
 
@@ -1106,7 +1287,7 @@
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2016 huklee<br>
+            &copy; 2017 huklee<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
         </div>
     </div>
