@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="huklee's blog">
 <meta property="og:description" content="How does g++ work with c++11 codes?Let’s say that we run a simple program which consists of  following C++ codes.12345678910111213// test_noc++11.cpp#include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;usi">
 <meta property="og:image" content="https://cdn.arstechnica.net/20090828/compilers.png">
-<meta property="og:updated_time" content="2017-01-06T15:24:42.000Z">
+<meta property="og:updated_time" content="2017-01-07T00:02:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gcc, g++, clang and LLVM">
 <meta name="twitter:description" content="How does g++ work with c++11 codes?Let’s say that we run a simple program which consists of  following C++ codes.12345678910111213// test_noc++11.cpp#include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;usi">
@@ -292,6 +292,8 @@
 <blockquote>
 <p>Clang /ˈklæŋ/[4] is a compiler front end for the programming languages C, C++, Objective-C, Objective-C++, OpenMP,[5] OpenCL, and CUDA. It uses LLVM as its back end and has been part of the LLVM release cycle since LLVM 2.6.</p>
 <p>from Wikipedia</p>
+<p>The LLVM compiler infrastructure project (formerly Low Level Virtual Machine) is a “collection of modular and reusable compiler and toolchain technologies” used to develop compiler front ends and back ends.<br>LLVM is written in C++ and is designed for compile-time, link-time, run-time, and “idle-time” optimization of programs written in arbitrary programming languages. Originally implemented for C and C++, the language-agnostic design of LLVM has since spawned a wide variety of front ends: languages with compilers that use LLVM include ActionScript, Ada, C#, Common Lisp, Crystal, D, Delphi, Fortran, OpenGL Shading Language, Halide, Haskell, Java bytecode, Julia, Lua, Objective-C, Pony, Python, R, Ruby, Rust, CUDA, Scala, and Swift.</p>
+<p>from Wikipedia</p>
 </blockquote>
 <p>All right. I just figured out when I run the g++, llvm-gcc is indeed running, which is the gcc frontend, and then the llvm backend. On the other side, clang++ is running clang, which is the clang frontend and then the llvm backend. Following</p>
 <p><img src="https://cdn.arstechnica.net/20090828/compilers.png" alt="" title="g++, clang, and LLVM"></p>
@@ -301,7 +303,7 @@
 <li>what are front-end compiler and back-end complier? I should’ve taken the complier coursework during my B.S :(</li>
 <li>who made the clang &amp; LLVM? are they open-source projects?</li>
 </ul>
-<h1 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h1><p><a href="https://en.wikipedia.org/wiki/C%2B%2B11" target="_blank" rel="external">C++11 Wikipedia</a><br><a href="https://www.youtube.com/watch?v=RfoCIuyrfWs" target="_blank" rel="external">C++11 Tutorial Video</a><br><a href="http://www.slideshare.net/agebreak/1116-c11" target="_blank" rel="external">Added featured in C++11 Slide</a><br><a href="https://gcc.gnu.org/releases.html" target="_blank" rel="external">gcc release note</a><br><a href="http://clang.llvm.org/" target="_blank" rel="external">clang project homepage</a><br><a href="https://en.wikipedia.org/wiki/Clang" target="_blank" rel="external">clang Wikipedia</a><br><a href="http://stackoverflow.com/questions/14656856/getting-c11-compliant-compiler" target="_blank" rel="external">g++, clang++ on mac</a></p>
+<h1 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h1><p><a href="https://en.wikipedia.org/wiki/C%2B%2B11" target="_blank" rel="external">C++11 Wikipedia</a><br><a href="https://www.youtube.com/watch?v=RfoCIuyrfWs" target="_blank" rel="external">C++11 Tutorial Video</a><br><a href="http://www.slideshare.net/agebreak/1116-c11" target="_blank" rel="external">Added featured in C++11 Slide</a><br><a href="https://gcc.gnu.org/releases.html" target="_blank" rel="external">gcc release note</a><br><a href="http://clang.llvm.org/" target="_blank" rel="external">clang project homepage</a><br><a href="https://en.wikipedia.org/wiki/Clang" target="_blank" rel="external">clang Wikipedia</a><br>[LLVM Wikipedia] (<a href="https://en.wikipedia.org/wiki/LLVM" target="_blank" rel="external">https://en.wikipedia.org/wiki/LLVM</a>)<br><a href="http://stackoverflow.com/questions/14656856/getting-c11-compliant-compiler" target="_blank" rel="external">g++, clang++ on mac</a></p>
 
         
         </div>
