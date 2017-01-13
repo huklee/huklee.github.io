@@ -3,14 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Tag: test | huklee&#39;s blog</title>
+    <title>how to gdb on mac | huklee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="huklee's blog">
-<meta property="og:url" content="https://huklee.github.io/tags/test/index.html">
+    <meta name="description" content="How to gdb on MacSadly, gdb is not built-in package for Mac. On Mac, the easiest way to install a package working mainly in CLI such as gdb, gcc, g++, and etc, is to use Brew (Homebrew).
+1ruby -e &quot;$(c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="how to gdb on mac">
+<meta property="og:url" content="https://huklee.github.io/2017/01/14/how-to-gdb-on-mac/index.html">
 <meta property="og:site_name" content="huklee's blog">
+<meta property="og:description" content="How to gdb on MacSadly, gdb is not built-in package for Mac. On Mac, the easiest way to install a package working mainly in CLI such as gdb, gcc, g++, and etc, is to use Brew (Homebrew).
+1ruby -e &quot;$(c">
+<meta property="og:updated_time" content="2017-01-13T15:25:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="huklee's blog">
+<meta name="twitter:title" content="how to gdb on mac">
+<meta name="twitter:description" content="How to gdb on MacSadly, gdb is not built-in package for Mac. On Mac, the easiest way to install a package working mainly in CLI such as gdb, gcc, g++, and etc, is to use Brew (Homebrew).
+1ruby -e &quot;$(c">
     
 
     
@@ -199,50 +206,178 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#test</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-how-to-gdb-on-mac" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/11/25/test/">image test</a>
+        <h1 class="article-title" itemprop="name">
+            how to gdb on mac
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/11/25/test/">
-            <time datetime="2016-11-25T08:48:03.000Z" itemprop="datePublished">2016-11-25</time>
+        <a href="/2017/01/14/how-to-gdb-on-mac/">
+            <time datetime="2017-01-13T15:11:05.000Z" itemprop="datePublished">2017-01-14</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Image/">Image</a>
+        <a class="article-category-link" href="/categories/Tips-on-Mac/">Tips on Mac</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/image/">image</a>, <a class="tag-link" href="/tags/layout/">layout</a>, <a class="tag-link" href="/tags/test/">test</a>
+        <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/Mac/">Mac</a>, <a class="tag-link" href="/tags/gdb/">gdb</a>, <a class="tag-link" href="/tags/linux/">linux</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="How-to-gdb-on-Mac"><a href="#How-to-gdb-on-Mac" class="headerlink" title="How to gdb on Mac"></a>How to gdb on Mac</h1><p>Sadly, gdb is not built-in package for Mac. On Mac, the easiest way to install a package working mainly in CLI such as gdb, gcc, g++, and etc, is to use Brew (Homebrew).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
+<p>then, use the brew to install the gdb package.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install gdb</div></pre></td></tr></table></figure>
+<blockquote>
+<p>➜  algorithms git:(master) ✗ brew install gdb<br>Updating Homebrew…<br>==&gt; Downloading <a href="https://homebrew.bintray.com/bottles/gdb-7.12_1.el_capitan.bottle.tar.gz" target="_blank" rel="external">https://homebrew.bintray.com/bottles/gdb-7.12_1.el_capitan.bottle.tar.gz</a></p>
+<p>######################################################################## 100.0%<br>==&gt; Pouring gdb-7.12_1.el_capitan.bottle.tar.gz<br>==&gt; Caveats<br>gdb requires special privileges to access Mach ports.<br>You will need to codesign the binary. For instructions, see:</p>
+<p>  <a href="https://sourceware.org/gdb/wiki/BuildingOnDarwin" target="_blank" rel="external">https://sourceware.org/gdb/wiki/BuildingOnDarwin</a></p>
+<p>On 10.12 (Sierra) or later with SIP, you need to run this:</p>
+<p>  echo “set startup-with-shell off” &gt;&gt; ~/.gdbinit<br>==&gt; Summary<br>🍺  /usr/local/Cellar/gdb/7.12_1: 49 files, 6.8M</p>
+</blockquote>
+<p>here goes the result!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gdb</div></pre></td></tr></table></figure>
+<p>&gt;</p>
+<blockquote>
+<p>➜  algorithms git:(master) ✗ gdb<br>GNU gdb (GDB) 7.12<br>Copyright (C) 2016 Free Software Foundation, Inc.<br>License GPLv3+: GNU GPL version 3 or later &gt; <a href="http://gnu.org/licenses/gpl.html" target="_blank" rel="external">http://gnu.org/licenses/gpl.html</a><br>This is free software: you are free to change and redistribute &gt; it.<br>There is NO WARRANTY, to the extent permitted by law.  Type &gt; “show copying”<br>and “show warranty” for details.<br>This GDB was configured as “x86_64-apple-darwin15.6.0”.<br>Type “show configuration” for configuration details.<br>For bug reporting instructions, please see:<br><a href="http://www.gnu.org/software/gdb/bugs/" target="_blank" rel="external">http://www.gnu.org/software/gdb/bugs/</a>.<br>Find the GDB manual and other documentation resources online at:<br><a href="http://www.gnu.org/software/gdb/documentation/" target="_blank" rel="external">http://www.gnu.org/software/gdb/documentation/</a>.<br>For help, type “help”.<br>Type “apropos word” to search for commands related to “word”.<br>(gdb)</p>
+</blockquote>
+<p>So simple!</p>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="https://huklee.github.io/2017/01/14/how-to-gdb-on-mac/" data-id="cixvyhx9t000ms663prcdaurn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/01/14/how-to-gdb-on-mac/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/14/how-to-gdb-on-mac/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/01/06/gcc-g-clang-and-LLVM/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">gcc, g++, clang and LLVM</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -422,11 +557,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'https://huklee.github.io/2017/01/14/how-to-gdb-on-mac/';
+        
+        this.page.identifier = 'how-to-gdb-on-mac';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
