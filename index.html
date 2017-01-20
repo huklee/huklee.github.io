@@ -253,7 +253,36 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="Design-patterns"><a href="#Design-patterns" class="headerlink" title="Design patterns"></a>Design patterns</h1><p>가장 유명한 디자인 패턴으로는 [GoF Design] pattern(<a href="https://ko.wikipedia.org/wiki/%EB%94%94%EC%9E%90%EC%9D%B8_%ED%8C%A8%ED%84%B4_(%EC%B1%85))이" target="_blank" rel="external">https://ko.wikipedia.org/wiki/%EB%94%94%EC%9E%90%EC%9D%B8_%ED%8C%A8%ED%84%B4_(%EC%B1%85))이</a> 있다.</p>
+            <h1 id="Design-patterns"><a href="#Design-patterns" class="headerlink" title="Design patterns"></a>Design patterns</h1><p>가장 유명한 디자인 패턴으로는 [GoF Design] pattern(<a href="https://en.wikipedia.org/wiki/Design_Patterns)이" target="_blank" rel="external">https://en.wikipedia.org/wiki/Design_Patterns)이</a> 있다. 하도 유명해서 필수로 알아두면 좋을 패턴들은 다음과 같다.</p>
+<h2 id="Creational-patterns"><a href="#Creational-patterns" class="headerlink" title="Creational patterns"></a>Creational patterns</h2><ol>
+<li><code>Abstract factory pattern</code> groups object factories that have a common theme.</li>
+<li><code>Builder pattern</code> constructs complex objects by separating construction and representation.</li>
+<li><code>Factory method pattern</code> creates objects without specifying the exact class to create.</li>
+<li><code>Prototype pattern</code> creates objects by cloning an existing object.</li>
+<li><code>Singleton pattern</code> restricts object creation for a class to only one instance.</li>
+</ol>
+<h2 id="Structural-patterns"><a href="#Structural-patterns" class="headerlink" title="Structural patterns"></a>Structural patterns</h2><ol>
+<li><code>Adapter</code> allows classes with incompatible interfaces to work together by wrapping its own interface around that of an already existing class.</li>
+<li><code>Bridge</code> decouples an abstraction from its implementation so that the two can vary independently.</li>
+<li><code>Composite</code> composes zero-or-more similar objects so that they can be manipulated as one object.</li>
+<li><code>Decorator</code> dynamically adds/overrides behaviour in an existing method of an object.</li>
+<li><code>Facade</code> provides a simplified interface to a large body of code.</li>
+<li><code>Flyweight</code> reduces the cost of creating and manipulating a large number of similar objects.</li>
+<li><code>Proxy</code> provides a placeholder for another object to control access, reduce cost, and reduce complexity.</li>
+</ol>
+<h2 id="Behavioral-patterns"><a href="#Behavioral-patterns" class="headerlink" title="Behavioral patterns"></a>Behavioral patterns</h2><ol>
+<li><code>Chain of responsibility</code> delegates commands to a chain of processing objects.</li>
+<li><code>Command</code> creates objects which encapsulate actions and parameters.</li>
+<li><code>Interpreter</code> implements a specialized language.<br>Iterator accesses the elements of an object sequentially without exposing its underlying representation.</li>
+<li><code>Mediator</code> allows loose coupling between classes by being the only class that has detailed knowledge of their methods.</li>
+<li><code>Memento</code> provides the ability to restore an object to its previous state (undo).</li>
+<li><code>Observer</code> is a publish/subscribe pattern which allows a number of observer objects to see an event.</li>
+<li><code>State</code> allows an object to alter its behavior when its internal state changes.</li>
+<li><code>Strategy</code> allows one of a family of algorithms to be selected on-the-fly at runtime.</li>
+<li><code>Template</code> method defines the skeleton of an algorithm as an abstract class, allowing its subclasses to provide concrete behavior.</li>
+<li><code>Visitor</code> separates an algorithm from an object structure by moving the hierarchy of methods into one object.</li>
+</ol>
+<p><img src="images/GoF_full_medium.png" alt=""></p>
 <h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><ul>
 <li><p><a href="https://opentutorials.org/course/697/3828" target="_blank" rel="external">MVC design patterns</a></p>
 <p>MVC : Model, View, Controller의 앞글자를 딴 것을 의미며, 어플리케이션의 역할을 세 가지로 구분한 개발 방법론이다. <code>핵심은 사용자가 직접 Model을 만지지 않도록 하는 구조</code>라고 볼 수 있다. 아래처럼 사용자가 Controller를 조작하면, Controller가 Model을 통해서 데이터를 가져오고 그 정보를 바탕으로 View를 통해서 사용자에게 정보를 제공하는 구조이다.<br><img src="images/mvc_model.png" alt=""></p>
@@ -263,6 +292,7 @@
 </ul>
 <h2 id="useful-links"><a href="#useful-links" class="headerlink" title="useful links"></a>useful links</h2><p><a href="http://hackersstudy.tistory.com/71" target="_blank" rel="external">MVC, MVP, MVVM 차이점</a></p>
 <p><a href="http://www.ccplusplus.com/2011/07/design-patterns-non-software-example.html" target="_blank" rel="external">Design pattern examples from non-program</a></p>
+<p><a href="http://www.vincehuston.org/dp/" target="_blank" rel="external">Design patterns</a></p>
 
         
         </div>
