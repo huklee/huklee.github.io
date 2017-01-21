@@ -3,14 +3,30 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Tag: node.js | huklee&#39;s blog</title>
+    <title>algospot_traversal | huklee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="huklee's blog">
-<meta property="og:url" content="https://huklee.github.io/tags/node-js/index.html">
+    <meta name="description" content="Algospot Traversal
+input : binary Tree의 preorder / inorder traversal 결과
+output : 해당 binary Tree의 postorder traversal 결과
+
+array의 start, end 포인트만을 사용한 풀이1234567891011121314151617181920212223242526272829">
+<meta property="og:type" content="article">
+<meta property="og:title" content="algospot_traversal">
+<meta property="og:url" content="https://huklee.github.io/2017/01/21/algospot-traversal/index.html">
 <meta property="og:site_name" content="huklee's blog">
+<meta property="og:description" content="Algospot Traversal
+input : binary Tree의 preorder / inorder traversal 결과
+output : 해당 binary Tree의 postorder traversal 결과
+
+array의 start, end 포인트만을 사용한 풀이1234567891011121314151617181920212223242526272829">
+<meta property="og:updated_time" content="2017-01-21T10:33:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="huklee's blog">
+<meta name="twitter:title" content="algospot_traversal">
+<meta name="twitter:description" content="Algospot Traversal
+input : binary Tree의 preorder / inorder traversal 결과
+output : 해당 binary Tree의 postorder traversal 결과
+
+array의 start, end 포인트만을 사용한 풀이1234567891011121314151617181920212223242526272829">
     
 
     
@@ -199,50 +215,166 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#node.js</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-algospot-traversal" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/01/17/manual-for-Node-js/">manual for Node.js</a>
+        <h1 class="article-title" itemprop="name">
+            algospot_traversal
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/17/manual-for-Node-js/">
-            <time datetime="2017-01-17T14:20:40.000Z" itemprop="datePublished">2017-01-17</time>
+        <a href="/2017/01/21/algospot-traversal/">
+            <time datetime="2017-01-21T10:27:20.000Z" itemprop="datePublished">2017-01-21</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Tutorial/">Tutorial</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tutorial/node-js/">node.js</a>
+        <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/node-js/">node.js</a>, <a class="tag-link" href="/tags/usage/">usage</a>
+        <a class="tag-link" href="/tags/Algospot/">Algospot</a>, <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/Tree/">Tree</a>, <a class="tag-link" href="/tags/algorithm/">algorithm</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Algospot-Traversal"><a href="#Algospot-Traversal" class="headerlink" title="Algospot Traversal"></a>Algospot Traversal</h1><ul>
+<li>input : binary Tree의 preorder / inorder traversal 결과</li>
+<li>output : 해당 binary Tree의 postorder traversal 결과</li>
+</ul>
+<h2 id="array의-start-end-포인트만을-사용한-풀이"><a href="#array의-start-end-포인트만을-사용한-풀이" class="headerlink" title="array의 start, end 포인트만을 사용한 풀이"></a>array의 start, end 포인트만을 사용한 풀이</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// TRAVERSAL</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> preTree[N_MAX];</div><div class="line"><span class="keyword">int</span> inTree[N_MAX];</div><div class="line"><span class="keyword">int</span> postTree[N_MAX];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">guessPostTree</span><span class="params">(<span class="keyword">int</span> preS, <span class="keyword">int</span> preE, <span class="keyword">int</span> inS, <span class="keyword">int</span> inE, <span class="keyword">int</span> postS, <span class="keyword">int</span> postE)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (postS &gt; postE)  <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Initial Case</span></div><div class="line">    <span class="keyword">int</span> root;</div><div class="line">    <span class="keyword">for</span> (root = inS; root &lt;= inE; root++)&#123;</div><div class="line">        <span class="keyword">if</span> (preTree[preS] == inTree[root])</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;   </div><div class="line">    postTree[postE] = inTree[root];</div><div class="line"></div><div class="line">    <span class="comment">// Recursive</span></div><div class="line">    <span class="keyword">int</span> leftLen = root - inS;</div><div class="line">    guessPostTree(preS + <span class="number">1</span>, preS + leftLen, inS, root - <span class="number">1</span>, postS, postS + leftLen - <span class="number">1</span>); <span class="comment">// Left</span></div><div class="line">    guessPostTree(preS + leftLen + <span class="number">1</span>, preE, root + <span class="number">1</span>, inE, postS + leftLen, postE - <span class="number">1</span>); <span class="comment">// Right</span></div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; inTree[root] &lt;&lt; <span class="string">" "</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> T, N, i, j;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> tc = <span class="number">0</span>; tc &lt; T; tc++)&#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; N;</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; preTree[i];</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; inTree[i];</div><div class="line"></div><div class="line">        guessPostTree(<span class="number">0</span>, N - <span class="number">1</span>, <span class="number">0</span>, N - <span class="number">1</span>, <span class="number">0</span>, N - <span class="number">1</span>);</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="slice-를-이용한-sliced-vector를-사용한-풀이"><a href="#slice-를-이용한-sliced-vector를-사용한-풀이" class="headerlink" title="slice()를 이용한 sliced vector를 사용한 풀이"></a>slice()를 이용한 sliced vector를 사용한 풀이</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; slice(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v, <span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(v.begin() + a, v.begin() + b);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">guessPostTree</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; preorder, <span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 00. exit condition</span></div><div class="line">    <span class="keyword">if</span> (preorder.empty())   <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 01. find the root and the pos of the root</span></div><div class="line">    <span class="keyword">int</span> N = preorder.size();</div><div class="line">    <span class="keyword">int</span> root = preorder[<span class="number">0</span>];</div><div class="line">    <span class="keyword">int</span> leftLen = find(inorder.begin(), inorder.end(), root) - inorder.begin();</div><div class="line"></div><div class="line">    <span class="comment">// 02. print the left &amp; right trees, then the root</span></div><div class="line">    guessPostTree(slice(preorder, <span class="number">1</span>, leftLen + <span class="number">1</span>), slice(inorder, <span class="number">0</span>, leftLen));     <span class="comment">// left sub-tree</span></div><div class="line">    guessPostTree(slice(preorder, leftLen + <span class="number">1</span>, N), slice(inorder, leftLen + <span class="number">1</span>, N)); <span class="comment">// right sub-tree</span></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; root &lt;&lt; <span class="string">" "</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> T, N, i, j;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> tc = <span class="number">0</span>; tc &lt; T; tc++)&#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; N;</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; preTree[i];</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; inTree[i];</div><div class="line"></div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1(preTree, preTree + N);</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v2(inTree, inTree + N);</div><div class="line"></div><div class="line">        guessPostTree(v1, v2);</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="https://huklee.github.io/2017/01/21/algospot-traversal/" data-id="ciy73lu19000riu63gynb33m7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/01/21/algospot-traversal/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/21/algospot-traversal/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/01/21/intro-to-design-patterns/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">intro to design patterns</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -422,11 +554,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'https://huklee.github.io/2017/01/21/algospot-traversal/';
+        
+        this.page.identifier = 'algospot-traversal';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
