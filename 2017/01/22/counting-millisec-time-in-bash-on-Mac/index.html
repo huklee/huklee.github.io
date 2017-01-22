@@ -3,14 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Tag: Swift, Cocoa, AppCode | huklee&#39;s blog</title>
+    <title>counting millisec time in bash on Mac | huklee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="huklee's blog">
-<meta property="og:url" content="https://huklee.github.io/tags/Swift-Cocoa-AppCode/index.html">
+    <meta name="description" content="Counting time with accuracy of milliseconds in bash on MacCounting time with accuracy of milliseconds in normal bashbash에서 프로그램을 실행시켜서 실행시간을 재는 간단한 bash script는 아래와 같다. milliseconds 단위로 실행시간을 측정할 수 있다">
+<meta property="og:type" content="article">
+<meta property="og:title" content="counting millisec time in bash on Mac">
+<meta property="og:url" content="https://huklee.github.io/2017/01/22/counting-millisec-time-in-bash-on-Mac/index.html">
 <meta property="og:site_name" content="huklee's blog">
+<meta property="og:description" content="Counting time with accuracy of milliseconds in bash on MacCounting time with accuracy of milliseconds in normal bashbash에서 프로그램을 실행시켜서 실행시간을 재는 간단한 bash script는 아래와 같다. milliseconds 단위로 실행시간을 측정할 수 있다">
+<meta property="og:updated_time" content="2017-01-22T06:30:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="huklee's blog">
+<meta name="twitter:title" content="counting millisec time in bash on Mac">
+<meta name="twitter:description" content="Counting time with accuracy of milliseconds in bash on MacCounting time with accuracy of milliseconds in normal bashbash에서 프로그램을 실행시켜서 실행시간을 재는 간단한 bash script는 아래와 같다. milliseconds 단위로 실행시간을 측정할 수 있다">
     
 
     
@@ -199,50 +203,176 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#Swift, Cocoa, AppCode</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-counting-millisec-time-in-bash-on-Mac" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/11/25/Swift-Tutorial/">Swift Tutorial</a>
+        <h1 class="article-title" itemprop="name">
+            counting millisec time in bash on Mac
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/11/25/Swift-Tutorial/">
-            <time datetime="2016-11-25T08:12:10.000Z" itemprop="datePublished">2016-11-25</time>
+        <a href="/2017/01/22/counting-millisec-time-in-bash-on-Mac/">
+            <time datetime="2017-01-22T06:02:25.000Z" itemprop="datePublished">2017-01-22</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Tutorial/">Tutorial</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tutorial/Swift/">Swift</a>
+        <a class="article-category-link" href="/categories/Mac/">Mac</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Swift-Cocoa-AppCode/">Swift, Cocoa, AppCode</a>
+        <a class="tag-link" href="/tags/Mac/">Mac</a>, <a class="tag-link" href="/tags/bash/">bash</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Counting-time-with-accuracy-of-milliseconds-in-bash-on-Mac"><a href="#Counting-time-with-accuracy-of-milliseconds-in-bash-on-Mac" class="headerlink" title="Counting time with accuracy of milliseconds in bash on Mac"></a>Counting time with accuracy of milliseconds in bash on Mac</h1><h2 id="Counting-time-with-accuracy-of-milliseconds-in-normal-bash"><a href="#Counting-time-with-accuracy-of-milliseconds-in-normal-bash" class="headerlink" title="Counting time with accuracy of milliseconds in normal bash"></a>Counting time with accuracy of milliseconds in normal bash</h2><p>bash에서 프로그램을 실행시켜서 실행시간을 재는 간단한 bash script는 아래와 같다. milliseconds 단위로 실행시간을 측정할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># countTime.sh</span></div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">argc=<span class="variable">$#</span></div><div class="line"><span class="keyword">if</span> [ <span class="variable">$argc</span> <span class="_">-eq</span> 0 ]; <span class="keyword">then</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"usage ./countTime.sh program_to_run"</span></div><div class="line">  <span class="built_in">exit</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="comment"># check the beginning time</span></div><div class="line">beginTime=$(date +%s%N)</div><div class="line"></div><div class="line"><span class="comment"># runt the first parameters</span></div><div class="line"><span class="built_in">eval</span> <span class="variable">$1</span></div><div class="line"></div><div class="line">endTime=$(date +%s%N)</div><div class="line">elapsed=`<span class="built_in">echo</span> <span class="string">"(<span class="variable">$endTime</span> - <span class="variable">$beginTime</span>) / 1000000"</span> | bc`</div><div class="line">elapsedSec=`<span class="built_in">echo</span> <span class="string">"scale=6;<span class="variable">$elapsed</span> / 1000"</span> | bc | awk <span class="string">'&#123;printf "%.6f", $1&#125;'</span>`</div><div class="line"><span class="built_in">echo</span> TOTAL: <span class="variable">$elapsedSec</span> sec</div></pre></td></tr></table></figure>
+<h2 id="on-BSD-the-default-linux-type-of-Mac"><a href="#on-BSD-the-default-linux-type-of-Mac" class="headerlink" title="on BSD, the default linux type of Mac"></a>on BSD, the default linux type of Mac</h2><p>문제는 BSD linux 에서는 기본적으로 date가 milliseconds기록을 기본적으로 지원하지 않는다. 그래서 기본적으로 아래와 같은 결과가 나온다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ date +%s.%N</div><div class="line">1485066528.N</div></pre></td></tr></table></figure>
+<p>따라서 coreutils라는 패키지를 깔아서 gdate로 사용해야 한다. 설치 방법은 아래를 참조하자. <code>brew</code>는 기본적으로 설치되었다고 가정한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install coreutils</div></pre></td></tr></table></figure>
+<p>다음은 bash의 alias로 date를 gdate로 바꿔준다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.bash_profile</div></pre></td></tr></table></figure>
+<p>아래 내용을 추가하자.</p>
+<blockquote>
+<p>alias date=’/usr/local/bin/gdate’</p>
+</blockquote>
+<p>그러면 이제 date +%s.N을 했을 떄 제대로 나오는 것을 확인할 수 있다! 위에서 만든 스크립트도 제대로 사용이 가능하다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ date +%s.%N</div><div class="line">1485066528.720920000</div></pre></td></tr></table></figure>
+<h1 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h1><p><a href="http://netmaid.tistory.com/34" target="_blank" rel="external">경과시간 출력하기</a></p>
+<p><a href="http://stackoverflow.com/questions/5179559/how-get-the-time-in-milliseconds-in-freebsd" target="_blank" rel="external">counting time on Mac bash</a></p>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="https://huklee.github.io/2017/01/22/counting-millisec-time-in-bash-on-Mac/" data-id="ciy8abxie000hg86341xqztgn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/01/22/counting-millisec-time-in-bash-on-Mac/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/22/counting-millisec-time-in-bash-on-Mac/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/01/21/markdown-cheat-sheet/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">markdown cheat sheet</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -422,11 +552,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'https://huklee.github.io/2017/01/22/counting-millisec-time-in-bash-on-Mac/';
+        
+        this.page.identifier = 'counting-millisec-time-in-bash-on-Mac';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
