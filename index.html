@@ -153,11 +153,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                22
+                23
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                40
+                42
                 <span>tags</span>
             </div>
         </div>
@@ -200,6 +200,159 @@
 
             
             <section id="main">
+    <article id="post-SQL-all-kinds-of-join-queries" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2017/01/28/SQL-all-kinds-of-join-queries/" itemprop="url">
+            <img src="/images/sql_type_of_join.png" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/01/28/SQL-all-kinds-of-join-queries/">SQL all kinds of join queries</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/28/SQL-all-kinds-of-join-queries/">
+            <time datetime="2017-01-27T16:01:45.000Z" itemprop="datePublished">2017-01-28</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/database/">database</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SQL/">SQL</a>, <a class="tag-link" href="/tags/database/">database</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="All-kinds-of-SQL-Queries"><a href="#All-kinds-of-SQL-Queries" class="headerlink" title="All kinds of SQL Queries"></a>All kinds of SQL Queries</h1><h2 id="Type-1-INNER-JOIN-only-where-both-tables-match"><a href="#Type-1-INNER-JOIN-only-where-both-tables-match" class="headerlink" title="Type 1: INNER JOIN - only where both tables match"></a>Type 1: INNER JOIN - only where both tables match</h2><p>1.) INNER JOIN aka JOIN</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> *</div><div class="line"><span class="keyword">FROM</span> table1 <span class="keyword">as</span> a (<span class="keyword">INNER</span>) <span class="keyword">JOIN</span> table2 <span class="keyword">as</span> b</div><div class="line"><span class="keyword">ON</span> a.id = b.id;</div></pre></td></tr></table></figure>
+<h2 id="Type-2-OUTER-JOINS-where-either-one-or-both-tables-match"><a href="#Type-2-OUTER-JOINS-where-either-one-or-both-tables-match" class="headerlink" title="Type 2: OUTER JOINS where either one or both tables match"></a>Type 2: OUTER JOINS where either one or both tables match</h2><p>1.) LEFT OUTER JOIN aka LEFT JOIN</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> *</div><div class="line"><span class="keyword">FROM</span> table1 <span class="keyword">as</span> a <span class="keyword">LEFT</span> (<span class="keyword">OUTER</span>) <span class="keyword">JOIN</span> table2 <span class="keyword">as</span> b</div><div class="line"><span class="keyword">ON</span> a.id = b.id;</div></pre></td></tr></table></figure>
+<p>2.) RIGHT OUTER JOIN aka RIGHT JOIN</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> *</div><div class="line"><span class="keyword">FROM</span> table1 <span class="keyword">as</span> a <span class="keyword">RIGHT</span> (<span class="keyword">OUTER</span>) <span class="keyword">JOIN</span> table2 <span class="keyword">as</span> b</div><div class="line"><span class="keyword">ON</span> a.id = b.id;</div></pre></td></tr></table></figure>
+<p>3.) FULL OUTER JOIN aka FULL JOIN<br> (supported depending on what database program)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> *</div><div class="line"><span class="keyword">FROM</span> table1 <span class="keyword">as</span> a <span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> table2 <span class="keyword">as</span> b</div><div class="line"><span class="keyword">ON</span> a.id = b.id;</div></pre></td></tr></table></figure>
+<h2 id="Type-3-CROSS-JOIN-Cartesian-product-all-possible-combos-of-each-table"><a href="#Type-3-CROSS-JOIN-Cartesian-product-all-possible-combos-of-each-table" class="headerlink" title="Type 3: CROSS JOIN - Cartesian product(all possible combos of each table)"></a>Type 3: CROSS JOIN - Cartesian product(all possible combos of each table)</h2><p> (supported depending on what database program)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> *</div><div class="line"><span class="keyword">FROM</span> table1 <span class="keyword">as</span> a <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> table2 <span class="keyword">as</span> b;</div></pre></td></tr></table></figure>
+<h1 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h1><p><a href="http://stackoverflow.com/questions/30358982/sql-server-replaces-left-join-for-left-outer-join-in-view-query" target="_blank" rel="external">stackoverflow on SQL</a></p>
+<p><a href="http://egloos.zum.com/sweeper/v/3002332" target="_blank" rel="external">Cross Join &amp; Self Join</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/01/28/SQL-all-kinds-of-join-queries/" data-id="ciyg0de56000hlz63dbzpd7t1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/01/28/SQL-all-kinds-of-join-queries/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/28/SQL-all-kinds-of-join-queries/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-counting-millisec-time-in-bash-on-Mac" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -269,7 +422,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/22/counting-millisec-time-in-bash-on-Mac/" data-id="ciy8abxie000hg86341xqztgn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/22/counting-millisec-time-in-bash-on-Mac/" data-id="ciyg0de620014lz63at243u9p" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -449,7 +602,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/21/markdown-cheat-sheet/" data-id="ciy8abxj0000zg86357x0id9v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/21/markdown-cheat-sheet/" data-id="ciyg0de6f001klz638i4watsx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -570,14 +723,8 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="Algospot-Traversal"><a href="#Algospot-Traversal" class="headerlink" title="Algospot Traversal"></a>Algospot Traversal</h1><p><a href="https://algospot.com/judge/problem/read/TRAVERSAL" target="_blank" rel="external">문제 src</a></p>
-<ul>
-<li>input : binary Tree의 preorder / inorder traversal 결과</li>
-<li>output : 해당 binary Tree의 postorder traversal 결과</li>
-</ul>
-<h2 id="1-C-array의-start-end-포인트만을-사용한-풀이"><a href="#1-C-array의-start-end-포인트만을-사용한-풀이" class="headerlink" title="1. [C++]array의 start, end 포인트만을 사용한 풀이"></a>1. [C++]array의 start, end 포인트만을 사용한 풀이</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// TRAVERSAL</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> preTree[N_MAX];</div><div class="line"><span class="keyword">int</span> inTree[N_MAX];</div><div class="line"><span class="keyword">int</span> postTree[N_MAX];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">guessPostTree</span><span class="params">(<span class="keyword">int</span> preS, <span class="keyword">int</span> preE, <span class="keyword">int</span> inS, <span class="keyword">int</span> inE, <span class="keyword">int</span> postS, <span class="keyword">int</span> postE)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (postS &gt; postE)  <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Initial Case</span></div><div class="line">    <span class="keyword">int</span> root;</div><div class="line">    <span class="keyword">for</span> (root = inS; root &lt;= inE; root++)&#123;</div><div class="line">        <span class="keyword">if</span> (preTree[preS] == inTree[root])</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;   </div><div class="line">    postTree[postE] = inTree[root];</div><div class="line"></div><div class="line">    <span class="comment">// Recursive</span></div><div class="line">    <span class="keyword">int</span> leftLen = root - inS;</div><div class="line">    guessPostTree(preS + <span class="number">1</span>, preS + leftLen, inS, root - <span class="number">1</span>, postS, postS + leftLen - <span class="number">1</span>); <span class="comment">// Left</span></div><div class="line">    guessPostTree(preS + leftLen + <span class="number">1</span>, preE, root + <span class="number">1</span>, inE, postS + leftLen, postE - <span class="number">1</span>); <span class="comment">// Right</span></div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; inTree[root] &lt;&lt; <span class="string">" "</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> T, N, i, j;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> tc = <span class="number">0</span>; tc &lt; T; tc++)&#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; N;</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; preTree[i];</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; inTree[i];</div><div class="line"></div><div class="line">        guessPostTree(<span class="number">0</span>, N - <span class="number">1</span>, <span class="number">0</span>, N - <span class="number">1</span>, <span class="number">0</span>, N - <span class="number">1</span>);</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="2-C-slice-를-이용한-sliced-vector를-사용한-풀이"><a href="#2-C-slice-를-이용한-sliced-vector를-사용한-풀이" class="headerlink" title="2. [C++] slice()를 이용한 sliced vector를 사용한 풀이"></a>2. [C++] slice()를 이용한 sliced vector를 사용한 풀이</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; slice(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v, <span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(v.begin() + a, v.begin() + b);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">guessPostTree</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; preorder, <span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 00. exit condition</span></div><div class="line">    <span class="keyword">if</span> (preorder.empty())   <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 01. find the root and the pos of the root</span></div><div class="line">    <span class="keyword">int</span> N = preorder.size();</div><div class="line">    <span class="keyword">int</span> root = preorder[<span class="number">0</span>];</div><div class="line">    <span class="keyword">int</span> leftLen = find(inorder.begin(), inorder.end(), root) - inorder.begin();</div><div class="line"></div><div class="line">    <span class="comment">// 02. print the left &amp; right trees, then the root</span></div><div class="line">    guessPostTree(slice(preorder, <span class="number">1</span>, leftLen + <span class="number">1</span>), slice(inorder, <span class="number">0</span>, leftLen));     <span class="comment">// left sub-tree</span></div><div class="line">    guessPostTree(slice(preorder, leftLen + <span class="number">1</span>, N), slice(inorder, leftLen + <span class="number">1</span>, N)); <span class="comment">// right sub-tree</span></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; root &lt;&lt; <span class="string">" "</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> T, N, i, j;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> tc = <span class="number">0</span>; tc &lt; T; tc++)&#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; N;</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; preTree[i];</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; inTree[i];</div><div class="line"></div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1(preTree, preTree + N);</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v2(inTree, inTree + N);</div><div class="line"></div><div class="line">        guessPostTree(v1, v2);</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3-python-바로-위의-slice를-이용한-풀이의-python-버전"><a href="#3-python-바로-위의-slice를-이용한-풀이의-python-버전" class="headerlink" title="3. [python] 바로 위의 slice를 이용한 풀이의 python 버전"></a>3. [python] 바로 위의 slice를 이용한 풀이의 python 버전</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">guessPostTree</span><span class="params">(preorder, inorder)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(preorder) &lt; <span class="number">2</span>:</div><div class="line">        <span class="keyword">return</span> preorder</div><div class="line">    pivot = inorder.index(preorder[<span class="number">0</span>])</div><div class="line">    leftTree = guessPostTree(preorder[<span class="number">1</span>:pivot + <span class="number">1</span>], inorder[<span class="number">0</span>:pivot])</div><div class="line">    rightTree = guessPostTree(preorder[pivot + <span class="number">1</span>:], inorder[pivot + <span class="number">1</span>:])</div><div class="line">    <span class="keyword">return</span> leftTree + rightTree + [preorder[<span class="number">0</span>]]</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(int(input())):</div><div class="line">        N = int(input())</div><div class="line">        preorder = map(int, raw_input().split())</div><div class="line">        inorder = map(int, raw_input().split())</div><div class="line">        <span class="keyword">print</span> (<span class="string">" "</span>.join(map(str,guessPostTree(preorder, inorder))))</div></pre></td></tr></table></figure>
+            <h1 id="Algospot-Traversal"><a href="#Algospot-Traversal" class="headerlink" title="Algospot Traversal"></a>Algospot Traversal</h1><h2 id="array의-start-end-포인트만을-사용한-풀이"><a href="#array의-start-end-포인트만을-사용한-풀이" class="headerlink" title="array의 start, end 포인트만을 사용한 풀이"></a>array의 start, end 포인트만을 사용한 풀이</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// TRAVERSAL</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> preTree[N_MAX];</div><div class="line"><span class="keyword">int</span> inTree[N_MAX];</div><div class="line"><span class="keyword">int</span> postTree[N_MAX];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">guessPostTree</span><span class="params">(<span class="keyword">int</span> preS, <span class="keyword">int</span> preE, <span class="keyword">int</span> inS, <span class="keyword">int</span> inE, <span class="keyword">int</span> postS, <span class="keyword">int</span> postE)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (postS &gt; postE)  <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Initial Case</span></div><div class="line">    <span class="keyword">int</span> root;</div><div class="line">    <span class="keyword">for</span> (root = inS; root &lt;= inE; root++)&#123;</div><div class="line">        <span class="keyword">if</span> (preTree[preS] == inTree[root])</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;   </div><div class="line">    postTree[postE] = inTree[root];</div><div class="line"></div><div class="line">    <span class="comment">// Recursive</span></div><div class="line">    <span class="keyword">int</span> leftLen = root - inS;</div><div class="line">    guessPostTree(preS + <span class="number">1</span>, preS + leftLen, inS, root - <span class="number">1</span>, postS, postS + leftLen - <span class="number">1</span>); <span class="comment">// Left</span></div><div class="line">    guessPostTree(preS + leftLen + <span class="number">1</span>, preE, root + <span class="number">1</span>, inE, postS + leftLen, postE - <span class="number">1</span>); <span class="comment">// Right</span></div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; inTree[root] &lt;&lt; <span class="string">" "</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> T, N, i, j;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> tc = <span class="number">0</span>; tc &lt; T; tc++)&#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; N;</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; preTree[i];</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; inTree[i];</div><div class="line"></div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1(preTree, preTree + N);</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v2(inTree, inTree + N);</div><div class="line"></div><div class="line">        guessPostTree(<span class="number">0</span>, N - <span class="number">1</span>, <span class="number">0</span>, N - <span class="number">1</span>, <span class="number">0</span>, N - <span class="number">1</span>);</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="slice-를-이용한-깔끔한-vector를-주고-받는-풀이"><a href="#slice-를-이용한-깔끔한-vector를-주고-받는-풀이" class="headerlink" title="slice()를 이용한 깔끔한 vector를 주고 받는 풀이"></a>slice()를 이용한 깔끔한 vector를 주고 받는 풀이</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; slice(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v, <span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(v.begin() + a, v.begin() + b);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">guessPostTree</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; preorder, <span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 00. exit condition</span></div><div class="line">    <span class="keyword">if</span> (preorder.empty())   <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 01. find the root and the pos of the root</span></div><div class="line">    <span class="keyword">int</span> N = preorder.size();</div><div class="line">    <span class="keyword">int</span> root = preorder[<span class="number">0</span>];</div><div class="line">    <span class="keyword">int</span> leftLen = find(inorder.begin(), inorder.end(), root) - inorder.begin();</div><div class="line"></div><div class="line">    <span class="comment">// 02. print the left &amp; right trees, then the root</span></div><div class="line">    guessPostTree(slice(preorder, <span class="number">1</span>, leftLen + <span class="number">1</span>), slice(inorder, <span class="number">0</span>, leftLen));     <span class="comment">// left sub-tree</span></div><div class="line">    guessPostTree(slice(preorder, leftLen + <span class="number">1</span>, N), slice(inorder, leftLen + <span class="number">1</span>, N)); <span class="comment">// right sub-tree</span></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; root &lt;&lt; <span class="string">" "</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> T, N, i, j;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> tc = <span class="number">0</span>; tc &lt; T; tc++)&#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; N;</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; preTree[i];</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) <span class="built_in">cin</span> &gt;&gt; inTree[i];</div><div class="line"></div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1(preTree, preTree + N);</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v2(inTree, inTree + N);</div><div class="line"></div><div class="line">        guessPostTree(v1, v2);</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -588,7 +735,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/21/algospot-traversal/" data-id="ciy8abxib000eg863uh06fqq6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/21/algospot-traversal/" data-id="ciyg0de5n000qlz63iluc3hzf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -769,7 +916,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/21/intro-to-design-patterns/" data-id="ciy8abxix000ug8631g3sr073" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/21/intro-to-design-patterns/" data-id="ciyg0de67001alz63krusar9w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -905,7 +1052,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/19/How-to-use-C-STL-well/" data-id="ciy8abxjn001lg863cpp8lxz2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/19/How-to-use-C-STL-well/" data-id="ciyg0de58000ilz63axve6332" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1054,7 +1201,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/18/Things-interesting/" data-id="ciy8abxi9000cg8630ksws9rk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/18/Things-interesting/" data-id="ciyg0de5s000tlz63kxsqqxc9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1199,7 +1346,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/17/manual-for-Node-js/" data-id="ciy8abxjc001ag863c7v0h6we" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/17/manual-for-Node-js/" data-id="ciyg0de6e001jlz63w8e3bwcl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1335,7 +1482,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/17/Jupyter-usage/" data-id="ciy8abxio000lg863xj3hpsd5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/17/Jupyter-usage/" data-id="ciyg0de5i000mlz6336xyn3hc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1487,7 +1634,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/17/how-to-start-a-wiki/" data-id="ciy8abxit000rg863y9ssf4uc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/17/how-to-start-a-wiki/" data-id="ciyg0de6c001flz63v5kv4gsg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1565,190 +1712,6 @@
 
 
 
-    <article id="post-How-to-install-Jupyter-Notebook-in-Ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/17/How-to-install-Jupyter-Notebook-in-Ubuntu/">How_to_install_Jupyter_Notebook_in_Ubuntu</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/17/How-to-install-Jupyter-Notebook-in-Ubuntu/">
-            <time datetime="2017-01-17T14:16:12.000Z" itemprop="datePublished">2017-01-17</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Ubuntu/">Ubuntu</a>, <a class="tag-link" href="/tags/jupyter/">jupyter</a>, <a class="tag-link" href="/tags/notebook/">notebook</a>, <a class="tag-link" href="/tags/python/">python</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="Ubuntu에-jupyter-notebook-설치-및-웹프라우저로-원격접속-설정"><a href="#Ubuntu에-jupyter-notebook-설치-및-웹프라우저로-원격접속-설정" class="headerlink" title="Ubuntu에 jupyter notebook 설치 및 웹프라우저로 원격접속 설정"></a>Ubuntu에 jupyter notebook 설치 및 웹프라우저로 원격접속 설정</h1><ul>
-<li>설치환경 : linux (Ubuntu 14.04.1)</li>
-</ul>
-<h2 id="주의할-점"><a href="#주의할-점" class="headerlink" title="주의할 점"></a>주의할 점</h2><p>jupyter가 개인용으로 만들어서 져서, 여러 명이 쓰기에는 부적절하긴 하다. 같은 파일을 동시에 고치거나 하면 서버가 다운될 확률이 다분하니, 굳이 여러 명이 써야할 경우에는 되도록 각자 작업할 수 있도록 하자. 여러 명이 안정적으로 사용하는 환경을 구축하고 싶다면 <a href="https://jupyterhub.readthedocs.io/en/latest/" target="_blank" rel="external">jupyterHub</a>가 더 적절하니 이를 참고하자.</p>
-<h2 id="설치-순서"><a href="#설치-순서" class="headerlink" title="설치 순서"></a>설치 순서</h2><ol>
-<li><p><a href="https://www.continuum.io/downloads#linux" target="_blank" rel="external">https://www.continuum.io/downloads#linux</a> 에서 최선 Anaconda download</p>
-</li>
-<li><p>winSCP를 사용하여 설치파일 전송 (/tmp/Anaconda3-4.2.0-Linux-x86_64.sh)</p>
-</li>
-<li><p>putty로 접속하여 해당 파일 실행하여 설치 (bash /tmp/Anaconda3-4.2.0-Linux-x86_64.sh)</p>
-<ul>
-<li>yes 혹은 엔터로 쭉쭉 진행</li>
-</ul>
-</li>
-<li><p>설치 후 재부팅 (reboot)</p>
-</li>
-<li><p>jupyter notebook –generate-config 실행</p>
-</li>
-<li><p>mkdir /usr/jupyter 실행 (jupyter notebook의 root폴더 생성)</p>
-</li>
-<li><p>vim /root/.jupyter/jupyter_notebook_config.py 하여 해당 내용 맨 아랫줄에 추가</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">c = get_config()</div><div class="line">c.NotebookApp.ip = <span class="string">'10.240.35.100'</span> <span class="comment"># ip address of the serverc.NotebookApp.port = 8080</span></div><div class="line">c.FileContentsManager.root_dir = <span class="string">'/usr/jupyter/'</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>vim /etc/init.d/jupyter 실행, 아래 내용 적고 저장</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jupyter notebook</div></pre></td></tr></table></figure>
-</li>
-<li><p>chmod 755 /etc/init.d/jupyter</p>
-</li>
-<li><p>cd /etc/init.d</p>
-</li>
-<li><p>sudo update-rc.d /etc/init.d/jupyter defaults</p>
-</li>
-<li><p>다시 재부팅 (reboot)</p>
-</li>
-</ol>
-<h2 id="보안-키-설정하기"><a href="#보안-키-설정하기" class="headerlink" title="보안 키 설정하기"></a>보안 키 설정하기</h2><p>위의 설정대로만 하면 jupyter notebook 접속 시 보안키가 전혀 필요하지 않다. 반면에 비밀번호를 설정해서 보안을 조금 강화하고 싶다면 아래와 같이 설정을 추가하면 된다.</p>
-<ol>
-<li><p>hash key 만들기</p>
-<p> ipython을 실행하여 아래 명령을 수행하자.</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ipython</div></pre></td></tr></table></figure>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> notebook.auth <span class="keyword">import</span> passwd</div><div class="line">passwd()</div></pre></td></tr></table></figure>
-<p> 적당한 password를 두 번 치면 아래와 같이 hashed password를 얻을 수 있다.</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Enter password:</div><div class="line">Verify password:</div><div class="line">Out[2]: &apos;sha1:67c9e60bb8b6:9ffede0825894254b2e042ea597d771089e11aed&apos;</div></pre></td></tr></table></figure>
-</li>
-<li><p>SSL 사용 설정<br> SSL을 이용하면 브라우저에서 패스워드가 암호화되서 보내지기 때문에 보안이 훨씬 좋아진다. 이를 위해서 self-signed certificate를 생성 하자. OpenSSL을 이용해서 certificate을 생성할 수 있다. 유효기간은 365일이다.</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem</div></pre></td></tr></table></figure>
-</li>
-<li><p>jupyter_notebook_config.py 에 password 추가</p>
-<p> 추가할 내용은 아래와 같다. password에는 1.에서 얻은 hashed password를 그대로 넣으면 되며, certiflie에는 2.에서 생성한 .pem 파일을 지정하여 집어넣자. path는 임의대로 넣었으니 자신이 지정한 폴더명을 사용하여 진행하자.</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">c.NotebookApp.password = <span class="string">u'sha1:67c9e60bb8b6:9ffede0825894254b2e042ea597d771089e11aed'</span></div><div class="line">c.NotebookApp.certfile = <span class="string">u'/absolute/path/to/your/certificate/mycert.pem'</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>끝.</p>
-<h2 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h2><p><a href="https://www.continuum.io/downloads#linux" target="_blank" rel="external">https://www.continuum.io/downloads#linux</a></p>
-<p><a href="http://jupyter-notebook.readthedocs.io/en/latest/public_server.html" target="_blank" rel="external">http://jupyter-notebook.readthedocs.io/en/latest/public_server.html</a></p>
-<p><a href="http://goodtogreate.tistory.com/entry/IPython-Notebook-%EC%84%A4%EC%B9%98%EB%B0%A9%EB%B2%95" target="_blank" rel="external">http://goodtogreate.tistory.com/entry/IPython-Notebook-%EC%84%A4%EC%B9%98%EB%B0%A9%EB%B2%95</a></p>
-<p><a href="http://www.whatwant.com/497" target="_blank" rel="external">http://www.whatwant.com/497</a></p>
-<p><a href="https://dobest.io/gettings-started-with-jupyterhub/" target="_blank" rel="external">Jupyterhub를 이용하여 Jupyter Notebook 실습 환경 구축하기</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/01/17/How-to-install-Jupyter-Notebook-in-Ubuntu/" data-id="ciy8abxhv0006g863n6y1vn8s" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/01/17/How-to-install-Jupyter-Notebook-in-Ubuntu/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/17/How-to-install-Jupyter-Notebook-in-Ubuntu/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -1761,6 +1724,25 @@
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/01/28/SQL-all-kinds-of-join-queries/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/sql_type_of_join.png)" alt="SQL all kinds of join queries" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/database/">database</a></p>
+                            <p class="item-title"><a href="/2017/01/28/SQL-all-kinds-of-join-queries/" class="title">SQL all kinds of join queries</a></p>
+                            <p class="item-date"><time datetime="2017-01-27T16:01:45.000Z" itemprop="datePublished">2017-01-28</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1838,25 +1820,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/01/19/How-to-use-C-STL-well/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming-Language/">Programming_Language</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-Language/C/">C++</a></p>
-                            <p class="item-title"><a href="/2017/01/19/How-to-use-C-STL-well/" class="title">How to use C++ STL well?</a></p>
-                            <p class="item-date"><time datetime="2017-01-19T14:09:34.000Z" itemprop="datePublished">2017-01-19</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1866,7 +1829,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/About/">About</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image/">Image</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/">Programming_Language</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/C/">C++</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/python/">python</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/linux/">linux</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/">Tutorial</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/Objective-C/">Objective-C</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/Swift/">Swift</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/node-js/">node.js</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/About/">About</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image/">Image</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/">Programming_Language</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/C/">C++</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/python/">python</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/linux/">linux</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/">Tutorial</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/Objective-C/">Objective-C</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/Swift/">Swift</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/node-js/">node.js</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1875,7 +1838,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -1884,7 +1847,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/About/">About</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algospot/">Algospot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoa/">Cocoa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EC/">EC++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LLVM/">LLVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Multi-boot/">Multi-boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OS/">OS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift-Cocoa-AppCode/">Swift, Cocoa, AppCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tree/">Tree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang/">clang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/">compiler</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-patterns/">design patterns</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/education/">education</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etc/">etc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcc/">gcc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gdb/">gdb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image/">image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter/">jupyter</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/notebook/">notebook</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stl/">stl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wiki/">wiki</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/About/">About</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algospot/">Algospot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoa/">Cocoa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EC/">EC++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LLVM/">LLVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Multi-boot/">Multi-boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OS/">OS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift-Cocoa-AppCode/">Swift, Cocoa, AppCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tree/">Tree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang/">clang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/">compiler</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-patterns/">design patterns</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/education/">education</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etc/">etc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcc/">gcc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gdb/">gdb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image/">image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter/">jupyter</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/notebook/">notebook</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stl/">stl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wiki/">wiki</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1893,7 +1856,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/About/" style="font-size: 13.33px;">About</a> <a href="/tags/Algospot/" style="font-size: 10px;">Algospot</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Cocoa/" style="font-size: 10px;">Cocoa</a> <a href="/tags/EC/" style="font-size: 10px;">EC++</a> <a href="/tags/LLVM/" style="font-size: 10px;">LLVM</a> <a href="/tags/Mac/" style="font-size: 16.67px;">Mac</a> <a href="/tags/Multi-boot/" style="font-size: 10px;">Multi-boot</a> <a href="/tags/OS/" style="font-size: 10px;">OS</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Swift-Cocoa-AppCode/" style="font-size: 10px;">Swift, Cocoa, AppCode</a> <a href="/tags/Tree/" style="font-size: 10px;">Tree</a> <a href="/tags/Tutorial/" style="font-size: 10px;">Tutorial</a> <a href="/tags/Ubuntu/" style="font-size: 13.33px;">Ubuntu</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/algorithm/" style="font-size: 13.33px;">algorithm</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/clang/" style="font-size: 10px;">clang</a> <a href="/tags/compiler/" style="font-size: 10px;">compiler</a> <a href="/tags/design-patterns/" style="font-size: 10px;">design patterns</a> <a href="/tags/education/" style="font-size: 10px;">education</a> <a href="/tags/etc/" style="font-size: 10px;">etc</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/tags/gdb/" style="font-size: 10px;">gdb</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jupyter/" style="font-size: 13.33px;">jupyter</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/notebook/" style="font-size: 13.33px;">notebook</a> <a href="/tags/python/" style="font-size: 13.33px;">python</a> <a href="/tags/stl/" style="font-size: 10px;">stl</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/usage/" style="font-size: 13.33px;">usage</a> <a href="/tags/wiki/" style="font-size: 10px;">wiki</a>
+            <a href="/tags/About/" style="font-size: 13.33px;">About</a> <a href="/tags/Algospot/" style="font-size: 10px;">Algospot</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Cocoa/" style="font-size: 10px;">Cocoa</a> <a href="/tags/EC/" style="font-size: 10px;">EC++</a> <a href="/tags/LLVM/" style="font-size: 10px;">LLVM</a> <a href="/tags/Mac/" style="font-size: 16.67px;">Mac</a> <a href="/tags/Multi-boot/" style="font-size: 10px;">Multi-boot</a> <a href="/tags/OS/" style="font-size: 10px;">OS</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Swift-Cocoa-AppCode/" style="font-size: 10px;">Swift, Cocoa, AppCode</a> <a href="/tags/Tree/" style="font-size: 10px;">Tree</a> <a href="/tags/Tutorial/" style="font-size: 10px;">Tutorial</a> <a href="/tags/Ubuntu/" style="font-size: 13.33px;">Ubuntu</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/algorithm/" style="font-size: 13.33px;">algorithm</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/clang/" style="font-size: 10px;">clang</a> <a href="/tags/compiler/" style="font-size: 10px;">compiler</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/design-patterns/" style="font-size: 10px;">design patterns</a> <a href="/tags/education/" style="font-size: 10px;">education</a> <a href="/tags/etc/" style="font-size: 10px;">etc</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/tags/gdb/" style="font-size: 10px;">gdb</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jupyter/" style="font-size: 13.33px;">jupyter</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/notebook/" style="font-size: 13.33px;">notebook</a> <a href="/tags/python/" style="font-size: 13.33px;">python</a> <a href="/tags/stl/" style="font-size: 10px;">stl</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/usage/" style="font-size: 13.33px;">usage</a> <a href="/tags/wiki/" style="font-size: 10px;">wiki</a>
         </div>
     </div>
 

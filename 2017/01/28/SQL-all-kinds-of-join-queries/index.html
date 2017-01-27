@@ -3,14 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Tag: EC++ | huklee&#39;s blog</title>
+    <title>SQL all kinds of join queries | huklee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="huklee's blog">
-<meta property="og:url" content="https://huklee.github.io/tags/EC/index.html">
+    <meta name="description" content="All kinds of SQL QueriesType 1: INNER JOIN - only where both tables match1.) INNER JOIN aka JOIN
+123SELECT *FROM table1 as a (INNER) JOIN table2 as bON a.id = b.id;
+Type 2: OUTER JOINS where either on">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL all kinds of join queries">
+<meta property="og:url" content="https://huklee.github.io/2017/01/28/SQL-all-kinds-of-join-queries/index.html">
 <meta property="og:site_name" content="huklee's blog">
+<meta property="og:description" content="All kinds of SQL QueriesType 1: INNER JOIN - only where both tables match1.) INNER JOIN aka JOIN
+123SELECT *FROM table1 as a (INNER) JOIN table2 as bON a.id = b.id;
+Type 2: OUTER JOINS where either on">
+<meta property="og:image" content="https://huklee.github.io/images/sql_type_of_join.png">
+<meta property="og:updated_time" content="2017-01-27T16:13:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="huklee's blog">
+<meta name="twitter:title" content="SQL all kinds of join queries">
+<meta name="twitter:description" content="All kinds of SQL QueriesType 1: INNER JOIN - only where both tables match1.) INNER JOIN aka JOIN
+123SELECT *FROM table1 as a (INNER) JOIN table2 as bON a.id = b.id;
+Type 2: OUTER JOINS where either on">
+<meta name="twitter:image" content="https://huklee.github.io/images/sql_type_of_join.png">
     
 
     
@@ -199,50 +211,180 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#EC++</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-SQL-all-kinds-of-join-queries" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/images/sql_type_of_join.png" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/01/01/Effective-C-Chap-01/">Effective C++ Summary - Chap 01.</a>
+        <h1 class="article-title" itemprop="name">
+            SQL all kinds of join queries
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/Effective-C-Chap-01/">
-            <time datetime="2016-12-31T15:09:38.000Z" itemprop="datePublished">2017-01-01</time>
+        <a href="/2017/01/28/SQL-all-kinds-of-join-queries/">
+            <time datetime="2017-01-27T16:01:45.000Z" itemprop="datePublished">2017-01-28</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming-Language/">Programming_Language</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-Language/C/">C++</a>
+        <a class="article-category-link" href="/categories/database/">database</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/EC/">EC++</a>
+        <a class="tag-link" href="/tags/SQL/">SQL</a>, <a class="tag-link" href="/tags/database/">database</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="All-kinds-of-SQL-Queries"><a href="#All-kinds-of-SQL-Queries" class="headerlink" title="All kinds of SQL Queries"></a>All kinds of SQL Queries</h1><h2 id="Type-1-INNER-JOIN-only-where-both-tables-match"><a href="#Type-1-INNER-JOIN-only-where-both-tables-match" class="headerlink" title="Type 1: INNER JOIN - only where both tables match"></a>Type 1: INNER JOIN - only where both tables match</h2><p>1.) INNER JOIN aka JOIN</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> *</div><div class="line"><span class="keyword">FROM</span> table1 <span class="keyword">as</span> a (<span class="keyword">INNER</span>) <span class="keyword">JOIN</span> table2 <span class="keyword">as</span> b</div><div class="line"><span class="keyword">ON</span> a.id = b.id;</div></pre></td></tr></table></figure>
+<h2 id="Type-2-OUTER-JOINS-where-either-one-or-both-tables-match"><a href="#Type-2-OUTER-JOINS-where-either-one-or-both-tables-match" class="headerlink" title="Type 2: OUTER JOINS where either one or both tables match"></a>Type 2: OUTER JOINS where either one or both tables match</h2><p>1.) LEFT OUTER JOIN aka LEFT JOIN</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> *</div><div class="line"><span class="keyword">FROM</span> table1 <span class="keyword">as</span> a <span class="keyword">LEFT</span> (<span class="keyword">OUTER</span>) <span class="keyword">JOIN</span> table2 <span class="keyword">as</span> b</div><div class="line"><span class="keyword">ON</span> a.id = b.id;</div></pre></td></tr></table></figure>
+<p>2.) RIGHT OUTER JOIN aka RIGHT JOIN</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> *</div><div class="line"><span class="keyword">FROM</span> table1 <span class="keyword">as</span> a <span class="keyword">RIGHT</span> (<span class="keyword">OUTER</span>) <span class="keyword">JOIN</span> table2 <span class="keyword">as</span> b</div><div class="line"><span class="keyword">ON</span> a.id = b.id;</div></pre></td></tr></table></figure>
+<p>3.) FULL OUTER JOIN aka FULL JOIN<br> (supported depending on what database program)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> *</div><div class="line"><span class="keyword">FROM</span> table1 <span class="keyword">as</span> a <span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> table2 <span class="keyword">as</span> b</div><div class="line"><span class="keyword">ON</span> a.id = b.id;</div></pre></td></tr></table></figure>
+<h2 id="Type-3-CROSS-JOIN-Cartesian-product-all-possible-combos-of-each-table"><a href="#Type-3-CROSS-JOIN-Cartesian-product-all-possible-combos-of-each-table" class="headerlink" title="Type 3: CROSS JOIN - Cartesian product(all possible combos of each table)"></a>Type 3: CROSS JOIN - Cartesian product(all possible combos of each table)</h2><p> (supported depending on what database program)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> *</div><div class="line"><span class="keyword">FROM</span> table1 <span class="keyword">as</span> a <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> table2 <span class="keyword">as</span> b;</div></pre></td></tr></table></figure>
+<h1 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h1><p><a href="http://stackoverflow.com/questions/30358982/sql-server-replaces-left-join-for-left-outer-join-in-view-query" target="_blank" rel="external">stackoverflow on SQL</a></p>
+<p><a href="http://egloos.zum.com/sweeper/v/3002332" target="_blank" rel="external">Cross Join &amp; Self Join</a></p>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="https://huklee.github.io/2017/01/28/SQL-all-kinds-of-join-queries/" data-id="ciyg0de56000hlz63dbzpd7t1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/01/28/SQL-all-kinds-of-join-queries/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/28/SQL-all-kinds-of-join-queries/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/01/22/counting-millisec-time-in-bash-on-Mac/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">counting millisec time in bash on Mac</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -422,11 +564,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'https://huklee.github.io/2017/01/28/SQL-all-kinds-of-join-queries/';
+        
+        this.page.identifier = 'SQL-all-kinds-of-join-queries';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
