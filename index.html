@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                23
+                24
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -200,6 +200,144 @@
 
             
             <section id="main">
+    <article id="post-SQL-tutorials" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/01/28/SQL-tutorials/">SQL tutorials</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/28/SQL-tutorials/">
+            <time datetime="2017-01-27T16:14:18.000Z" itemprop="datePublished">2017-01-28</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <blockquote>
+<p>SQL : <code>Structured Query Language</code></p>
+</blockquote>
+<h1 id="SQL-tutorials"><a href="#SQL-tutorials" class="headerlink" title="SQL tutorials"></a>SQL tutorials</h1><p>DB를 다루는 데 기본적인 query를 배우기 위해서는 SQL을 알아야 한다. 어느 정도 사용법을 익숙해 지기 위해서는 다음 튜토리얼을 따라가면 금방 익힐 수 있다.</p>
+<blockquote>
+<p><a href="http://www.w3schools.com/sql/" target="_blank" rel="external">SQL Tutorials</a></p>
+</blockquote>
+<p>사이트에서는 간단한 SQL Testbed를 제공하는데, 훌륭한 예제 database가 들어가 있어서, 왠만한 기본 기능을 익히고 테스트 하는 데 괜찮다. crate table &amp; insert into를 사용하면 데이터를 넣는 것도 가능하지 때문에, 이것저것 스스로 예제를 만들어서 간단히 테스트하는 것도 가능하다.</p>
+<blockquote>
+<p><a href="http://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all" target="_blank" rel="external">SQL try testbed</a></p>
+</blockquote>
+<h2 id="Advanced"><a href="#Advanced" class="headerlink" title="Advanced"></a>Advanced</h2><p>다음은 개인적으로 사용법이 좀 헷갈리는 것들을 정리해 놓은 것</p>
+<h3 id="Group-By"><a href="#Group-By" class="headerlink" title="Group By"></a>Group By</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> orderid,</div><div class="line">  <span class="keyword">SUM</span>(total) <span class="keyword">as</span> total_price,</div><div class="line">  <span class="keyword">AVG</span>(total)/<span class="keyword">SUM</span>(quantity) <span class="keyword">as</span> average_price_of_items,</div><div class="line">  <span class="keyword">SUM</span>(quantity) <span class="keyword">as</span> Items</div><div class="line"><span class="keyword">FROM</span>(</div><div class="line">  <span class="keyword">SELECT</span> *, quantity*price <span class="keyword">as</span> total</div><div class="line">  <span class="keyword">FROM</span> [orderdetails] <span class="keyword">as</span> o</div><div class="line">      <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> [products] <span class="keyword">as</span> p</div><div class="line">  <span class="keyword">WHERE</span> o.productID = p.productID)</div><div class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> orderid;</div></pre></td></tr></table></figure>
+<p>=&gt; orderid 별로 total_price, average_price_of item, num_items를 구하는 SQL Query</p>
+<h2 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h2><p><a href="https://opentutorials.org/module/98/1589" target="_blank" rel="external">mysql installation on Mac</a></p>
+<p><a href="https://www.progress.com/tutorials/odbc/using-indexes" target="_blank" rel="external">Using database indexes</a></p>
+<p><a href="https://www.tutorialspoint.com/sql/sql-syntax.htm" target="_blank" rel="external">SQL cheet Sheet</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/01/28/SQL-tutorials/" data-id="ciyg0rc3w000h1p63x91xbg17" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/01/28/SQL-tutorials/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/28/SQL-tutorials/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-SQL-all-kinds-of-join-queries" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -275,7 +413,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/28/SQL-all-kinds-of-join-queries/" data-id="ciyg0de56000hlz63dbzpd7t1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/28/SQL-all-kinds-of-join-queries/" data-id="ciyg0rc3s000e1p633xz75k4d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -422,7 +560,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/22/counting-millisec-time-in-bash-on-Mac/" data-id="ciyg0de620014lz63at243u9p" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/22/counting-millisec-time-in-bash-on-Mac/" data-id="ciyg0rc4j000x1p635nqwos8k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -602,7 +740,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/21/markdown-cheat-sheet/" data-id="ciyg0de6f001klz638i4watsx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/21/markdown-cheat-sheet/" data-id="ciyg0rc58001n1p638c0kg5ek" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -735,7 +873,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/21/algospot-traversal/" data-id="ciyg0de5n000qlz63iluc3hzf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/21/algospot-traversal/" data-id="ciyg0rc4f000u1p63m7jvfd3u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -916,7 +1054,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/21/intro-to-design-patterns/" data-id="ciyg0de67001alz63krusar9w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/21/intro-to-design-patterns/" data-id="ciyg0rc4x001d1p6300n1nrhy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1052,7 +1190,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/19/How-to-use-C-STL-well/" data-id="ciyg0de58000ilz63axve6332" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/19/How-to-use-C-STL-well/" data-id="ciyg0rc3m000b1p63dk7mq9ex" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1201,7 +1339,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/18/Things-interesting/" data-id="ciyg0de5s000tlz63kxsqqxc9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/18/Things-interesting/" data-id="ciyg0rc47000o1p63qx2zy04s" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1346,7 +1484,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/17/manual-for-Node-js/" data-id="ciyg0de6e001jlz63w8e3bwcl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/17/manual-for-Node-js/" data-id="ciyg0rc5c001t1p637k2e2yyn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1482,7 +1620,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/17/Jupyter-usage/" data-id="ciyg0de5i000mlz6336xyn3hc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/17/Jupyter-usage/" data-id="ciyg0rc4r00171p630y85442d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1560,158 +1698,6 @@
 
 
 
-    <article id="post-how-to-start-a-wiki" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/17/how-to-start-a-wiki/">how to start a wiki</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/17/how-to-start-a-wiki/">
-            <time datetime="2017-01-17T14:18:28.000Z" itemprop="datePublished">2017-01-17</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/etc/">etc</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/wiki/">wiki</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="how-to-start-a-wiki"><a href="#how-to-start-a-wiki" class="headerlink" title="how to start a wiki"></a>how to start a wiki</h1><h2 id="Popular-Wikis"><a href="#Popular-Wikis" class="headerlink" title="Popular Wikis"></a>Popular Wikis</h2><ol>
-<li>MediaWiki<ul>
-<li>가장 유명한 위키 프로그램. 위키하우, 위키피디아 등 많은 사이트에 사용된다. 다른 위키 사이트들 중에서 쓰는 사이트도 많다.[3]</li>
-</ul>
-</li>
-<li>TikiWiki<ul>
-<li>두번째로 유명한 위키 프로그램. 많은 사이트에서 사용된다. 플러그인 지원이 좋아서 포럼, 이미지 갤러리, 달력 등의 기능을 쉽게 추가할 수 있다.</li>
-</ul>
-</li>
-<li>UserPress<ul>
-<li>워드프레스용 위키 플러그인. MediaWiki와 다른 위키의 기능을 다 갖추고 있으며, 쓰기도 쉽다.</li>
-</ul>
-</li>
-<li>DokuWiki<ul>
-<li>작지만 인기가 늘어가고 있는 위키 프로그램. 특히 회사들에서 많이 쓰인다. 팀이나 회사에서 협업을 위해 많이 쓰여며, 사용자 권한에 따라 접근할 수 있는 문서가 달라진다.</li>
-</ul>
-</li>
-</ol>
-<h1 id="links"><a href="#links" class="headerlink" title="links"></a>links</h1><p><a href="https://www.mediawiki.org/wiki/Manual:Installation_guide/ko" target="_blank" rel="external">how to start a Mediawiki</a></p>
-<p><a href="http://blog.naver.com/PostView.nhn?blogId=ljh04202&amp;logNo=60190066520" target="_blank" rel="external">Mediawiki를 개인위키로 서비스하기</a></p>
-<p><a href="http://ko.wikihow.com/%EC%9C%84%ED%82%A4-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-%EB%B2%95" target="_blank" rel="external">위키사이트 시작하기</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/01/17/how-to-start-a-wiki/" data-id="ciyg0de6c001flz63v5kv4gsg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/01/17/how-to-start-a-wiki/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/17/how-to-start-a-wiki/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -1724,6 +1710,25 @@
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/01/28/SQL-tutorials/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/01/28/SQL-tutorials/" class="title">SQL tutorials</a></p>
+                            <p class="item-date"><time datetime="2017-01-27T16:14:18.000Z" itemprop="datePublished">2017-01-28</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1801,25 +1806,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/01/21/intro-to-design-patterns/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/Design_Patterns_cover.jpg)" alt="intro to design patterns" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/programming/">programming</a></p>
-                            <p class="item-title"><a href="/2017/01/21/intro-to-design-patterns/" class="title">intro to design patterns</a></p>
-                            <p class="item-date"><time datetime="2017-01-20T17:29:58.000Z" itemprop="datePublished">2017-01-21</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1838,7 +1824,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
