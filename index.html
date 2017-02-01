@@ -490,6 +490,8 @@
  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> subprocess</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bashcmd</span> <span class="params">(cmd, isPrint=True)</span>:</span></div><div class="line">    result = subprocess.check_output(cmd, shell=<span class="keyword">True</span>)</div><div class="line">    <span class="keyword">print</span> result.decode(<span class="string">"utf-8"</span>)</div><div class="line"></div><div class="line">bashcmd (<span class="string">'ls -al'</span>)</div></pre></td></tr></table></figure>
 </li>
 <li><p>in case of python &lt; 2.7</p>
+</li>
+</ol>
 <pre><code class="python"><span class="keyword">import</span> subprocess
 <span class="keyword">if</span> <span class="string">"check_output"</span> <span class="keyword">not</span> <span class="keyword">in</span> dir( subprocess ): <span class="comment"># duck punch it in!</span>
     <span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(*popenargs, **kwargs)</span>:</span>
@@ -512,8 +514,6 @@
 
 bashcmd (<span class="string">'ls -al'</span>)
 </code></pre>
-</li>
-</ol>
 <h2 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h2><p><a href="http://faq.hostway.co.kr/?mid=Linux_ETC&amp;page=7&amp;document_srl=1426" target="_blank" rel="external">file upload &amp; download between Linux machines using scp</a></p>
 <p><a href="http://noplanlife.com/?p=949" target="_blank" rel="external">python 사용하여 bash shell 사용</a></p>
 <p><a href="http://stackoverflow.com/questions/4814970/subprocess-check-output-doesnt-seem-to-exist-python-2-6-5" target="_blank" rel="external">how to use subprocess.check_output() in python 2.6</a></p>
