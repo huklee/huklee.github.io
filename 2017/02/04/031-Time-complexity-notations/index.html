@@ -3,42 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>016. Master theorem | huklee&#39;s blog</title>
+    <title>031. Time complexity notations | huklee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Master theoremrecursive algorithm을 구현할 때, 점화식으로부터 시간 복잡도를 구할 때 사용되는 theorem이다.
-기본적으로 점화식이 다음과 같이 나올 경우에 대해서,
-다음 세 가지 usecase 로 나누어서 해당 algorithm의 time complexity를 측정하는 것이 가능하다.
+    <meta name="description" content="Time complexity notationsSometimes complexed about the exact meaning of the Big-O, theta, and omega notations. I found a great and beautiful summary table of them.
 
-
-
-Example유명하게 알려져 있는 r">
+For more details, check out the wik">
 <meta property="og:type" content="article">
-<meta property="og:title" content="016. Master theorem">
-<meta property="og:url" content="https://huklee.github.io/2017/02/04/016-Master-theorem/index.html">
+<meta property="og:title" content="031. Time complexity notations">
+<meta property="og:url" content="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/index.html">
 <meta property="og:site_name" content="huklee's blog">
-<meta property="og:description" content="Master theoremrecursive algorithm을 구현할 때, 점화식으로부터 시간 복잡도를 구할 때 사용되는 theorem이다.
-기본적으로 점화식이 다음과 같이 나올 경우에 대해서,
-다음 세 가지 usecase 로 나누어서 해당 algorithm의 time complexity를 측정하는 것이 가능하다.
+<meta property="og:description" content="Time complexity notationsSometimes complexed about the exact meaning of the Big-O, theta, and omega notations. I found a great and beautiful summary table of them.
 
-
-
-Example유명하게 알려져 있는 r">
-<meta property="og:image" content="https://huklee.github.io/images/master_theorem_general_form.png">
-<meta property="og:image" content="https://huklee.github.io/images/master_theorem_case1.png">
-<meta property="og:image" content="https://huklee.github.io/images/master_theorem_case2.png">
-<meta property="og:image" content="https://huklee.github.io/images/master_theorem_case3.png">
-<meta property="og:image" content="https://huklee.github.io/images/master_theorem_example.png">
-<meta property="og:updated_time" content="2017-02-04T07:56:47.000Z">
+For more details, check out the wik">
+<meta property="og:image" content="https://i.stack.imgur.com/SZ7jy.png">
+<meta property="og:updated_time" content="2017-02-04T08:08:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="016. Master theorem">
-<meta name="twitter:description" content="Master theoremrecursive algorithm을 구현할 때, 점화식으로부터 시간 복잡도를 구할 때 사용되는 theorem이다.
-기본적으로 점화식이 다음과 같이 나올 경우에 대해서,
-다음 세 가지 usecase 로 나누어서 해당 algorithm의 time complexity를 측정하는 것이 가능하다.
+<meta name="twitter:title" content="031. Time complexity notations">
+<meta name="twitter:description" content="Time complexity notationsSometimes complexed about the exact meaning of the Big-O, theta, and omega notations. I found a great and beautiful summary table of them.
 
-
-
-Example유명하게 알려져 있는 r">
-<meta name="twitter:image" content="https://huklee.github.io/images/master_theorem_general_form.png">
+For more details, check out the wik">
+<meta name="twitter:image" content="https://i.stack.imgur.com/SZ7jy.png">
     
 
     
@@ -227,7 +211,7 @@ Example유명하게 알려져 있는 r">
 </aside>
 
             
-            <section id="main"><article id="post-016-Master-theorem" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-031-Time-complexity-notations" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -235,7 +219,7 @@ Example유명하게 알려져 있는 r">
                 
     
         <h1 class="article-title" itemprop="name">
-            016. Master theorem
+            031. Time complexity notations
         </h1>
     
 
@@ -244,8 +228,8 @@ Example유명하게 알려져 있는 r">
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/02/04/016-Master-theorem/">
-            <time datetime="2017-02-04T07:34:57.000Z" itemprop="datePublished">2017-02-04</time>
+        <a href="/2017/02/04/031-Time-complexity-notations/">
+            <time datetime="2017-02-04T07:57:13.000Z" itemprop="datePublished">2017-02-04</time>
         </a>
     </div>
 
@@ -270,22 +254,10 @@ Example유명하게 알려져 있는 r">
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="Master-theorem"><a href="#Master-theorem" class="headerlink" title="Master theorem"></a>Master theorem</h1><p>recursive algorithm을 구현할 때, 점화식으로부터 시간 복잡도를 구할 때 사용되는 theorem이다.</p>
-<p>기본적으로 점화식이 다음과 같이 나올 경우에 대해서,<br><img src="/images/master_theorem_general_form.png" alt="General formula"></p>
-<p>다음 세 가지 usecase 로 나누어서 해당 algorithm의 time complexity를 측정하는 것이 가능하다.</p>
-<p><img src="/images/master_theorem_case1.png" alt="Case 1"></p>
-<p><img src="/images/master_theorem_case2.png" alt="Case 2"></p>
-<p><img src="/images/master_theorem_case3.png" alt="Case 3"></p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>유명하게 알려져 있는 recursive algorithm에 Master theorem을 대입하면 다음과 같다.</p>
-<p><img src="/images/master_theorem_example.png" alt="Case 3"></p>
-<h2 id="further-questions"><a href="#further-questions" class="headerlink" title="further questions"></a>further questions</h2><ul>
-<li>각각 다음과 같은 식으로 점화식이 분리가 되어서 나올 때는 어떻게 식을 적용해야 하는 지는 좀 헷갈린다.</li>
-</ul>
-<blockquote>
-<p>T(n) = T(0.4n) + T(0.6n) + O(n)</p>
-<p>T(n) = T(0.4n) + T(0.2n) + O(n^2)</p>
-</blockquote>
-<h2 id="Userful-links"><a href="#Userful-links" class="headerlink" title="Userful links"></a>Userful links</h2><p><a href="https://en.wikipedia.org/wiki/Master_theorem" target="_blank" rel="external">Master theorem, Wikipedia</a></p>
+            <h1 id="Time-complexity-notations"><a href="#Time-complexity-notations" class="headerlink" title="Time complexity notations"></a>Time complexity notations</h1><p>Sometimes complexed about the exact meaning of the Big-O, theta, and omega notations. I found a great and beautiful summary table of them.</p>
+<p><img src="https://i.stack.imgur.com/SZ7jy.png" alt=""></p>
+<p>For more details, check out the wikipedia pages below.</p>
+<h2 id="Useful"><a href="#Useful" class="headerlink" title="Useful"></a>Useful</h2><p><a href="https://en.wikipedia.org/wiki/Big_O_notation#Family_of_Bachmann.E2.80.93Landau_notations" target="_blank" rel="external">Algorithm Time complexity : Family of Bachman Landau notations </a></p>
 
         
         </div>
@@ -296,7 +268,7 @@ Example유명하게 알려져 있는 r">
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/04/016-Master-theorem/" data-id="ciyqykm820012qa6394pz8ngt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/" data-id="ciyqykm92002iqa63ux42nxke" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -364,7 +336,7 @@ Example유명하게 알려져 있는 r">
 
             
     
-        <a href="https://huklee.github.io/2017/02/04/016-Master-theorem/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/04/016-Master-theorem/">Comments</a>
+        <a href="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/">Comments</a>
     
 
         </footer>
@@ -373,19 +345,10 @@ Example유명하게 알려져 있는 r">
         
 <nav id="article-nav">
     
-        <a href="/2017/02/04/031-Time-complexity-notations/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    031. Time complexity notations
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/02/01/030.Summay_Hackerrank_Gayle_Mc/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/02/04/016-Master-theorem/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Tips on tech interviews by Gayle Mac</div>
+            <div class="article-nav-title">016. Master theorem</div>
         </a>
     
 </nav>
@@ -585,9 +548,9 @@ Example유명하게 알려져 있는 r">
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'https://huklee.github.io/2017/02/04/016-Master-theorem/';
+            this.page.url = 'https://huklee.github.io/2017/02/04/031-Time-complexity-notations/';
         
-        this.page.identifier = '016-Master-theorem';
+        this.page.identifier = '031-Time-complexity-notations';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
