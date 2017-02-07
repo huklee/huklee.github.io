@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                34
+                35
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -194,6 +194,176 @@
 
             
             <section id="main">
+    <article id="post-traverse-algorithms" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/02/07/traverse-algorithms/">traverse algorithms</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/02/07/traverse-algorithms/">
+            <time datetime="2017-02-07T07:47:02.000Z" itemprop="datePublished">2017-02-07</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Backtracking"><a href="#Backtracking" class="headerlink" title="Backtracking"></a>Backtracking</h2><ul>
+<li><p>특징</p>
+<ul>
+<li>주로 재귀호출 사용</li>
+<li>tree traverse, 특히 state tree traverse 문제의 해결방법  </li>
+<li>모든 가능성을 뒤져보는 행위 : 느릴 수 밖에 없음</li>
+<li>보통 지수함수 이상의 time complexity를 가진다</li>
+<li>가지치기 (Prunning)을 사용하면 효과의 향상을 가져올 수 있음 (DFS와의 차이)</li>
+</ul>
+</li>
+<li><p>rough implementation</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># recursive</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtracking</span> <span class="params">(candidate)</span>:</span></div><div class="line">  <span class="comment"># 01. Reject or accept</span></div><div class="line">  answer = []</div><div class="line">  <span class="keyword">if</span> isReject(candidate)  <span class="keyword">return</span> []</div><div class="line">  <span class="keyword">if</span> isAccept(candidate)  answer.append(candidate)</div><div class="line">  <span class="comment"># 02. Recursive call</span></div><div class="line">  subProblem = getFirstChild(candidate)</div><div class="line">  <span class="keyword">while</span> isValid(subProblem):</div><div class="line">    answer += backtracking(subProblem)</div><div class="line">    subProblem = getNextChild(candidate)</div><div class="line">  <span class="keyword">return</span> answer</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><ul>
+<li><p>특징</p>
+<ul>
+<li>recursive / iterative 둘 다 구현 가능</li>
+<li>iterative하게 구현할 경우 stack을 써서 candidate 관리</li>
+<li>Time complexity : O(V + E)</li>
+<li>Space complexity : O(V)</li>
+</ul>
+</li>
+<li><p>rough implementation ()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># recursive</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(graph, start, visited=None)</span>:</span></div><div class="line">  <span class="comment"># 01. check visit status</span></div><div class="line">  <span class="keyword">if</span> visited == <span class="keyword">None</span>:</div><div class="line">    visited = set()</div><div class="line">  visited.add(start)</div><div class="line"></div><div class="line">  <span class="comment"># 02. do something with the start vertex</span></div><div class="line">  doSomething(start)</div><div class="line"></div><div class="line">  <span class="comment"># 03. recursive call</span></div><div class="line">  candidates = [v <span class="keyword">for</span> v <span class="keyword">in</span> grpah.getAdj(start) <span class="keyword">if</span> isVisited(v)]</div><div class="line">  <span class="keyword">for</span> v <span class="keyword">in</span> candidates:</div><div class="line">    dfs(graph, v, visited)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><ul>
+<li><p>특징</p>
+<ul>
+<li>candiate을 queue로 구현함</li>
+<li>iterative하게 구현해야함 (recursive로는 어려움)</li>
+<li>Time complexity : O(V + E)</li>
+<li>Space complexity : O(V)</li>
+</ul>
+</li>
+<li><p>rough implementation</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># iterative</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span><span class="params">(graph, start)</span>:</span></div><div class="line">  <span class="comment"># 01. initialization</span></div><div class="line">  visited, queue = set(), [start]</div><div class="line"></div><div class="line">  <span class="keyword">while</span> queue != []:</div><div class="line">    <span class="comment"># 02. do something with the start vertex</span></div><div class="line">    doSomething(start)</div><div class="line"></div><div class="line">    <span class="comment"># 03. find the candidates</span></div><div class="line">    candSet = [v <span class="keyword">in</span> graph.getAdj(start)]</div><div class="line">    <span class="keyword">for</span> cand <span class="keyword">in</span> candSet:</div><div class="line">      <span class="keyword">if</span> isVisited(v) <span class="keyword">in</span> <span class="keyword">not</span> visited:</div><div class="line">        queue.append(v)</div><div class="line">    queue.pop(<span class="number">0</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Shortest-path-finding-in-graph"><a href="#Shortest-path-finding-in-graph" class="headerlink" title="Shortest path finding in graph"></a>Shortest path finding in graph</h2><ul>
+<li>dijkstra algorithm</li>
+<li>Bellman-ford algorithm</li>
+<li>A* search</li>
+</ul>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="https://en.wikipedia.org/wiki/Backtracking" target="_blank" rel="external">Backtracking in Wikipedia</a></p>
+<p><a href="http://eddmann.com/posts/depth-first-search-and-breadth-first-search-in-python/" target="_blank" rel="external">BFS &amp; DFS in python</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Depth-first_search" target="_blank" rel="external">Depth first search</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank" rel="external">Breadth first search</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/02/07/traverse-algorithms/" data-id="ciyvny02g002fbr632z10q22s" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/02/07/traverse-algorithms/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/07/traverse-algorithms/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-034.Installing-Tensorflow-using-virtualenv-on-Mac" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -306,7 +476,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/" data-id="ciyv06g680029yq63pncmmmgb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/" data-id="ciyvny02j002jbr63y3e15a5y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -439,7 +609,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/06/033.Ubuntu-TIps-Ubuntu-Desktop-certified-hardware/" data-id="ciyv06g6d002fyq63krhhzcwe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/06/033.Ubuntu-TIps-Ubuntu-Desktop-certified-hardware/" data-id="ciyvny02p002obr635ghk8tis" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -602,7 +772,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/06/032.install-Tensorflow-on-Mac-air/" data-id="ciyv06g640023yq637tu9pdpo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/06/032.install-Tensorflow-on-Mac-air/" data-id="ciyvny02b0027br63jd6chtrm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -737,7 +907,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/" data-id="ciyv06g6a002dyq63ethx4ety" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/" data-id="ciyvny02m002lbr63z08f8kup" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -884,7 +1054,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/04/016-Master-theorem/" data-id="ciyv06g50000yyq63bx8933o0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/04/016-Master-theorem/" data-id="ciyvny012000tbr63aweergv1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1094,7 +1264,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/01/030.Summay_Hackerrank_Gayle_Mc/" data-id="ciyv06g660027yq63stbr2pxo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/01/030.Summay_Hackerrank_Gayle_Mc/" data-id="ciyvny0270021br63oxueefeq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1298,7 +1468,7 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/01/029.Linux+Tips/" data-id="ciyv06g600021yq63jiwpb34q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/01/029.Linux+Tips/" data-id="ciyvny025001ybr632drylrtm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1458,7 +1628,7 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/31/028.Install-R-Rstudio-in-CLI/" data-id="ciyv06g5r001oyq63lf2fbpbq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/31/028.Install-R-Rstudio-in-CLI/" data-id="ciyvny02d0029br632u3qiroc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1643,7 +1813,7 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/30/027.Cracking the coding interview summary/" data-id="ciyv06g5y001yyq63i8mb6lv2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/30/027.Cracking the coding interview summary/" data-id="ciyvny02f002dbr63f1rgnvqr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1721,152 +1891,6 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 
 
-    <article id="post-026.my-vim-cheat-sheet" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/29/026.my-vim-cheat-sheet/">my vim cheat sheet</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/29/026.my-vim-cheat-sheet/">
-            <time datetime="2017-01-29T11:05:32.000Z" itemprop="datePublished">2017-01-29</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Tips/">Tips</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/vim/">vim</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="Huklee’s-Vim-cheet-sheet"><a href="#Huklee’s-Vim-cheet-sheet" class="headerlink" title="Huklee’s Vim cheet sheet"></a>Huklee’s Vim cheet sheet</h1><h2 id="1-Using-bash-shell-commands"><a href="#1-Using-bash-shell-commands" class="headerlink" title="1. Using bash shell commands"></a>1. Using bash shell commands</h2>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:! [bash_cmd]</div></pre></td></tr></table></figure>
-<ul>
-<li>run a shell<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:sh</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="2-Auto-indent"><a href="#2-Auto-indent" class="headerlink" title="2. Auto-indent"></a>2. Auto-indent</h2><ul>
-<li><p>all lines</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gg=G</div></pre></td></tr></table></figure>
-</li>
-<li><p>for selected lines</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[selected <span class="keyword">mode</span>]</div><div class="line">=</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h2><h2 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h2><p><a href="https://www.linux.com/learn/vim-tips-working-external-commands" target="_blank" rel="external">Vim tips working external commands</a></p>
-<p><a href="https://www.fprintf.net/vimCheatSheet.html" target="_blank" rel="external">vim cheat sheet</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/01/29/026.my-vim-cheat-sheet/" data-id="ciyv06g5t001ryq63b3jazcwa" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/01/29/026.my-vim-cheat-sheet/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/29/026.my-vim-cheat-sheet/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -1879,6 +1903,25 @@ bashcmd (<span class="string">'ls -al'</span>)
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/02/07/traverse-algorithms/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/02/07/traverse-algorithms/" class="title">traverse algorithms</a></p>
+                            <p class="item-date"><time datetime="2017-02-07T07:47:02.000Z" itemprop="datePublished">2017-02-07</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1956,25 +1999,6 @@ bashcmd (<span class="string">'ls -al'</span>)
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/02/04/016-Master-theorem/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
-                            <p class="item-title"><a href="/2017/02/04/016-Master-theorem/" class="title">Master theorem</a></p>
-                            <p class="item-date"><time datetime="2017-02-04T07:34:57.000Z" itemprop="datePublished">2017-02-04</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1993,7 +2017,7 @@ bashcmd (<span class="string">'ls -al'</span>)
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 

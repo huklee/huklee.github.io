@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                34
+                35
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -194,6 +194,151 @@
 
             
             <section id="main">
+    <article id="post-024.manual-for-Node-js" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/01/17/024.manual-for-Node-js/">manual for Node.js</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/17/024.manual-for-Node-js/">
+            <time datetime="2017-01-17T14:20:40.000Z" itemprop="datePublished">2017-01-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Tutorial/">Tutorial</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tutorial/node-js/">node.js</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/node-js/">node.js</a>, <a class="tag-link" href="/tags/usage/">usage</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h1><h2 id="Design-Goal"><a href="#Design-Goal" class="headerlink" title="Design Goal"></a>Design Goal</h2><ul>
+<li>Function은 직접 플랫폼 I/O에 접속하지 않습니다.</li>
+<li>Disk, network, 프로세스를 통해 데이터를 받기 위해서는 대부분 콜백(callback)을 사용합니다.</li>
+<li>TCP, DNS, HTTP같은 프로토콜을 지원합니다.</li>
+<li>HTTP feature를 지원합니다.(Chunk된 requst/response, Keep-alive, Comet을 위한 리퀘스트 홀딩)</li>
+</ul>
+<h2 id="Internal-Design-features"><a href="#Internal-Design-features" class="headerlink" title="Internal Design features"></a>Internal Design features</h2><ul>
+<li>Google의 V8 사용</li>
+<li>Marc Lehmann이 만든 이벤트루프 라이브러리 libev 사용</li>
+</ul>
+<h1 id="links"><a href="#links" class="headerlink" title="links"></a>links</h1><p><a href="http://devsw.tistory.com/136" target="_blank" rel="external">node.js 언어 디자인 측면에서의 분석</a></p>
+<p><a href="http://bcho.tistory.com/881" target="_blank" rel="external">node.js 소개 및 내부구조에 관한 이론</a></p>
+<p><a href="https://www.scribd.com/document/23801896/Node-js-JSConf-2009" target="_blank" rel="external">node.js at jsconf 2009</a></p>
+<p><a href="http://devsw.tistory.com/128" target="_blank" rel="external">node.js 튜토리얼</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/01/17/024.manual-for-Node-js/" data-id="ciyvny021001vbr63lfeduhs6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/01/17/024.manual-for-Node-js/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/17/024.manual-for-Node-js/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-014.Jupyter-usage" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -252,7 +397,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/17/014.Jupyter-usage/" data-id="ciyv06g520011yq63ro0330gw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/17/014.Jupyter-usage/" data-id="ciyvny01a0011br633wu0g3ku" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -404,7 +549,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/17/013.how-to-start-a-wiki/" data-id="ciyv06g4t000syq63tohr32no" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/17/013.how-to-start-a-wiki/" data-id="ciyvny014000ubr634m7e0xw4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -588,7 +733,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/17/012.How-to-install-Jupyter-Notebook-in-Ubuntu/" data-id="ciyv06g4e000hyq63azwmrj0h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/17/012.How-to-install-Jupyter-Notebook-in-Ubuntu/" data-id="ciyvny00u000mbr63636yl55m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -754,7 +899,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/14/011.how-to-gdb-on-mac/" data-id="ciyv06g4h000iyq6324lovgo7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/14/011.how-to-gdb-on-mac/" data-id="ciyvny00z000qbr63lm2787lw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -943,7 +1088,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/" data-id="ciyv06g4l000nyq63m9j24222" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/" data-id="ciyvny00r000lbr63vau59unv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1078,7 +1223,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/03/009.leetcode-two-sum/" data-id="ciyv06g4j000lyq63fm95wkd1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/03/009.leetcode-two-sum/" data-id="ciyvny00x000pbr63rwx5j9vx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1212,7 +1357,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/01/008.Objective-C-Tutorials/" data-id="ciyv06g49000eyq63uomvjg15" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/01/008.Objective-C-Tutorials/" data-id="ciyvny00n000ibr63i3jt935y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1375,7 +1520,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/01/007.About-me-ko/" data-id="ciyv06g430008yq63rznkwrv9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/01/007.About-me-ko/" data-id="ciyvny00g000dbr631ny5hh3j" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1537,7 +1682,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/01/006.About-me/" data-id="ciyv06g450009yq63exsvzuxb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/01/006.About-me/" data-id="ciyvny00l000hbr634z2eo6yp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1615,158 +1760,6 @@
 
 
 
-    <article id="post-005.How-to-multi-boot-Ubuntu-Windows" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            
-	
-		<a href="/2017/01/01/005.How-to-multi-boot-Ubuntu-Windows/" itemprop="url">
-            <img src="images/dualboot-ubuntu-windows.png" class="article-banner" />
-        </a>
-	
-
-
-
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/005.How-to-multi-boot-Ubuntu-Windows/">How to multi-boot Ubuntu &amp; Windows</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/005.How-to-multi-boot-Ubuntu-Windows/">
-            <time datetime="2017-01-01T05:48:00.000Z" itemprop="datePublished">2017-01-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Tips/">Tips</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tips/linux/">linux</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Multi-boot/">Multi-boot</a>, <a class="tag-link" href="/tags/OS/">OS</a>, <a class="tag-link" href="/tags/Ubuntu/">Ubuntu</a>, <a class="tag-link" href="/tags/Windows/">Windows</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="Ubuntu-Windows를-멀티부팅하는-방법"><a href="#Ubuntu-Windows를-멀티부팅하는-방법" class="headerlink" title="Ubuntu / Windows를 멀티부팅하는 방법"></a>Ubuntu / Windows를 멀티부팅하는 방법</h1><p>우분투와 윈도우를 멀티부팅하는 법은 일단 파티션을 나누어 둔 두 공간 HDD 혹은 SSD를 준비하여 각각에 설치하면 된다.</p>
-<h2 id="순서는-Windows-gt-Ubuntu-순으로-설치를-하자"><a href="#순서는-Windows-gt-Ubuntu-순으로-설치를-하자" class="headerlink" title="순서는 Windows -&gt; Ubuntu 순으로 설치를 하자"></a>순서는 Windows -&gt; Ubuntu 순으로 설치를 하자</h2><p>Ubuntu 같은 경우는 나중에 깔아도 Windows를 고려한 부트로더가 동작하기 때문에 유라하다. 반면에 반대로 하면 Windows는 다른 운영체제를 고려하지 않은 방식으로 부트로더가 돌아가기 때문에 곤란한 상황이 발생할 수 있다.</p>
-<ul>
-<li>실제로 예전에 반대로 설치를 했다가 윈도우로 부팅이 안 되어서 운영체제를 싹 다 새로 갈아 엎은 경험이 있다. ㅠ.ㅠ</li>
-</ul>
-<h2 id="설치-Note"><a href="#설치-Note" class="headerlink" title="설치 Note"></a>설치 Note</h2><ul>
-<li>SSD : Windows 10 Pro</li>
-<li>HDD : Ubuntu 15.04 LTS</li>
-</ul>
-<h2 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h2><p><a href="http://palpit.tistory.com/766" target="_blank" rel="external">윈도우 10에서 우분투 멀티부팅 설치하기</a></p>
-<p><a href="http://www.itworld.co.kr/news/94871" target="_blank" rel="external">윈도우와 우분투 멀티부팅 팁 - 이것만은 알아두자</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/01/01/005.How-to-multi-boot-Ubuntu-Windows/" data-id="ciyv06g48000dyq631x94u6y0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/01/01/005.How-to-multi-boot-Ubuntu-Windows/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/01/005.How-to-multi-boot-Ubuntu-Windows/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
@@ -1779,6 +1772,25 @@
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/02/07/traverse-algorithms/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/02/07/traverse-algorithms/" class="title">traverse algorithms</a></p>
+                            <p class="item-date"><time datetime="2017-02-07T07:47:02.000Z" itemprop="datePublished">2017-02-07</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1856,25 +1868,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/02/04/016-Master-theorem/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
-                            <p class="item-title"><a href="/2017/02/04/016-Master-theorem/" class="title">Master theorem</a></p>
-                            <p class="item-date"><time datetime="2017-02-04T07:34:57.000Z" itemprop="datePublished">2017-02-04</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1893,7 +1886,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 

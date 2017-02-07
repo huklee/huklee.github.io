@@ -3,14 +3,48 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Tag: About | huklee&#39;s blog</title>
+    <title>traverse algorithms | huklee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="huklee's blog">
-<meta property="og:url" content="https://huklee.github.io/tags/About/index.html">
+    <meta name="description" content="Backtracking
+특징
+
+주로 재귀호출 사용
+tree traverse, 특히 state tree traverse 문제의 해결방법  
+모든 가능성을 뒤져보는 행위 : 느릴 수 밖에 없음
+보통 지수함수 이상의 time complexity를 가진다
+가지치기 (Prunning)을 사용하면 효과의 향상을 가져올 수 있음 (DFS와의 차이)
+
+
+rough imp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="traverse algorithms">
+<meta property="og:url" content="https://huklee.github.io/2017/02/07/traverse-algorithms/index.html">
 <meta property="og:site_name" content="huklee's blog">
+<meta property="og:description" content="Backtracking
+특징
+
+주로 재귀호출 사용
+tree traverse, 특히 state tree traverse 문제의 해결방법  
+모든 가능성을 뒤져보는 행위 : 느릴 수 밖에 없음
+보통 지수함수 이상의 time complexity를 가진다
+가지치기 (Prunning)을 사용하면 효과의 향상을 가져올 수 있음 (DFS와의 차이)
+
+
+rough imp">
+<meta property="og:updated_time" content="2017-02-07T15:14:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="huklee's blog">
+<meta name="twitter:title" content="traverse algorithms">
+<meta name="twitter:description" content="Backtracking
+특징
+
+주로 재귀호출 사용
+tree traverse, 특히 state tree traverse 문제의 해결방법  
+모든 가능성을 뒤져보는 행위 : 느릴 수 밖에 없음
+보통 지수함수 이상의 time complexity를 가진다
+가지치기 (Prunning)을 사용하면 효과의 향상을 가져올 수 있음 (DFS와의 차이)
+
+
+rough imp">
     
 
     
@@ -193,86 +227,199 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#About</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-traverse-algorithms" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/01/01/007.About-me-ko/">About me (한글)</a>
+        <h1 class="article-title" itemprop="name">
+            traverse algorithms
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/007.About-me-ko/">
-            <time datetime="2017-01-01T07:08:45.000Z" itemprop="datePublished">2017-01-01</time>
+        <a href="/2017/02/07/traverse-algorithms/">
+            <time datetime="2017-02-07T07:47:02.000Z" itemprop="datePublished">2017-02-07</time>
         </a>
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/About/">About</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/About/">About</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+                        
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/01/01/006.About-me/">About me (English)</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Backtracking"><a href="#Backtracking" class="headerlink" title="Backtracking"></a>Backtracking</h2><ul>
+<li><p>특징</p>
+<ul>
+<li>주로 재귀호출 사용</li>
+<li>tree traverse, 특히 state tree traverse 문제의 해결방법  </li>
+<li>모든 가능성을 뒤져보는 행위 : 느릴 수 밖에 없음</li>
+<li>보통 지수함수 이상의 time complexity를 가진다</li>
+<li>가지치기 (Prunning)을 사용하면 효과의 향상을 가져올 수 있음 (DFS와의 차이)</li>
+</ul>
+</li>
+<li><p>rough implementation</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># recursive</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtracking</span> <span class="params">(candidate)</span>:</span></div><div class="line">  <span class="comment"># 01. Reject or accept</span></div><div class="line">  answer = []</div><div class="line">  <span class="keyword">if</span> isReject(candidate)  <span class="keyword">return</span> []</div><div class="line">  <span class="keyword">if</span> isAccept(candidate)  answer.append(candidate)</div><div class="line">  <span class="comment"># 02. Recursive call</span></div><div class="line">  subProblem = getFirstChild(candidate)</div><div class="line">  <span class="keyword">while</span> isValid(subProblem):</div><div class="line">    answer += backtracking(subProblem)</div><div class="line">    subProblem = getNextChild(candidate)</div><div class="line">  <span class="keyword">return</span> answer</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><ul>
+<li><p>특징</p>
+<ul>
+<li>recursive / iterative 둘 다 구현 가능</li>
+<li>iterative하게 구현할 경우 stack을 써서 candidate 관리</li>
+<li>Time complexity : O(V + E)</li>
+<li>Space complexity : O(V)</li>
+</ul>
+</li>
+<li><p>rough implementation ()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># recursive</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(graph, start, visited=None)</span>:</span></div><div class="line">  <span class="comment"># 01. check visit status</span></div><div class="line">  <span class="keyword">if</span> visited == <span class="keyword">None</span>:</div><div class="line">    visited = set()</div><div class="line">  visited.add(start)</div><div class="line"></div><div class="line">  <span class="comment"># 02. do something with the start vertex</span></div><div class="line">  doSomething(start)</div><div class="line"></div><div class="line">  <span class="comment"># 03. recursive call</span></div><div class="line">  candidates = [v <span class="keyword">for</span> v <span class="keyword">in</span> grpah.getAdj(start) <span class="keyword">if</span> isVisited(v)]</div><div class="line">  <span class="keyword">for</span> v <span class="keyword">in</span> candidates:</div><div class="line">    dfs(graph, v, visited)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><ul>
+<li><p>특징</p>
+<ul>
+<li>candiate을 queue로 구현함</li>
+<li>iterative하게 구현해야함 (recursive로는 어려움)</li>
+<li>Time complexity : O(V + E)</li>
+<li>Space complexity : O(V)</li>
+</ul>
+</li>
+<li><p>rough implementation</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># iterative</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span><span class="params">(graph, start)</span>:</span></div><div class="line">  <span class="comment"># 01. initialization</span></div><div class="line">  visited, queue = set(), [start]</div><div class="line"></div><div class="line">  <span class="keyword">while</span> queue != []:</div><div class="line">    <span class="comment"># 02. do something with the start vertex</span></div><div class="line">    doSomething(start)</div><div class="line"></div><div class="line">    <span class="comment"># 03. find the candidates</span></div><div class="line">    candSet = [v <span class="keyword">in</span> graph.getAdj(start)]</div><div class="line">    <span class="keyword">for</span> cand <span class="keyword">in</span> candSet:</div><div class="line">      <span class="keyword">if</span> isVisited(v) <span class="keyword">in</span> <span class="keyword">not</span> visited:</div><div class="line">        queue.append(v)</div><div class="line">    queue.pop(<span class="number">0</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Shortest-path-finding-in-graph"><a href="#Shortest-path-finding-in-graph" class="headerlink" title="Shortest path finding in graph"></a>Shortest path finding in graph</h2><ul>
+<li>dijkstra algorithm</li>
+<li>Bellman-ford algorithm</li>
+<li>A* search</li>
+</ul>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="https://en.wikipedia.org/wiki/Backtracking" target="_blank" rel="external">Backtracking in Wikipedia</a></p>
+<p><a href="http://eddmann.com/posts/depth-first-search-and-breadth-first-search-in-python/" target="_blank" rel="external">BFS &amp; DFS in python</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Depth-first_search" target="_blank" rel="external">Depth first search</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank" rel="external">Breadth first search</a></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/006.About-me/">
-            <time datetime="2017-01-01T06:56:35.000Z" itemprop="datePublished">2017-01-01</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/About/">About</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/About/">About</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="https://huklee.github.io/2017/02/07/traverse-algorithms/" data-id="ciyvny02g002fbr632z10q22s" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/02/07/traverse-algorithms/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/07/traverse-algorithms/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Installing Tensorflow using virtualenv on Mac</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -452,11 +599,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'https://huklee.github.io/2017/02/07/traverse-algorithms/';
+        
+        this.page.identifier = 'traverse-algorithms';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
