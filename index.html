@@ -239,8 +239,15 @@
             
             <h1 id="Installing-tensorflow-using-virtualenv-on-Mac"><a href="#Installing-tensorflow-using-virtualenv-on-Mac" class="headerlink" title="Installing tensorflow using virtualenv on Mac"></a>Installing tensorflow using virtualenv on Mac</h1><p>이전 포스트에서 Anaconda를 사용하여 설치를 했더니, jupyter에서 제대로 tensorflow와 conda env를 인식하지 못 하는 문제가 발생했다. 이래저래 많이 헤매었는데, 정답은 virtualenv와 pip를 사용하는 것이 가장 깔끔했다.</p>
 <p>이번 포스트에서는 virtualenv + pip (python3)를 활용한 설치로 진행한다. 아나콘다는 싹 밀어버리고 진행한다.</p>
-<ol>
-<li><p>파이썬 3를 설치하자. pip3를 사용해서 설치를 하려면 기본적으로 깔아야 할 듯 하다.</p>
+<h2 id="설치환경-및-설치대상"><a href="#설치환경-및-설치대상" class="headerlink" title="설치환경 및 설치대상"></a>설치환경 및 설치대상</h2><ul>
+<li>Mac air i5 1.5Ghz, 8G ram</li>
+<li>python 3.6.0</li>
+<li>pip 9.0.1</li>
+<li>tensorflow 0.9.0</li>
+<li>etc (numpy, scipy, scikit-learn … )</li>
+</ul>
+<h2 id="Install-steps"><a href="#Install-steps" class="headerlink" title="Install steps"></a>Install steps</h2><ol>
+<li><p>파이썬 3를 설치하자. pip3를 사용해서 설치를 하려면 기본적으로 깔아야 한다.</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install python3</div></pre></td></tr></table></figure>
 </li>
 <li><p>virtualenv 설치하자</p>
