@@ -3,20 +3,14 @@
 <head>
     <meta charset="utf-8">
     
-    <title>gcc, g++, clang and LLVM | huklee&#39;s blog</title>
+    <title>Archive: 2017 | huklee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="How does g++ work with c++11 codes?Let’s say that we run a simple program which consists of  following C++ codes.12345678910111213// test_noc++11.cpp#include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;usi">
-<meta property="og:type" content="article">
-<meta property="og:title" content="gcc, g++, clang and LLVM">
-<meta property="og:url" content="https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="huklee's blog">
+<meta property="og:url" content="https://huklee.github.io/archives/2017/page/4/index.html">
 <meta property="og:site_name" content="huklee's blog">
-<meta property="og:description" content="How does g++ work with c++11 codes?Let’s say that we run a simple program which consists of  following C++ codes.12345678910111213// test_noc++11.cpp#include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;usi">
-<meta property="og:image" content="https://cdn.arstechnica.net/20090828/compilers.png">
-<meta property="og:updated_time" content="2017-01-18T00:02:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gcc, g++, clang and LLVM">
-<meta name="twitter:description" content="How does g++ work with c++11 codes?Let’s say that we run a simple program which consists of  following C++ codes.12345678910111213// test_noc++11.cpp#include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;usi">
-<meta name="twitter:image" content="https://cdn.arstechnica.net/20090828/compilers.png">
+<meta name="twitter:title" content="huklee's blog">
     
 
     
@@ -199,225 +193,54 @@
 </aside>
 
             
-            <section id="main"><article id="post-010.gcc-g-clang-and-LLVM" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main"><div class="timeline timeline-wrap">
+    
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="fa fa-calendar"></i></span>
+                <h1 class="title">2017</h1>
+            </div>
         
-            
-	
-		<img src="https://cdn.arstechnica.net/20090828/compilers.png" class="article-banner" />
-	
-
-
-
-        
-        
-            <header class="article-header">
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            gcc, g++, clang and LLVM
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2017/01/01/004.Effective-C-Chap-01/">Effective C++ Summary - Chap 01.</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/06/010.gcc-g-clang-and-LLVM/">
-            <time datetime="2017-01-06T14:32:43.000Z" itemprop="datePublished">2017-01-06</time>
+        <a href="/2017/01/01/004.Effective-C-Chap-01/">
+            <time datetime="2016-12-31T15:09:38.000Z" itemprop="datePublished">2017-01-01</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/Programming-Language/">Programming_Language</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-Language/C/">C++</a>
     </div>
 
-                        
+                    
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/LLVM/">LLVM</a>, <a class="tag-link" href="/tags/clang/">clang</a>, <a class="tag-link" href="/tags/compiler/">compiler</a>, <a class="tag-link" href="/tags/g/">g++</a>, <a class="tag-link" href="/tags/gcc/">gcc</a>
+        <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/EC/">EC++</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="How-does-g-work-with-c-11-codes"><a href="#How-does-g-work-with-c-11-codes" class="headerlink" title="How does g++ work with c++11 codes?"></a>How does g++ work with c++11 codes?</h1><p>Let’s say that we run a simple program which consists of  following C++ codes.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// test_noc++11.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vi(arr, arr + <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]));</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it=vi.begin(); it != vi.end(); it++)&#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;   </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>when you build this cpp file, it works well with g++.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ g++ test_noc++11.cpp</div><div class="line">$ ./a.out</div><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td></tr></table></figure>
-<p>My question starts from here. What about c++11 codes? Does it work with my complier without any problem? So let me go for it.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// test_c++11.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vi(arr, arr + <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]));</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">int</span>&amp; data : vi)&#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; data &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;   </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>This code is using the “Range-based for loop” enhancement in C++11. When I tried to compile this, we can see the warning like following.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ g++ test.cpp</div><div class="line">test.cpp:9:23: warning: range-based <span class="keyword">for</span> loop is a C++11 extension [-Wc++11-extensions]</div><div class="line">        <span class="keyword">for</span> (const int&amp; data : vi)&#123;</div><div class="line">                             ^</div><div class="line">1 warning generated.</div><div class="line">$ ./a.out</div><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td></tr></table></figure>
-<p>It works anyway, what about the version of gcc then?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ g++ --version</div><div class="line">Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1</div><div class="line">Apple LLVM version 8.0.0 (clang-800.0.38)</div><div class="line">Target: x86_64-apple-darwin15.6.0</div><div class="line">Thread model: posix</div><div class="line">InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>version</th>
-<th>Release Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GCC 4.2.2</td>
-<td>October 7, 2007</td>
-</tr>
-<tr>
-<td>GCC 4.2.1</td>
-<td>July 18, 2007</td>
-</tr>
-<tr>
-<td>GCC 4.2.0</td>
-<td>May 13, 2007</td>
-</tr>
-</tbody>
-</table>
-<p>the version of gcc is indeed 4.2.1, which doesn’t support C++11 since it’s developed in 2007.</p>
-<h1 id="What-are-clang-and-LLVM"><a href="#What-are-clang-and-LLVM" class="headerlink" title="What are clang and LLVM?"></a>What are clang and LLVM?</h1><p>So what makes my code work? What are clang and LLVM? Let’s go a little deeper.</p>
-<blockquote>
-<p>Clang /ˈklæŋ/[4] is a compiler front end for the programming languages C, C++, Objective-C, Objective-C++, OpenMP,[5] OpenCL, and CUDA. It uses LLVM as its back end and has been part of the LLVM release cycle since LLVM 2.6.</p>
-<p>from Wikipedia</p>
-<p>The LLVM compiler infrastructure project (formerly Low Level Virtual Machine) is a “collection of modular and reusable compiler and toolchain technologies” used to develop compiler front ends and back ends.<br>LLVM is written in C++ and is designed for compile-time, link-time, run-time, and “idle-time” optimization of programs written in arbitrary programming languages. Originally implemented for C and C++, the language-agnostic design of LLVM has since spawned a wide variety of front ends: languages with compilers that use LLVM include ActionScript, Ada, C#, Common Lisp, Crystal, D, Delphi, Fortran, OpenGL Shading Language, Halide, Haskell, Java bytecode, Julia, Lua, Objective-C, Pony, Python, R, Ruby, Rust, CUDA, Scala, and Swift.</p>
-<p>from Wikipedia</p>
-</blockquote>
-<p>All right. I just figured out when I run the g++, llvm-gcc is indeed running, which is the gcc frontend, and then the llvm backend. On the other side, clang++ is running clang, which is the clang frontend and then the llvm backend. Following</p>
-<p><img src="https://cdn.arstechnica.net/20090828/compilers.png" alt="" title="g++, clang, and LLVM"></p>
-<p>So, my g++ is actually using clang-LLVM 8.0, which supports c++11, even c++14.</p>
-<p>DONE.</p>
-<h2 id="Further-questions"><a href="#Further-questions" class="headerlink" title="Further questions"></a>Further questions</h2><ul>
-<li>what are front-end compiler and back-end complier? I should’ve taken the complier coursework during my B.S :(</li>
-<li>who made the clang &amp; LLVM? are they open-source projects?</li>
-</ul>
-<h1 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h1><p><a href="https://en.wikipedia.org/wiki/C%2B%2B11" target="_blank" rel="external">C++11 Wikipedia</a><br><a href="https://www.youtube.com/watch?v=RfoCIuyrfWs" target="_blank" rel="external">C++11 Tutorial Video</a><br><a href="http://www.slideshare.net/agebreak/1116-c11" target="_blank" rel="external">Added featured in C++11 Slide</a><br><a href="https://gcc.gnu.org/releases.html" target="_blank" rel="external">gcc release note</a><br><a href="http://clang.llvm.org/" target="_blank" rel="external">clang project homepage</a><br><a href="https://en.wikipedia.org/wiki/Clang" target="_blank" rel="external">clang Wikipedia</a><br>[LLVM Wikipedia] (<a href="https://en.wikipedia.org/wiki/LLVM" target="_blank" rel="external">https://en.wikipedia.org/wiki/LLVM</a>)<br><a href="http://stackoverflow.com/questions/14656856/getting-c11-compliant-compiler" target="_blank" rel="external">g++, clang++ on mac</a></p>
-
-        
+                </div>
+            </div>
         </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
+    
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/" data-id="ciyv06g4l000nyq63m9j24222" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2017/01/14/011.how-to-gdb-on-mac/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    how to gdb on mac
-                
-            </div>
-        </a>
-    
-    
-        <a href="/2017/01/03/009.leetcode-two-sum/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">leetcode_two-sum</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-    
-    </section>
-
+    <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/2017/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/2017/">1</a><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
 </section>
             
                 <aside id="sidebar">
@@ -597,13 +420,11 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/';
-        
-        this.page.identifier = '010.gcc-g-clang-and-LLVM';
+        this.page.identifier = 'undefined';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/count.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();

@@ -3,20 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>gcc, g++, clang and LLVM | huklee&#39;s blog</title>
+    <title>Installing Tensorflow using virtualenv on Mac | huklee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="How does g++ work with c++11 codes?Let’s say that we run a simple program which consists of  following C++ codes.12345678910111213// test_noc++11.cpp#include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;usi">
+    <meta name="description" content="Installing tensorflow using virtualenv on Mac이전 포스트에서 Anaconda를 사용하여 설치를 했더니, jupyter에서 제대로 tensorflow와 conda env를 인식하지 못 하는 문제가 발생했다. 이래저래 많이 헤매었는데, 정답은 virtualenv와 pip를 사용하는 것이 가장 깔끔했다.
+이번 포스트에서는 vi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gcc, g++, clang and LLVM">
-<meta property="og:url" content="https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/index.html">
+<meta property="og:title" content="Installing Tensorflow using virtualenv on Mac">
+<meta property="og:url" content="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/index.html">
 <meta property="og:site_name" content="huklee's blog">
-<meta property="og:description" content="How does g++ work with c++11 codes?Let’s say that we run a simple program which consists of  following C++ codes.12345678910111213// test_noc++11.cpp#include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;usi">
-<meta property="og:image" content="https://cdn.arstechnica.net/20090828/compilers.png">
-<meta property="og:updated_time" content="2017-01-18T00:02:01.000Z">
+<meta property="og:description" content="Installing tensorflow using virtualenv on Mac이전 포스트에서 Anaconda를 사용하여 설치를 했더니, jupyter에서 제대로 tensorflow와 conda env를 인식하지 못 하는 문제가 발생했다. 이래저래 많이 헤매었는데, 정답은 virtualenv와 pip를 사용하는 것이 가장 깔끔했다.
+이번 포스트에서는 vi">
+<meta property="og:updated_time" content="2017-02-07T04:04:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gcc, g++, clang and LLVM">
-<meta name="twitter:description" content="How does g++ work with c++11 codes?Let’s say that we run a simple program which consists of  following C++ codes.12345678910111213// test_noc++11.cpp#include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;usi">
-<meta name="twitter:image" content="https://cdn.arstechnica.net/20090828/compilers.png">
+<meta name="twitter:title" content="Installing Tensorflow using virtualenv on Mac">
+<meta name="twitter:description" content="Installing tensorflow using virtualenv on Mac이전 포스트에서 Anaconda를 사용하여 설치를 했더니, jupyter에서 제대로 tensorflow와 conda env를 인식하지 못 하는 문제가 발생했다. 이래저래 많이 헤매었는데, 정답은 virtualenv와 pip를 사용하는 것이 가장 깔끔했다.
+이번 포스트에서는 vi">
     
 
     
@@ -199,23 +200,15 @@
 </aside>
 
             
-            <section id="main"><article id="post-010.gcc-g-clang-and-LLVM" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-034.Installing-Tensorflow-using-virtualenv-on-Mac" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
-            
-	
-		<img src="https://cdn.arstechnica.net/20090828/compilers.png" class="article-banner" />
-	
-
-
-
         
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-            gcc, g++, clang and LLVM
+            Installing Tensorflow using virtualenv on Mac
         </h1>
     
 
@@ -224,8 +217,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/06/010.gcc-g-clang-and-LLVM/">
-            <time datetime="2017-01-06T14:32:43.000Z" itemprop="datePublished">2017-01-06</time>
+        <a href="/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/">
+            <time datetime="2017-02-07T04:00:18.000Z" itemprop="datePublished">2017-02-07</time>
         </a>
     </div>
 
@@ -233,13 +226,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming-Language/">Programming_Language</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-Language/C/">C++</a>
+        <a class="article-category-link" href="/categories/Data-Science/">Data Science</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/LLVM/">LLVM</a>, <a class="tag-link" href="/tags/clang/">clang</a>, <a class="tag-link" href="/tags/compiler/">compiler</a>, <a class="tag-link" href="/tags/g/">g++</a>, <a class="tag-link" href="/tags/gcc/">gcc</a>
+        <a class="tag-link" href="/tags/Data/">Data</a>, <a class="tag-link" href="/tags/Deep-learning/">Deep learning</a>, <a class="tag-link" href="/tags/Mac/">Mac</a>, <a class="tag-link" href="/tags/python/">python</a>
     </div>
 
                     </div>
@@ -250,54 +243,44 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="How-does-g-work-with-c-11-codes"><a href="#How-does-g-work-with-c-11-codes" class="headerlink" title="How does g++ work with c++11 codes?"></a>How does g++ work with c++11 codes?</h1><p>Let’s say that we run a simple program which consists of  following C++ codes.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// test_noc++11.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vi(arr, arr + <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]));</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it=vi.begin(); it != vi.end(); it++)&#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;   </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>when you build this cpp file, it works well with g++.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ g++ test_noc++11.cpp</div><div class="line">$ ./a.out</div><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td></tr></table></figure>
-<p>My question starts from here. What about c++11 codes? Does it work with my complier without any problem? So let me go for it.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// test_c++11.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vi(arr, arr + <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]));</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">int</span>&amp; data : vi)&#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; data &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;   </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>This code is using the “Range-based for loop” enhancement in C++11. When I tried to compile this, we can see the warning like following.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ g++ test.cpp</div><div class="line">test.cpp:9:23: warning: range-based <span class="keyword">for</span> loop is a C++11 extension [-Wc++11-extensions]</div><div class="line">        <span class="keyword">for</span> (const int&amp; data : vi)&#123;</div><div class="line">                             ^</div><div class="line">1 warning generated.</div><div class="line">$ ./a.out</div><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td></tr></table></figure>
-<p>It works anyway, what about the version of gcc then?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ g++ --version</div><div class="line">Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1</div><div class="line">Apple LLVM version 8.0.0 (clang-800.0.38)</div><div class="line">Target: x86_64-apple-darwin15.6.0</div><div class="line">Thread model: posix</div><div class="line">InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>version</th>
-<th>Release Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GCC 4.2.2</td>
-<td>October 7, 2007</td>
-</tr>
-<tr>
-<td>GCC 4.2.1</td>
-<td>July 18, 2007</td>
-</tr>
-<tr>
-<td>GCC 4.2.0</td>
-<td>May 13, 2007</td>
-</tr>
-</tbody>
-</table>
-<p>the version of gcc is indeed 4.2.1, which doesn’t support C++11 since it’s developed in 2007.</p>
-<h1 id="What-are-clang-and-LLVM"><a href="#What-are-clang-and-LLVM" class="headerlink" title="What are clang and LLVM?"></a>What are clang and LLVM?</h1><p>So what makes my code work? What are clang and LLVM? Let’s go a little deeper.</p>
-<blockquote>
-<p>Clang /ˈklæŋ/[4] is a compiler front end for the programming languages C, C++, Objective-C, Objective-C++, OpenMP,[5] OpenCL, and CUDA. It uses LLVM as its back end and has been part of the LLVM release cycle since LLVM 2.6.</p>
-<p>from Wikipedia</p>
-<p>The LLVM compiler infrastructure project (formerly Low Level Virtual Machine) is a “collection of modular and reusable compiler and toolchain technologies” used to develop compiler front ends and back ends.<br>LLVM is written in C++ and is designed for compile-time, link-time, run-time, and “idle-time” optimization of programs written in arbitrary programming languages. Originally implemented for C and C++, the language-agnostic design of LLVM has since spawned a wide variety of front ends: languages with compilers that use LLVM include ActionScript, Ada, C#, Common Lisp, Crystal, D, Delphi, Fortran, OpenGL Shading Language, Halide, Haskell, Java bytecode, Julia, Lua, Objective-C, Pony, Python, R, Ruby, Rust, CUDA, Scala, and Swift.</p>
-<p>from Wikipedia</p>
-</blockquote>
-<p>All right. I just figured out when I run the g++, llvm-gcc is indeed running, which is the gcc frontend, and then the llvm backend. On the other side, clang++ is running clang, which is the clang frontend and then the llvm backend. Following</p>
-<p><img src="https://cdn.arstechnica.net/20090828/compilers.png" alt="" title="g++, clang, and LLVM"></p>
-<p>So, my g++ is actually using clang-LLVM 8.0, which supports c++11, even c++14.</p>
-<p>DONE.</p>
-<h2 id="Further-questions"><a href="#Further-questions" class="headerlink" title="Further questions"></a>Further questions</h2><ul>
-<li>what are front-end compiler and back-end complier? I should’ve taken the complier coursework during my B.S :(</li>
-<li>who made the clang &amp; LLVM? are they open-source projects?</li>
-</ul>
-<h1 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h1><p><a href="https://en.wikipedia.org/wiki/C%2B%2B11" target="_blank" rel="external">C++11 Wikipedia</a><br><a href="https://www.youtube.com/watch?v=RfoCIuyrfWs" target="_blank" rel="external">C++11 Tutorial Video</a><br><a href="http://www.slideshare.net/agebreak/1116-c11" target="_blank" rel="external">Added featured in C++11 Slide</a><br><a href="https://gcc.gnu.org/releases.html" target="_blank" rel="external">gcc release note</a><br><a href="http://clang.llvm.org/" target="_blank" rel="external">clang project homepage</a><br><a href="https://en.wikipedia.org/wiki/Clang" target="_blank" rel="external">clang Wikipedia</a><br>[LLVM Wikipedia] (<a href="https://en.wikipedia.org/wiki/LLVM" target="_blank" rel="external">https://en.wikipedia.org/wiki/LLVM</a>)<br><a href="http://stackoverflow.com/questions/14656856/getting-c11-compliant-compiler" target="_blank" rel="external">g++, clang++ on mac</a></p>
+            <h1 id="Installing-tensorflow-using-virtualenv-on-Mac"><a href="#Installing-tensorflow-using-virtualenv-on-Mac" class="headerlink" title="Installing tensorflow using virtualenv on Mac"></a>Installing tensorflow using virtualenv on Mac</h1><p>이전 포스트에서 Anaconda를 사용하여 설치를 했더니, jupyter에서 제대로 tensorflow와 conda env를 인식하지 못 하는 문제가 발생했다. 이래저래 많이 헤매었는데, 정답은 virtualenv와 pip를 사용하는 것이 가장 깔끔했다.</p>
+<p>이번 포스트에서는 virtualenv + pip (python3)를 활용한 설치로 진행한다. 아나콘다는 싹 밀어버리고 진행한다.</p>
+<ol>
+<li><p>파이썬 3를 설치하자. pip3를 사용해서 설치를 하려면 기본적으로 깔아야 할 듯 하다.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install python3</div></pre></td></tr></table></figure>
+</li>
+<li><p>virtualenv 설치하자</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip3 install --upgrade virtualnev</div></pre></td></tr></table></figure>
+</li>
+<li><p>지정된 폴더에 virtualenv 설정을 새로 만들고 적용하자. activate를 해주면 다음과 같이 shell prompt 에 (tensorflow)가 붙는 것을 확인할 수 있다.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ virtualenv --system-site-packages ~/Work/tensorflow</div><div class="line">$ <span class="built_in">source</span> ~/Work/tensorflow/bin/activate</div><div class="line">(tensorflow) $</div></pre></td></tr></table></figure>
+</li>
+<li><p>tensorflow를 설치하자. pip 로 설치하며, os에 맞는 url을 설정해주고 설치를 진행하면 된다.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ <span class="built_in">export</span> TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/tensorflow-0.9.0-py3-none-any.whl</div><div class="line">(tensorflow)$ pip3 install --upgrade <span class="variable">$TF_BINARY_URL</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>tensorflow가 잘 실행되는 지 테스트해보자. 앞에서 했던 대로 테스트해보면 된다.</p>
+</li>
+<li><p>추가로 필요한 패키지들을 pip로 설치해야 한다. scipy, numpy, jupyter 등을 설치해야 한다. 한번에 pip 한 방으로 설치하면 편하다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(tensorflow) $ python3 -m pip install --upgrade pip</div><div class="line">(tensorflow) $ pip3 install --user numpy scipy matplotlib ipython jupyter pandas sympy nose</div></pre></td></tr></table></figure>
+<p>추가로 path를 추가해야 한다. 다음과 같이 export로 실행파일들이 있는 user의 실행파일 폴더를 추가하자. tensorflow virtualenv를 실행하면 자동으로 추가하기 위해서는 해당 activate script 중간에 추가하자.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/Users/huklee/.local/bin"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>scikit-learn 설치<br>추가로 scikit-learn을 아래와 같이 설치하자. 마찬가지로 virtualenv로 들어와 있는 상태에서 진행해야 제대로 tensorflow 환경이 반영될 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow) $ pip3 install -U scikit-learn</div></pre></td></tr></table></figure>
+</li>
+<li><p>jupyter notebook 실행<br>jupyter notebook을 실행하자. 마찬가지로 tensorflow virtualenv를 실행시킨 상태에서 실행이 되어야 한다. 그리고 나서는 브라우저(chrome)으로 <a href="http://localhost:8888/" target="_blank" rel="external">http://localhost:8888/</a> 에 접속하면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow) $ jupyter notebook</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="DONE"><a href="#DONE" class="headerlink" title="DONE"></a>DONE</h3><p>여기까지 하면 jupyter에서 tensorflow 및 scikit-learn, numpy, scipy, pandas 몽땅 잘 작동하는 것을 확인할 수 있다.</p>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="http://isystems.unist.ac.kr/teaching/hse545/" target="_blank" rel="external">이승철 교수님 강의 machine learning 관련 python코드</a></p>
+<p><a href="http://isystems.unist.ac.kr/teaching/hse545/" target="_blank" rel="external">http://isystems.unist.ac.kr/teaching/hse545/</a></p>
+<p><a href="https://conda.io/docs/using/pkgs.html" target="_blank" rel="external">Anaconda: conda package manage</a></p>
+<p><a href="http://stackoverflow.com/questions/446052/how-can-i-check-for-python-version-in-a-program-that-uses-new-language-features" target="_blank" rel="external">How to check python’s version in running python</a></p>
+<p><a href="https://docs.continuum.io/anaconda/install#os-x-uninstall" target="_blank" rel="external">how to uninstall Anaconda on Mac</a></p>
+<p><a href="http://stuartmumford.uk/blog/jupyter-notebook-and-conda.html" target="_blank" rel="external">Jupyter notebook and conda</a></p>
+<p><a href="http://scikit-learn.org/stable/install.html" target="_blank" rel="external">Scikit-learn install</a></p>
+<p><a href="https://gist.github.com/haje01/202ac276bace4b25dd3f" target="_blank" rel="external">tensorflow 튜토리얼</a></p>
 
         
         </div>
@@ -308,7 +291,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/" data-id="ciyv06g4l000nyq63m9j24222" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/" data-id="ciyv06g680029yq63pncmmmgb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -376,7 +359,7 @@
 
             
     
-        <a href="https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/">Comments</a>
+        <a href="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/">Comments</a>
     
 
         </footer>
@@ -385,19 +368,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/01/14/011.how-to-gdb-on-mac/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    how to gdb on mac
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/01/03/009.leetcode-two-sum/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/02/06/033.Ubuntu-TIps-Ubuntu-Desktop-certified-hardware/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">leetcode_two-sum</div>
+            <div class="article-nav-title">Ubuntu TIps : Ubuntu Desktop certified hardware</div>
         </a>
     
 </nav>
@@ -597,9 +571,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'https://huklee.github.io/2017/01/06/010.gcc-g-clang-and-LLVM/';
+            this.page.url = 'https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/';
         
-        this.page.identifier = '010.gcc-g-clang-and-LLVM';
+        this.page.identifier = '034.Installing-Tensorflow-using-virtualenv-on-Mac';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

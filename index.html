@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                33
+                34
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -194,6 +194,175 @@
 
             
             <section id="main">
+    <article id="post-034.Installing-Tensorflow-using-virtualenv-on-Mac" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/">Installing Tensorflow using virtualenv on Mac</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/">
+            <time datetime="2017-02-07T04:00:18.000Z" itemprop="datePublished">2017-02-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Data-Science/">Data Science</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Data/">Data</a>, <a class="tag-link" href="/tags/Deep-learning/">Deep learning</a>, <a class="tag-link" href="/tags/Mac/">Mac</a>, <a class="tag-link" href="/tags/python/">python</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Installing-tensorflow-using-virtualenv-on-Mac"><a href="#Installing-tensorflow-using-virtualenv-on-Mac" class="headerlink" title="Installing tensorflow using virtualenv on Mac"></a>Installing tensorflow using virtualenv on Mac</h1><p>이전 포스트에서 Anaconda를 사용하여 설치를 했더니, jupyter에서 제대로 tensorflow와 conda env를 인식하지 못 하는 문제가 발생했다. 이래저래 많이 헤매었는데, 정답은 virtualenv와 pip를 사용하는 것이 가장 깔끔했다.</p>
+<p>이번 포스트에서는 virtualenv + pip (python3)를 활용한 설치로 진행한다. 아나콘다는 싹 밀어버리고 진행한다.</p>
+<ol>
+<li><p>파이썬 3를 설치하자. pip3를 사용해서 설치를 하려면 기본적으로 깔아야 할 듯 하다.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install python3</div></pre></td></tr></table></figure>
+</li>
+<li><p>virtualenv 설치하자</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip3 install --upgrade virtualnev</div></pre></td></tr></table></figure>
+</li>
+<li><p>지정된 폴더에 virtualenv 설정을 새로 만들고 적용하자. activate를 해주면 다음과 같이 shell prompt 에 (tensorflow)가 붙는 것을 확인할 수 있다.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ virtualenv --system-site-packages ~/Work/tensorflow</div><div class="line">$ <span class="built_in">source</span> ~/Work/tensorflow/bin/activate</div><div class="line">(tensorflow) $</div></pre></td></tr></table></figure>
+</li>
+<li><p>tensorflow를 설치하자. pip 로 설치하며, os에 맞는 url을 설정해주고 설치를 진행하면 된다.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ <span class="built_in">export</span> TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/tensorflow-0.9.0-py3-none-any.whl</div><div class="line">(tensorflow)$ pip3 install --upgrade <span class="variable">$TF_BINARY_URL</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>tensorflow가 잘 실행되는 지 테스트해보자. 앞에서 했던 대로 테스트해보면 된다.</p>
+</li>
+<li><p>추가로 필요한 패키지들을 pip로 설치해야 한다. scipy, numpy, jupyter 등을 설치해야 한다. 한번에 pip 한 방으로 설치하면 편하다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(tensorflow) $ python3 -m pip install --upgrade pip</div><div class="line">(tensorflow) $ pip3 install --user numpy scipy matplotlib ipython jupyter pandas sympy nose</div></pre></td></tr></table></figure>
+<p>추가로 path를 추가해야 한다. 다음과 같이 export로 실행파일들이 있는 user의 실행파일 폴더를 추가하자. tensorflow virtualenv를 실행하면 자동으로 추가하기 위해서는 해당 activate script 중간에 추가하자.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/Users/huklee/.local/bin"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>scikit-learn 설치<br>추가로 scikit-learn을 아래와 같이 설치하자. 마찬가지로 virtualenv로 들어와 있는 상태에서 진행해야 제대로 tensorflow 환경이 반영될 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow) $ pip3 install -U scikit-learn</div></pre></td></tr></table></figure>
+</li>
+<li><p>jupyter notebook 실행<br>jupyter notebook을 실행하자. 마찬가지로 tensorflow virtualenv를 실행시킨 상태에서 실행이 되어야 한다. 그리고 나서는 브라우저(chrome)으로 <a href="http://localhost:8888/" target="_blank" rel="external">http://localhost:8888/</a> 에 접속하면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tensorflow) $ jupyter notebook</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="DONE"><a href="#DONE" class="headerlink" title="DONE"></a>DONE</h3><p>여기까지 하면 jupyter에서 tensorflow 및 scikit-learn, numpy, scipy, pandas 몽땅 잘 작동하는 것을 확인할 수 있다.</p>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="http://isystems.unist.ac.kr/teaching/hse545/" target="_blank" rel="external">이승철 교수님 강의 machine learning 관련 python코드</a></p>
+<p><a href="http://isystems.unist.ac.kr/teaching/hse545/" target="_blank" rel="external">http://isystems.unist.ac.kr/teaching/hse545/</a></p>
+<p><a href="https://conda.io/docs/using/pkgs.html" target="_blank" rel="external">Anaconda: conda package manage</a></p>
+<p><a href="http://stackoverflow.com/questions/446052/how-can-i-check-for-python-version-in-a-program-that-uses-new-language-features" target="_blank" rel="external">How to check python’s version in running python</a></p>
+<p><a href="https://docs.continuum.io/anaconda/install#os-x-uninstall" target="_blank" rel="external">how to uninstall Anaconda on Mac</a></p>
+<p><a href="http://stuartmumford.uk/blog/jupyter-notebook-and-conda.html" target="_blank" rel="external">Jupyter notebook and conda</a></p>
+<p><a href="http://scikit-learn.org/stable/install.html" target="_blank" rel="external">Scikit-learn install</a></p>
+<p><a href="https://gist.github.com/haje01/202ac276bace4b25dd3f" target="_blank" rel="external">tensorflow 튜토리얼</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/" data-id="ciyv06g680029yq63pncmmmgb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-033.Ubuntu-TIps-Ubuntu-Desktop-certified-hardware" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -249,7 +418,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/06/033.Ubuntu-TIps-Ubuntu-Desktop-certified-hardware/" data-id="ciytso6560024px636ag2rk8y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/06/033.Ubuntu-TIps-Ubuntu-Desktop-certified-hardware/" data-id="ciyv06g6d002fyq63krhhzcwe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -412,7 +581,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/06/032.install-Tensorflow-on-Mac-air/" data-id="ciytso6520021px63eonmyepy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/06/032.install-Tensorflow-on-Mac-air/" data-id="ciyv06g640023yq637tu9pdpo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -547,7 +716,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/" data-id="ciytso64w001xpx636rtxtuzs" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/" data-id="ciyv06g6a002dyq63ethx4ety" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -694,7 +863,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/04/016-Master-theorem/" data-id="ciytso622000spx63vx8n12m5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/04/016-Master-theorem/" data-id="ciyv06g50000yyq63bx8933o0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -904,7 +1073,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/01/030.Summay_Hackerrank_Gayle_Mc/" data-id="ciytso64o001vpx63ur8xpuzn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/01/030.Summay_Hackerrank_Gayle_Mc/" data-id="ciyv06g660027yq63stbr2pxo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1108,7 +1277,7 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/01/029.Linux+Tips/" data-id="ciytso64l001rpx63nznckpez" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/01/029.Linux+Tips/" data-id="ciyv06g600021yq63jiwpb34q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1268,7 +1437,7 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/31/028.Install-R-Rstudio-in-CLI/" data-id="ciytso64i001opx631rc1ui7v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/31/028.Install-R-Rstudio-in-CLI/" data-id="ciyv06g5r001oyq63lf2fbpbq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1453,7 +1622,7 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/30/027.Cracking the coding interview summary/" data-id="ciytso64f001lpx63uknj67f9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/30/027.Cracking the coding interview summary/" data-id="ciyv06g5y001yyq63i8mb6lv2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1599,7 +1768,7 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/29/026.my-vim-cheat-sheet/" data-id="ciytso646001gpx63y5j64umi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/29/026.my-vim-cheat-sheet/" data-id="ciyv06g5t001ryq63b3jazcwa" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1677,148 +1846,6 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 
 
-    <article id="post-023.Binary-search-problem" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/28/023.Binary-search-problem/">Binary search problem</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/28/023.Binary-search-problem/">
-            <time datetime="2017-01-27T16:25:57.000Z" itemprop="datePublished">2017-01-28</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="1-Bianry-Search-for-closest-number-problem"><a href="#1-Bianry-Search-for-closest-number-problem" class="headerlink" title="1. Bianry Search for closest number problem"></a>1. Bianry Search for closest number problem</h1><ul>
-<li>Input : ordred list of integers, a given number</li>
-<li><p>Ouptut : find the the closest number to the given number</p>
-</li>
-<li><p>solution in python</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># recursion solution</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(arr, num, start=<span class="number">0</span>)</span>:</span></div><div class="line">	<span class="comment"># 01. base case : size() &lt;= 3</span></div><div class="line">	<span class="keyword">if</span> len(arr) &lt;= <span class="number">3</span>:</div><div class="line">		minVal = min([abs(x - num) <span class="keyword">for</span> x <span class="keyword">in</span> arr])</div><div class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)):</div><div class="line">			<span class="keyword">if</span> minVal == abs(arr[i] - num):</div><div class="line">				<span class="keyword">return</span> start + i</div><div class="line"></div><div class="line">	<span class="comment"># 02. check the mid value then exclude the wrong side</span></div><div class="line">	mid = int(len(arr)/<span class="number">2</span>)</div><div class="line">	<span class="keyword">if</span> arr[mid] &lt; num:</div><div class="line">		<span class="keyword">return</span> solve(arr[mid + <span class="number">1</span>:], num, start + mid + <span class="number">1</span>)</div><div class="line">	<span class="keyword">else</span>:</div><div class="line">		<span class="keyword">return</span> solve(arr[:mid + <span class="number">1</span>], num, start)</div></pre></td></tr></table></figure>
-</li>
-<li><p>solution in C++</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// recursive solution</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr, <span class="keyword">int</span> num, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</div><div class="line">	<span class="comment">// 01. base case : size() &lt;= 3</span></div><div class="line">	<span class="keyword">if</span> (end - start &lt;= <span class="number">2</span>)&#123;</div><div class="line">		<span class="keyword">int</span> min_val = <span class="built_in">abs</span>(num - arr[start]);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=start; i &lt;= end; i++)</div><div class="line">			min_val = min(<span class="built_in">abs</span>(num - arr[i]), min_val);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=start; i &lt;= end; i++)</div><div class="line">			<span class="keyword">if</span> min_val == <span class="built_in">abs</span>(num - arr[i])		</div><div class="line">				<span class="keyword">return</span> i;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 02. check the mid value then exclude the wrong side</span></div><div class="line">	<span class="keyword">int</span> mid = (end - start)/<span class="number">2</span>;</div><div class="line">	<span class="keyword">if</span> (arr[mid] &lt; num)</div><div class="line">		<span class="keyword">return</span> solve(arr, num, mid + <span class="number">1</span>, end);</div><div class="line">	<span class="keyword">else</span></div><div class="line">		<span class="keyword">return</span> solve(arr, num, start, mid);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/01/28/023.Binary-search-problem/" data-id="ciytso63f0016px6345h0i2ao" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/01/28/023.Binary-search-problem/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/28/023.Binary-search-problem/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -1831,6 +1858,25 @@ bashcmd (<span class="string">'ls -al'</span>)
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Data-Science/">Data Science</a></p>
+                            <p class="item-title"><a href="/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/" class="title">Installing Tensorflow using virtualenv on Mac</a></p>
+                            <p class="item-date"><time datetime="2017-02-07T04:00:18.000Z" itemprop="datePublished">2017-02-07</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1908,25 +1954,6 @@ bashcmd (<span class="string">'ls -al'</span>)
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/02/01/030.Summay_Hackerrank_Gayle_Mc/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Tips/">Tips</a></p>
-                            <p class="item-title"><a href="/2017/02/01/030.Summay_Hackerrank_Gayle_Mc/" class="title">Tips on tech interviews by Gayle Mac</a></p>
-                            <p class="item-date"><time datetime="2017-02-01T14:08:35.000Z" itemprop="datePublished">2017-02-01</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1936,7 +1963,7 @@ bashcmd (<span class="string">'ls -al'</span>)
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/About/">About</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Science/">Data Science</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/">Programming_Language</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/C/">C++</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/python/">python</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/linux/">linux</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/">Tutorial</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/Objective-C/">Objective-C</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/Swift/">Swift</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/node-js/">node.js</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/About/">About</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Science/">Data Science</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/">Programming_Language</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/C/">C++</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Language/python/">python</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/linux/">linux</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/">Tutorial</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/Objective-C/">Objective-C</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/Swift/">Swift</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/node-js/">node.js</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1945,7 +1972,7 @@ bashcmd (<span class="string">'ls -al'</span>)
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1954,7 +1981,7 @@ bashcmd (<span class="string">'ls -al'</span>)
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/About/">About</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algospot/">Algospot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoa/">Cocoa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data/">Data</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/">Deep learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EC/">EC++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LLVM/">LLVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Multi-boot/">Multi-boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OS/">OS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift-Cocoa-AppCode/">Swift, Cocoa, AppCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tree/">Tree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/brew/">brew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang/">clang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/">compiler</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-patterns/">design patterns</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/education/">education</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etc/">etc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcc/">gcc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gdb/">gdb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter/">jupyter</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/notebook/">notebook</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stl/">stl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wiki/">wiki</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/About/">About</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algospot/">Algospot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoa/">Cocoa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data/">Data</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/">Deep learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EC/">EC++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LLVM/">LLVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Multi-boot/">Multi-boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OS/">OS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift-Cocoa-AppCode/">Swift, Cocoa, AppCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tree/">Tree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/brew/">brew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang/">clang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/">compiler</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-patterns/">design patterns</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/education/">education</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etc/">etc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcc/">gcc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gdb/">gdb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter/">jupyter</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/notebook/">notebook</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stl/">stl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wiki/">wiki</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1963,7 +1990,7 @@ bashcmd (<span class="string">'ls -al'</span>)
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/About/" style="font-size: 12.5px;">About</a> <a href="/tags/Algospot/" style="font-size: 10px;">Algospot</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Cocoa/" style="font-size: 10px;">Cocoa</a> <a href="/tags/Data/" style="font-size: 10px;">Data</a> <a href="/tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/tags/EC/" style="font-size: 10px;">EC++</a> <a href="/tags/LLVM/" style="font-size: 10px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a> <a href="/tags/Multi-boot/" style="font-size: 10px;">Multi-boot</a> <a href="/tags/OS/" style="font-size: 10px;">OS</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/SQL/" style="font-size: 12.5px;">SQL</a> <a href="/tags/Swift-Cocoa-AppCode/" style="font-size: 10px;">Swift, Cocoa, AppCode</a> <a href="/tags/Tips/" style="font-size: 10px;">Tips</a> <a href="/tags/Tree/" style="font-size: 10px;">Tree</a> <a href="/tags/Tutorial/" style="font-size: 10px;">Tutorial</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">Ubuntu</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/algorithm/" style="font-size: 20px;">algorithm</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/brew/" style="font-size: 10px;">brew</a> <a href="/tags/clang/" style="font-size: 10px;">clang</a> <a href="/tags/compiler/" style="font-size: 10px;">compiler</a> <a href="/tags/database/" style="font-size: 12.5px;">database</a> <a href="/tags/design-patterns/" style="font-size: 10px;">design patterns</a> <a href="/tags/education/" style="font-size: 10px;">education</a> <a href="/tags/etc/" style="font-size: 10px;">etc</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/tags/gdb/" style="font-size: 10px;">gdb</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jupyter/" style="font-size: 12.5px;">jupyter</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/notebook/" style="font-size: 12.5px;">notebook</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/stl/" style="font-size: 10px;">stl</a> <a href="/tags/usage/" style="font-size: 12.5px;">usage</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wiki/" style="font-size: 10px;">wiki</a>
+            <a href="/tags/About/" style="font-size: 12.5px;">About</a> <a href="/tags/Algospot/" style="font-size: 10px;">Algospot</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Cocoa/" style="font-size: 10px;">Cocoa</a> <a href="/tags/Data/" style="font-size: 12.5px;">Data</a> <a href="/tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="/tags/Deep-learning/" style="font-size: 12.5px;">Deep learning</a> <a href="/tags/EC/" style="font-size: 10px;">EC++</a> <a href="/tags/LLVM/" style="font-size: 10px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/Mac/" style="font-size: 20px;">Mac</a> <a href="/tags/Multi-boot/" style="font-size: 10px;">Multi-boot</a> <a href="/tags/OS/" style="font-size: 10px;">OS</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/SQL/" style="font-size: 12.5px;">SQL</a> <a href="/tags/Swift-Cocoa-AppCode/" style="font-size: 10px;">Swift, Cocoa, AppCode</a> <a href="/tags/Tips/" style="font-size: 10px;">Tips</a> <a href="/tags/Tree/" style="font-size: 10px;">Tree</a> <a href="/tags/Tutorial/" style="font-size: 10px;">Tutorial</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">Ubuntu</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/algorithm/" style="font-size: 20px;">algorithm</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/brew/" style="font-size: 10px;">brew</a> <a href="/tags/clang/" style="font-size: 10px;">clang</a> <a href="/tags/compiler/" style="font-size: 10px;">compiler</a> <a href="/tags/database/" style="font-size: 12.5px;">database</a> <a href="/tags/design-patterns/" style="font-size: 10px;">design patterns</a> <a href="/tags/education/" style="font-size: 10px;">education</a> <a href="/tags/etc/" style="font-size: 10px;">etc</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/tags/gdb/" style="font-size: 10px;">gdb</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jupyter/" style="font-size: 12.5px;">jupyter</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/notebook/" style="font-size: 12.5px;">notebook</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/stl/" style="font-size: 10px;">stl</a> <a href="/tags/usage/" style="font-size: 12.5px;">usage</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wiki/" style="font-size: 10px;">wiki</a>
         </div>
     </div>
 
