@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="huklee's blog">
 <meta property="og:description" content="Installing tensorflow using virtualenv on Mac이전 포스트에서 Anaconda를 사용하여 설치를 했더니, jupyter에서 제대로 tensorflow와 conda env를 인식하지 못 하는 문제가 발생했다. 이래저래 많이 헤매었는데, 정답은 virtualenv와 pip를 사용하는 것이 가장 깔끔했다.
 이번 포스트에서는 vi">
-<meta property="og:updated_time" content="2017-02-07T04:10:53.000Z">
+<meta property="og:updated_time" content="2017-02-07T04:15:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Installing Tensorflow using virtualenv on Mac">
 <meta name="twitter:description" content="Installing tensorflow using virtualenv on Mac이전 포스트에서 Anaconda를 사용하여 설치를 했더니, jupyter에서 제대로 tensorflow와 conda env를 인식하지 못 하는 문제가 발생했다. 이래저래 많이 헤매었는데, 정답은 virtualenv와 pip를 사용하는 것이 가장 깔끔했다.
@@ -245,8 +245,12 @@
             
             <h1 id="Installing-tensorflow-using-virtualenv-on-Mac"><a href="#Installing-tensorflow-using-virtualenv-on-Mac" class="headerlink" title="Installing tensorflow using virtualenv on Mac"></a>Installing tensorflow using virtualenv on Mac</h1><p>이전 포스트에서 Anaconda를 사용하여 설치를 했더니, jupyter에서 제대로 tensorflow와 conda env를 인식하지 못 하는 문제가 발생했다. 이래저래 많이 헤매었는데, 정답은 virtualenv와 pip를 사용하는 것이 가장 깔끔했다.</p>
 <p>이번 포스트에서는 virtualenv + pip (python3)를 활용한 설치로 진행한다. 아나콘다는 싹 밀어버리고 진행한다.</p>
-<h2 id="설치환경-및-설치대상"><a href="#설치환경-및-설치대상" class="headerlink" title="설치환경 및 설치대상"></a>설치환경 및 설치대상</h2><ul>
+<h2 id="Environment-amp-prerequisites"><a href="#Environment-amp-prerequisites" class="headerlink" title="Environment &amp; prerequisites"></a>Environment &amp; prerequisites</h2><ul>
 <li>Mac air i5 1.5Ghz, 8G ram</li>
+<li>OS X Sierra 10.12.3</li>
+<li>homebrew</li>
+</ul>
+<h2 id="Installation-target"><a href="#Installation-target" class="headerlink" title="Installation target"></a>Installation target</h2><ul>
 <li>python 3.6.0</li>
 <li>pip 9.0.1</li>
 <li>tensorflow 0.9.0</li>
@@ -256,16 +260,27 @@
 <li><p>파이썬 3를 설치하자. pip3를 사용해서 설치를 하려면 기본적으로 깔아야 한다.</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install python3</div></pre></td></tr></table></figure>
 </li>
-<li><p>virtualenv 설치하자</p>
+<li><p>다음으로는 virtualenv를 설치하자</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip3 install --upgrade virtualnev</div></pre></td></tr></table></figure>
 </li>
 <li><p>지정된 폴더에 virtualenv 설정을 새로 만들고 적용하자. activate를 해주면 다음과 같이 shell prompt 에 (tensorflow)가 붙는 것을 확인할 수 있다.</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ virtualenv --system-site-packages ~/Work/tensorflow</div><div class="line">$ <span class="built_in">source</span> ~/Work/tensorflow/bin/activate</div><div class="line">(tensorflow) $</div></pre></td></tr></table></figure>
 </li>
 <li><p>tensorflow를 설치하자. pip 로 설치하며, os에 맞는 url을 설정해주고 설치를 진행하면 된다.</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(tensorflow)$ <span class="built_in">export</span> TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/tensorflow-0.9.0-py3-none-any.whl</div><div class="line">(tensorflow)$ pip3 install --upgrade <span class="variable">$TF_BINARY_URL</span></div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(tensorflow) $ <span class="built_in">export</span> TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/tensorflow-0.9.0-py3-none-any.whl</div><div class="line">(tensorflow) $ pip3 install --upgrade <span class="variable">$TF_BINARY_URL</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>tensorflow가 잘 실행되는 지 테스트해보자. 앞에서 했던 대로 테스트해보면 된다.</p>
+<ul>
+<li>sample code</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line">hello = tf.constant(<span class="string">'Hello, TensorFlow!'</span>)</div><div class="line">sess = tf.Session()</div><div class="line">print(sess.run(hello))</div><div class="line">a = tf.constant(<span class="number">10</span>)</div><div class="line">b = tf.constant(<span class="number">32</span>)</div><div class="line">print(sess.run(a + b))</div></pre></td></tr></table></figure>
+<ul>
+<li>expected result</li>
+</ul>
+<blockquote>
+<p>b’Hello, TensorFlow!’</p>
+<p>42</p>
+</blockquote>
 </li>
 <li><p>추가로 필요한 패키지들을 pip로 설치해야 한다. scipy, numpy, jupyter 등을 설치해야 한다. 한번에 pip 한 방으로 설치하면 편하다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(tensorflow) $ python3 -m pip install --upgrade pip</div><div class="line">(tensorflow) $ pip3 install --user numpy scipy matplotlib ipython jupyter pandas sympy nose</div></pre></td></tr></table></figure>
