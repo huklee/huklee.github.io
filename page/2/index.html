@@ -1487,14 +1487,17 @@
 <li><code>Builder pattern</code> constructs complex objects by separating construction and representation.</li>
 <li><code>Factory method pattern</code> creates objects without specifying the exact class to create.</li>
 <li><code>Prototype pattern</code> creates objects by cloning an existing object.</li>
-<li><code>Singleton pattern</code> restricts object creation for a class to only one instance.</li>
+<li><code>Singleton pattern</code> restricts object creation for a class to only one instance.<ul>
+<li><a href="https://gist.github.com/huklee/89a6730c2b1a220c733a7145ec1194ca" target="_blank" rel="external">implementation in c++</a></li>
+</ul>
+</li>
 </ol>
 <h2 id="Structural-patterns"><a href="#Structural-patterns" class="headerlink" title="Structural patterns"></a>Structural patterns</h2><ol>
 <li><code>Adapter</code> allows classes with incompatible interfaces to work together by wrapping its own interface around that of an already existing class.</li>
 <li><code>Bridge</code> decouples an abstraction from its implementation so that the two can vary independently.</li>
 <li><code>Composite</code> composes zero-or-more similar objects so that they can be manipulated as one object.</li>
 <li><code>Decorator</code> dynamically adds/overrides behavior in an existing method of an object.<ul>
-<li>ex&gt; java.io.bufferedinputstream </li>
+<li>ex&gt; java.io.bufferedinputstream</li>
 </ul>
 </li>
 <li><code>Facade</code> provides a simplified interface to a large body of code.</li>
@@ -1516,11 +1519,11 @@
 <li><code>Template</code> method defines the skeleton of an algorithm as an abstract class, allowing its subclasses to provide concrete behavior.</li>
 <li><code>Visitor</code> separates an algorithm from an object structure by moving the hierarchy of methods into one object.</li>
 </ol>
-<p><img src="images/GoF_full_medium.png" alt=""></p>
+<p><img src="/images/GoF_full_medium.png" alt=""></p>
 <h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><ul>
 <li><p><a href="https://opentutorials.org/course/697/3828" target="_blank" rel="external">MVC design patterns</a></p>
-<p>MVC : Model, View, Controller의 앞글자를 딴 것을 의미며, 어플리케이션의 역할을 세 가지로 구분한 개발 방법론이다. <code>핵심은 사용자가 직접 Model을 만지지 않도록 하는 구조</code>라고 볼 수 있다. 아래처럼 사용자가 Controller를 조작하면, Controller가 Model을 통해서 데이터를 가져오고 그 정보를 바탕으로 View를 통해서 사용자에게 정보를 제공하는 구조이다.<br><img src="images/mvc_model.png" alt=""></p>
-<p>추가로 비슷한 디자인 패턴 구조로는 MVP (Model, View, Presenter), MVVM (Model, View,  View Model)가 있다. 두 모델은 View와 Model을 분리해 주는 장점을 가지고 있다. MVVM에서는 View가 보는 Data는 Model의 원래 정보가 아닌 View Model을 통해 간접적으로 얻는 Data이며, event를 통해서 view model의 변화를 Control하는 특징이 있다.<br><img src="images/mvc-mvp-mvvm.png" alt=""></p>
+<p>MVC : Model, View, Controller의 앞글자를 딴 것을 의미며, 어플리케이션의 역할을 세 가지로 구분한 개발 방법론이다. <code>핵심은 사용자가 직접 Model을 만지지 않도록 하는 구조</code>라고 볼 수 있다. 아래처럼 사용자가 Controller를 조작하면, Controller가 Model을 통해서 데이터를 가져오고 그 정보를 바탕으로 View를 통해서 사용자에게 정보를 제공하는 구조이다.<br><img src="/images/mvc_model.png" alt=""></p>
+<p>추가로 비슷한 디자인 패턴 구조로는 MVP (Model, View, Presenter), MVVM (Model, View,  View Model)가 있다. 두 모델은 View와 Model을 분리해 주는 장점을 가지고 있다. MVVM에서는 View가 보는 Data는 Model의 원래 정보가 아닌 View Model을 통해 간접적으로 얻는 Data이며, event를 통해서 view model의 변화를 Control하는 특징이 있다.<br><img src="/images/mvc-mvp-mvvm.png" alt=""></p>
 <p>GoF 패턴의 Observer 패턴과 연관성이 매우 크다. 객체의 상태변화, event, call-back function 등의 특성이 observer 패턴의 핵심 구성요소이기 때문이다.</p>
 </li>
 </ul>
@@ -1777,7 +1780,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/02/10/36.SOLID-Design-principles/" class="thumbnail">
+                            <a href="/2017/02/10/036.SOLID-Design-principles/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -1788,7 +1791,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/programming/">programming</a></p>
-                            <p class="item-title"><a href="/2017/02/10/36.SOLID-Design-principles/" class="title">SOLID Design principles by GoF</a></p>
+                            <p class="item-title"><a href="/2017/02/10/036.SOLID-Design-principles/" class="title">SOLID Design principles by GoF</a></p>
                             <p class="item-date"><time datetime="2017-02-10T14:01:06.000Z" itemprop="datePublished">2017-02-10</time></p>
                         </div>
                     </li>
