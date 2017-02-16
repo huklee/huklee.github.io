@@ -20,7 +20,7 @@ IntroBayesian에 전반적인 내용을 다룰 예정. 끝 부분에서 베이�
 
 사후분포Posterior distribution는 우도함수Likelihood function">
 <meta property="og:image" content="http://static.boredpanda.com/blog/wp-content/uploads/2015/08/computer-deep-learning-algorithm-painting-masters-12.jpg">
-<meta property="og:updated_time" content="2017-02-16T12:39:17.000Z">
+<meta property="og:updated_time" content="2017-02-16T12:43:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1st Deepcon.info @ Seoul">
 <meta name="twitter:description" content="제1회 딥러닝 컨퍼런스 2017 1일차주최 : 서형석 대표 @ 딥러닝그룹
@@ -266,13 +266,17 @@ IntroBayesian에 전반적인 내용을 다룰 예정. 끝 부분에서 베이�
 <h1 id="1-베이지안-딥러닝-김용대-서울대학교-통계학과"><a href="#1-베이지안-딥러닝-김용대-서울대학교-통계학과" class="headerlink" title="1. 베이지안 딥러닝 - 김용대 : 서울대학교 통계학과"></a>1. 베이지안 딥러닝 - 김용대 : 서울대학교 통계학과</h1><p><a href="https://drive.google.com/file/d/0B8v4MKOWQrJAa3J1bXRFTERWbEU/view" target="_blank" rel="external">slides</a></p>
 <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>Bayesian에 전반적인 내용을 다룰 예정. 끝 부분에서 베이지안 딥러닝에 대해서 언급하고 발표를 마칠 예정임.</p>
 <ul>
-<li>사후분포Posterior distribution는 우도함수Likelihood function 과 사전분포Prior distribution의 곱에 비례한다.</li>
-<li>시간에 따라서 분포가 변하는 상황에 대해서 bayesian 접근은 꽤나 좋은 접근방식이 될 수 있다.</li>
-<li>장점 : prediction의 정확도가 매우 높은 편 / Uncertainty quantization  <ul>
+<li><p>사후분포Posterior distribution는 우도함수Likelihood function 과 사전분포Prior distribution의 곱에 비례한다.<br><img src="http://www.saedsayad.com/images/Bayes_rule.png" alt=""></p>
+</li>
+<li><p>시간에 따라서 분포가 변하는 상황에 대해서 bayesian 접근은 꽤나 좋은 접근방식이 될 수 있다.</p>
+</li>
+<li><p>장점 : prediction의 정확도가 매우 높은 편 / Uncertainty quantization  </p>
+<ul>
 <li>불확실성에 대한 확률을 계산하기 좋다</li>
 </ul>
 </li>
-<li>단점 : computation is hard / Need full observation of distribution</li>
+<li><p>단점 : computation is hard / Need full observation of distribution</p>
+</li>
 </ul>
 <h2 id="Bayesian-computation"><a href="#Bayesian-computation" class="headerlink" title="Bayesian computation"></a>Bayesian computation</h2><p>크게 세 가지로 나누어진다. 손으로 구하기 / monte-carlo 사용하기 / approximation 사용하기 (나머지 3개)</p>
 <ul>
@@ -380,7 +384,10 @@ IntroBayesian에 전반적인 내용을 다룰 예정. 끝 부분에서 베이�
 <li>RNNs are Turing-complete</li>
 <li>sequence to sequence mapping<br><img src="http://karpathy.github.io/assets/rnn/diags.jpeg" alt=""></li>
 <li>best approach to following problems<ul>
-<li>Speech recognition</li>
+<li>Speech recognition<ul>
+<li>skype translation (error rate goes 45% -&gt; 17%:LSTM)<br><img src="https://blogs.skype.com/wp-content/uploads/2014/12/translatory-ui1.png" alt="Skype Translation"></li>
+</ul>
+</li>
 <li>handwriting recognition</li>
 <li>machine translation</li>
 </ul>
