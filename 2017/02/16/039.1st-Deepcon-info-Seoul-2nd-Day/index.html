@@ -19,7 +19,8 @@ the most importa">
 We will Cover
 basic usage of Tensorflow.
 the most importa">
-<meta property="og:updated_time" content="2017-02-17T03:11:34.000Z">
+<meta property="og:image" content="http://www.kdnuggets.com/wp-content/uploads/tensorflow-white-2.jpg">
+<meta property="og:updated_time" content="2017-02-17T05:04:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1st-Deepcon-info-Seoul-2nd-Day">
 <meta name="twitter:description" content="제1회 딥러닝 컨퍼런스 2017 2일차주최 : 서형석 대표 @ 딥러닝그룹
@@ -27,6 +28,7 @@ the most importa">
 We will Cover
 basic usage of Tensorflow.
 the most importa">
+<meta name="twitter:image" content="http://www.kdnuggets.com/wp-content/uploads/tensorflow-white-2.jpg">
     
 
     
@@ -212,6 +214,14 @@ the most importa">
             <section id="main"><article id="post-039.1st-Deepcon-info-Seoul-2nd-Day" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
+            
+	
+		<img src="http://www.kdnuggets.com/wp-content/uploads/tensorflow-white-2.jpg" class="article-banner" />
+	
+
+
+
+        
         
             <header class="article-header">
                 
@@ -303,6 +313,7 @@ the most importa">
 <li>you can think of a <code>tensor</code> as an <code>n-dimension array</code>,</li>
 </ul>
 <h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
+<li>단순한 예제를 따라하는 데 있어서는 세부적인 tensorflow사용법이 중요하지 않을 수 있다. 하지만, 깊게 deep learning 알고리즘을 적용한다면 이런 기초가 매우 필수적이다.</li>
 <li>실제적인 product를 만들려고 한다면 jupyter를 사용하지 않고, IDE를 사용하는 것을 추천합니다. 생각보다 프로그램을 돌리기에 버그도 많고, 디버깅이 쉽지 않다.</li>
 <li><p>기본적으로 np.array를 쓸 때는 dtype을 명확하게 명시해 주는 습관을 주는 것이 좋다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Good example</span></div><div class="line">x = np.array([<span class="number">1</span>,<span class="number">2</span>], dtype=np.int64)</div><div class="line"></div><div class="line"><span class="comment"># Bad example</span></div><div class="line">y = np.array([<span class="number">1</span>,<span class="number">2</span>])</div></pre></td></tr></table></figure>
@@ -311,8 +322,12 @@ the most importa">
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">_x = [[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">3</span>,<span class="number">4</span>]]</div><div class="line">x = tf.convert_to_tensor(_x)</div><div class="line"></div><div class="line">print(x)</div><div class="line"><span class="comment"># Tensor("Const_3:0", shape=(2, 2), dtype=int32)</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="Huklee’s-tensorflow-Tutorials"><a href="#Huklee’s-tensorflow-Tutorials" class="headerlink" title="Huklee’s tensorflow Tutorials"></a>Huklee’s tensorflow Tutorials</h2><p><a href="https://github.com/huklee/tensorflow-exercises/blob/master/Tensorflow%20Basic%20Tutorials.ipynb" target="_blank" rel="external">Huklee’s tensorflow Tutorials</a></p>
-<h2 id="Tutorials-1"><a href="#Tutorials-1" class="headerlink" title="Tutorials"></a>Tutorials</h2><p><a href="https://github.com/Kyubyong/tensorflow-exercises/blob/master/Constants_Sequences_and_Random_Values_Solutions.ipynb" target="_blank" rel="external">Tensor variables</a></p>
+<h2 id="Tutorials-1"><a href="#Tutorials-1" class="headerlink" title="Tutorials"></a>Tutorials</h2><p><a href="https://github.com/huklee/tensorflow-exercises/blob/master/Tensorflow%20Basic%20Tutorials.ipynb" target="_blank" rel="external">Huklee’s tensorflow Tutorials</a></p>
+<p><a href="https://github.com/Kyubyong/tensorflow-exercises/blob/master/Constants_Sequences_and_Random_Values_Solutions.ipynb" target="_blank" rel="external">Tensorflow variables</a></p>
+<p><a href="https://github.com/Kyubyong/up_and_running_with_Tensorflow/blob/master/Ex0.%20Graph.ipynb" target="_blank" rel="external">Tensorflow Ex0.Grpah </a></p>
+<p><a href="https://github.com/Kyubyong/up_and_running_with_Tensorflow/blob/master/Ex1.%20Variables.ipynb" target="_blank" rel="external">Tensorflow Ex1.Variables </a></p>
+<p><a href="https://github.com/Kyubyong/up_and_running_with_Tensorflow/blob/master/Ex2.%20Placeholders.ipynb" target="_blank" rel="external">Tensorflow Ex2.Placeholders </a></p>
+<p><a href="https://github.com/Kyubyong/up_and_running_with_Tensorflow/blob/master/Ex3.%20Linear%20Regression.ipynb" target="_blank" rel="external">Tensorflow Ex3.Linear Regression </a></p>
 <h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="https://www.tensorflow.org/get_started/mnist/beginners" target="_blank" rel="external">TensorFlow tutorials</a><br><a href="http://khanrc.tistory.com/entry/TensorFlow-3-Basic-Usage" target="_blank" rel="external">TensorFlow basic usages</a></p>
 
         
@@ -507,7 +522,7 @@ the most importa">
                             <a href="/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://www.kdnuggets.com/wp-content/uploads/tensorflow-white-2.jpg)" alt="1st-Deepcon-info-Seoul-2nd-Day" class="thumbnail-image"></span>
     
 </a>
 
