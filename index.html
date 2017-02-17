@@ -683,7 +683,68 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>2일차</p>
+            <h1 id="제1회-딥러닝-컨퍼런스-2017-2일차"><a href="#제1회-딥러닝-컨퍼런스-2017-2일차" class="headerlink" title="제1회 딥러닝 컨퍼런스 2017 2일차"></a>제1회 딥러닝 컨퍼런스 2017 2일차</h1><p>주최 : 서형석 대표 @ 딥러닝그룹</p>
+<h1 id="1-Up-and-Running-with-Tensorflow-박규병-카카오-브레인-연구원"><a href="#1-Up-and-Running-with-Tensorflow-박규병-카카오-브레인-연구원" class="headerlink" title="1. Up and Running with Tensorflow : 박규병 카카오 브레인 연구원"></a>1. Up and Running with Tensorflow : 박규병 카카오 브레인 연구원</h1><p><a href="https://github.com/Kyubyong/up_and_running_with_Tensorflow" target="_blank" rel="external">Up and running with Tensorflow</a><br><a href="https://github.com/Kyubyong/tensorflow-exercises" target="_blank" rel="external">tensorflow-exercises</a></p>
+<h2 id="We-will-Cover"><a href="#We-will-Cover" class="headerlink" title="We will Cover"></a>We will Cover</h2><ul>
+<li>basic usage of Tensorflow.</li>
+<li>the most important functions, focusing on the comparison with NumPy.</li>
+<li>programming a simple regression task with Tensorflow.</li>
+<li>some of basic neural network theories.</li>
+</ul>
+<h2 id="We-will-NOT-cover"><a href="#We-will-NOT-cover" class="headerlink" title="We will NOT cover"></a>We will <code>NOT</code> cover</h2><ul>
+<li>how to install Tensorflow.</li>
+<li>deep understanding of deep learning.</li>
+<li>serious implementation with real problems<br>Requirements</li>
+<li>Basic familiarity with Python and NumPy</li>
+<li>Bring your own laptop where Tensorflow, NumPy, and IPython have been installed.</li>
+<li>Deep learning background will be more than welcome, but not required.</li>
+</ul>
+<h2 id="주요-연구분야-및-관심사"><a href="#주요-연구분야-및-관심사" class="headerlink" title="주요 연구분야 및 관심사"></a>주요 연구분야 및 관심사</h2><ul>
+<li>수학 / 언어 관련<ul>
+<li><a href="https://github.com/Kyubyong/sudoku" target="_blank" rel="external">github: sudoku</a></li>
+<li><a href="https://github.com/Kyubyong/neural_chinese_transliterator" target="_blank" rel="external">github: neural Chinese translator</a></li>
+<li><a href="https://github.com/Kyubyong/neural_japanese_transliterator" target="_blank" rel="external">github: neural Japanese translator</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Tutorials"><a href="#Tutorials" class="headerlink" title="Tutorials"></a>Tutorials</h2><p><a href="https://github.com/Kyubyong/numpy_exercises" target="_blank" rel="external">Numpy exercises</a></p>
+<h2 id="Deep-learning을-다루면서-맞닥트리는-요소들"><a href="#Deep-learning을-다루면서-맞닥트리는-요소들" class="headerlink" title="Deep learning을 다루면서 맞닥트리는 요소들"></a>Deep learning을 다루면서 맞닥트리는 요소들</h2><ul>
+<li>Mathematical background (statistics, probabilities, linear algebra)</li>
+<li>NN Theories (Back-propagation, activation, normalization…)</li>
+<li>Speed of progression<ul>
+<li>너무 빠르게 기술이 발전하고 있는 분야라는 것은 부담스럽다.</li>
+</ul>
+</li>
+<li>Programming skills (Python, NumPy, TensorFlow, Theano…)</li>
+<li>English (lecture listening, paper reading, reference…)</li>
+<li><p>Money (GPUs)</p>
+<blockquote>
+<p>제대로 deep learning을 할 수 있는 역량을 기르려면 <code>6개월 정도</code>는 머리 싸매고 고생한다고 생각해야 제대로 어느 정도 다룰 수 있는 역량에 도달할 수 있다고 생각해야 한다.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="basic-terms-TensorFlow"><a href="#basic-terms-TensorFlow" class="headerlink" title="basic terms @ TensorFlow"></a>basic terms @ TensorFlow</h2><ul>
+<li>TensorFlow is a programming system in which you represent computations as <code>graphs</code>.</li>
+<li>Nodes in the graph are called <code>Ops</code> (abbr. for operations)</li>
+<li>An <code>op takes zero or more Tensors</code>, performs computations and produces zero or more Tensors.</li>
+<li>a <code>Tensor</code> is a typed <code>multi-dimensional</code> array.</li>
+<li>a <code>TensorFlow graph</code> is a <code>description of computations</code>.</li>
+<li>a <code>graph</code> MUST be launched in a <code>session</code>, then put into <code>devices</code>, such as <code>CPUs or GPUs</code>.</li>
+<li>these methods return tensors produced by ops as <code>numpy.ndarrays</code>.</li>
+<li>you can think of a <code>tensor</code> as an <code>n-dimension array</code>,</li>
+</ul>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
+<li>실제적인 product를 만들려고 한다면 jupyter를 사용하지 않고, IDE를 사용하는 것을 추천합니다. 생각보다 프로그램을 돌리기에 버그도 많고, 디버깅이 쉽지 않다.</li>
+<li><p>기본적으로 np.array를 쓸 때는 dtype을 명확하게 명시해 주는 습관을 주는 것이 좋다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Good example</span></div><div class="line">x = np.array([<span class="number">1</span>,<span class="number">2</span>], dtype=np.int64)</div><div class="line"></div><div class="line"><span class="comment"># Bad example</span></div><div class="line">y = np.array([<span class="number">1</span>,<span class="number">2</span>])</div></pre></td></tr></table></figure>
+</li>
+<li><p>tensor를 다루면서 가장 중요한 개념 중 하나가 shape, dtype이다. 제대로 된 결과가 나오는 지를 알기 위해서 값보다는 위의 두 속성들을 유심히 살펴보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">_x = [[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">3</span>,<span class="number">4</span>]]</div><div class="line">x = tf.convert_to_tensor(_x)</div><div class="line"></div><div class="line">print(x)</div><div class="line"><span class="comment"># Tensor("Const_3:0", shape=(2, 2), dtype=int32)</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Huklee’s-tensorflow-Tutorials"><a href="#Huklee’s-tensorflow-Tutorials" class="headerlink" title="Huklee’s tensorflow Tutorials"></a>Huklee’s tensorflow Tutorials</h2><p><a href="https://github.com/huklee/tensorflow-exercises/blob/master/Tensorflow%20Basic%20Tutorials.ipynb" target="_blank" rel="external">Huklee’s tensorflow Tutorials</a></p>
+<h2 id="Tutorials-1"><a href="#Tutorials-1" class="headerlink" title="Tutorials"></a>Tutorials</h2><p><a href="https://github.com/Kyubyong/tensorflow-exercises/blob/master/Constants_Sequences_and_Random_Values_Solutions.ipynb" target="_blank" rel="external">Tensor variables</a></p>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="https://www.tensorflow.org/get_started/mnist/beginners" target="_blank" rel="external">TensorFlow tutorials</a><br><a href="http://khanrc.tistory.com/entry/TensorFlow-3-Basic-Usage" target="_blank" rel="external">TensorFlow basic usages</a></p>
 
         
         </div>
