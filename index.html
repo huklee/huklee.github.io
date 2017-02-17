@@ -658,7 +658,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/">1st-Deepcon-info-Seoul-2nd-Day</a>
+            <a class="article-title" href="/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/">1st Deepcon.info Day 2 @ Seoul</a>
         </h1>
     
 
@@ -753,13 +753,52 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">_x = [[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">3</span>,<span class="number">4</span>]]</div><div class="line">x = tf.convert_to_tensor(_x)</div><div class="line"></div><div class="line">print(x)</div><div class="line"><span class="comment"># Tensor("Const_3:0", shape=(2, 2), dtype=int32)</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
+<h1 id="2-Deep-learning-and-Speech-recognition-육동석-교려대학교"><a href="#2-Deep-learning-and-Speech-recognition-육동석-교려대학교" class="headerlink" title="2. Deep learning and Speech recognition - 육동석 : 교려대학교"></a>2. Deep learning and Speech recognition - 육동석 : 교려대학교</h1><h2 id="History-of-AI-especially-neural-networks"><a href="#History-of-AI-especially-neural-networks" class="headerlink" title="History of AI, especially neural networks"></a>History of AI, especially neural networks</h2><ol>
+<li><p>Neural Network의 태동기 (1950s)</p>
+<ul>
+<li>The Perceptron: A Probabilistic Model For Information Storage And Organization In The Brain, Rosenblatt, 1958</li>
+<li>Perceptron이 처음으로 소개되었으며, 인간의 뇌와 비슷한 뉴런구조에 기반한 패턴인식 알고리즘가 소개되고 발전됨<br><img src="http://sanghyukchun.github.io/images/post/40-4.png" alt=""></li>
+</ul>
+</li>
+<li><p>Neural Network의 침체기 (1960~70s)</p>
+<ul>
+<li>An Introduction to Computational Geometry, Minsky &amp; Papert, 1969</li>
+<li>낮은 성능과 당시의 컴퓨팅 파워로는 제대로 된 계산이 불가능함을 깨달음<br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Marvin_Minsky_at_OLPCb.jpg/330px-Marvin_Minsky_at_OLPCb.jpg" alt=""></li>
+</ul>
+</li>
+<li><p>Neural Network의 제2번성기 (1980s)</p>
+<ul>
+<li>Parallel Distributed Processing: Explorations in the Microstructure of Cognition, Rumelhart, 1986</li>
+<li>Back-propagation을 통한 neural network의 성능 개선<br><img src="http://www.psychologicalscience.org/redesign/wp-content/uploads/2011/11/Rumelhart_1.jpg" alt=""></li>
+<li><a href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf" target="_blank" rel="external">Gradient-based learning applied to document recognition, Lecun, 1989</a></li>
+<li>MNIST 문제의 해결을 CNN이라는 개념을 처음 도입하여 해결<br><img src="http://yann.lecun.com/ex/images/invar.png" alt=""></li>
+</ul>
+</li>
+<li><p>Neural Network의 제2침체기 (1990s)</p>
+<ul>
+<li>별다른 발전 없이 SVM를 포함한 다른 machine learning들에 비해 발전이 더뎠음</li>
+</ul>
+</li>
+<li><p>Neural Network의 최대 번성기 : Neural Network의 재발견과 Deep learning의 발전 (2000s ~ )</p>
+<ul>
+<li>Contrastive divergence learning, Hinton 2002<br><img src="http://pds.joins.com/news/component/htmlphoto_mmdata/201607/31/htm_20160731164643708910.jpg" alt=""></li>
+</ul>
+</li>
+</ol>
+<h2 id="음성-인식의-발전"><a href="#음성-인식의-발전" class="headerlink" title="음성 인식의 발전"></a>음성 인식의 발전</h2><ul>
+<li>1980년대의 hidden markov 모델이 현재에도 time-series sequence에서도 적용이 비교적 효과적인 모델 중 하나이다.</li>
+<li>Deep neural network의 도입에 따라 guassian distribution 모델을 대체하여, DNN(RNN + LSTM)이 큰 성능의 향상을 가져왔다.<ul>
+<li><a href="https://research.googleblog.com/2015/08/the-neural-networks-behind-google-voice.html" target="_blank" rel="external">The neural networks behind Google Voice transcription</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="Tutorials-1"><a href="#Tutorials-1" class="headerlink" title="Tutorials"></a>Tutorials</h2><p><a href="https://github.com/huklee/tensorflow-exercises/blob/master/Tensorflow%20Basic%20Tutorials.ipynb" target="_blank" rel="external">Huklee’s tensorflow Tutorials</a></p>
 <p><a href="https://github.com/Kyubyong/tensorflow-exercises/blob/master/Constants_Sequences_and_Random_Values_Solutions.ipynb" target="_blank" rel="external">Tensorflow variables</a></p>
 <p><a href="https://github.com/Kyubyong/up_and_running_with_Tensorflow/blob/master/Ex0.%20Graph.ipynb" target="_blank" rel="external">Tensorflow Ex0.Grpah </a></p>
 <p><a href="https://github.com/Kyubyong/up_and_running_with_Tensorflow/blob/master/Ex1.%20Variables.ipynb" target="_blank" rel="external">Tensorflow Ex1.Variables </a></p>
 <p><a href="https://github.com/Kyubyong/up_and_running_with_Tensorflow/blob/master/Ex2.%20Placeholders.ipynb" target="_blank" rel="external">Tensorflow Ex2.Placeholders </a></p>
 <p><a href="https://github.com/Kyubyong/up_and_running_with_Tensorflow/blob/master/Ex3.%20Linear%20Regression.ipynb" target="_blank" rel="external">Tensorflow Ex3.Linear Regression </a></p>
-<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="https://www.tensorflow.org/get_started/mnist/beginners" target="_blank" rel="external">TensorFlow tutorials</a><br><a href="http://khanrc.tistory.com/entry/TensorFlow-3-Basic-Usage" target="_blank" rel="external">TensorFlow basic usages</a></p>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="https://www.tensorflow.org/get_started/mnist/beginners" target="_blank" rel="external">TensorFlow tutorials</a><br><a href="http://khanrc.tistory.com/entry/TensorFlow-3-Basic-Usage" target="_blank" rel="external">TensorFlow basic usages</a><br><a href="https://en.wikipedia.org/wiki/Artificial_neural_network" target="_blank" rel="external">Artificial Neural Network : Wikipedia</a><br><a href="https://research.googleblog.com/2015/08/the-neural-networks-behind-google-voice.html" target="_blank" rel="external">The neural networks behind Google Voice transcription</a></p>
 
         
         </div>
@@ -866,7 +905,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/16/038.1st-Deepcon-info-Seoul-1st-Day/">1st Deepcon.info @ Seoul</a>
+            <a class="article-title" href="/2017/02/16/038.1st-Deepcon-info-Seoul-1st-Day/">1st Deepcon.info Day 1 @ Seoul</a>
         </h1>
     
 
@@ -1997,7 +2036,7 @@
                             <a href="/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.kdnuggets.com/wp-content/uploads/tensorflow-white-2.jpg)" alt="1st-Deepcon-info-Seoul-2nd-Day" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.kdnuggets.com/wp-content/uploads/tensorflow-white-2.jpg)" alt="1st Deepcon.info Day 2 @ Seoul" class="thumbnail-image"></span>
     
 </a>
 
@@ -2005,7 +2044,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Conference/">Conference</a></p>
-                            <p class="item-title"><a href="/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/" class="title">1st-Deepcon-info-Seoul-2nd-Day</a></p>
+                            <p class="item-title"><a href="/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/" class="title">1st Deepcon.info Day 2 @ Seoul</a></p>
                             <p class="item-date"><time datetime="2017-02-16T02:39:45.000Z" itemprop="datePublished">2017-02-16</time></p>
                         </div>
                     </li>
@@ -2016,7 +2055,7 @@
                             <a href="/2017/02/16/038.1st-Deepcon-info-Seoul-1st-Day/" class="thumbnail">
     
     
-        <span style="background-image:url(http://static.boredpanda.com/blog/wp-content/uploads/2015/08/computer-deep-learning-algorithm-painting-masters-12.jpg)" alt="1st Deepcon.info @ Seoul" class="thumbnail-image"></span>
+        <span style="background-image:url(http://static.boredpanda.com/blog/wp-content/uploads/2015/08/computer-deep-learning-algorithm-painting-masters-12.jpg)" alt="1st Deepcon.info Day 1 @ Seoul" class="thumbnail-image"></span>
     
 </a>
 
@@ -2024,7 +2063,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Conference/">Conference</a></p>
-                            <p class="item-title"><a href="/2017/02/16/038.1st-Deepcon-info-Seoul-1st-Day/" class="title">1st Deepcon.info @ Seoul</a></p>
+                            <p class="item-title"><a href="/2017/02/16/038.1st-Deepcon-info-Seoul-1st-Day/" class="title">1st Deepcon.info Day 1 @ Seoul</a></p>
                             <p class="item-date"><time datetime="2017-02-16T01:47:11.000Z" itemprop="datePublished">2017-02-16</time></p>
                         </div>
                     </li>
