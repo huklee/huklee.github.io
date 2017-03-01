@@ -22,7 +22,7 @@ Install Homebrew
 Install docker toolbox
 12brew cask install docker-toolboxbrew install">
 <meta property="og:image" content="http://seokjun.kr/content/images/2016/08/KuDr42X_ITXghJhSInDZekNEF0jLt3NeVxtRye3tqco.png">
-<meta property="og:updated_time" content="2017-03-01T01:49:13.000Z">
+<meta property="og:updated_time" content="2017-03-01T01:52:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="how to docker install">
 <meta name="twitter:description" content="Install docker in CLI
@@ -275,45 +275,49 @@ Install docker toolbox
 </ol>
 <h1 id="How-to-Start-docker"><a href="#How-to-Start-docker" class="headerlink" title="How to Start docker"></a>How to Start docker</h1><ol>
 <li><p>check the docker version</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker version</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker version</div></pre></td></tr></table></figure>
 </li>
 <li><p>list the docker machine</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-machine ls</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-machine ls</div></pre></td></tr></table></figure>
 </li>
 <li><p>create the docker machine</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-machine create --driver &quot;virtualbox&quot; myBoxName</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-machine create --driver <span class="string">"virtualbox"</span> myBoxName</div></pre></td></tr></table></figure>
 </li>
 <li><p>start the docker machine</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-machine start myBoxName</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-machine start myBoxName</div></pre></td></tr></table></figure>
 </li>
 <li><p>get into the env of the docker machine</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eval $(docker-machine env myBoxName)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export DOCKER_TLS_VERIFY=&quot;1&quot;</div><div class="line">export DOCKER_HOST=&quot;tcp://192.168.99.100:2376&quot;</div><div class="line">export DOCKER_CERT_PATH=&quot;/Users/huklee/.docker/machine/machines/myBoxName&quot;</div><div class="line">export DOCKER_MACHINE_NAME=&quot;myBoxName&quot;</div><div class="line"># Run this command to configure your shell:</div><div class="line"># eval $(docker-machine env myBoxName)</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">eval</span> $(docker-machine env myBoxName)</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> DOCKER_TLS_VERIFY=<span class="string">"1"</span></div><div class="line"><span class="built_in">export</span> DOCKER_HOST=<span class="string">"tcp://192.168.99.100:2376"</span></div><div class="line"><span class="built_in">export</span> DOCKER_CERT_PATH=<span class="string">"/Users/huklee/.docker/machine/machines/myBoxName"</span></div><div class="line"><span class="built_in">export</span> DOCKER_MACHINE_NAME=<span class="string">"myBoxName"</span></div><div class="line"><span class="comment"># Run this command to configure your shell:</span></div><div class="line"><span class="comment"># eval $(docker-machine env myBoxName)</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>when the certification is not working<br>docker-machine regenerate-certs myBoxName</p>
+<li><p>when the certification is not working</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-machine regenerate-certs myBoxName</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h1 id="Start-the-docker-image-on-the-docker-box"><a href="#Start-the-docker-image-on-the-docker-box" class="headerlink" title="Start the docker image on the docker box"></a>Start the docker image on the docker box</h1><ol>
 <li><p>see the docker image list</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker images</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker images</div></pre></td></tr></table></figure>
 </li>
 <li><p>search the docker images on web</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker search [image]</div><div class="line"># ex) docker search centos</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker search [image]</div><div class="line"><span class="comment"># ex) docker search centos</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>download the docker image</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull centos:latest</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull centos:latest</div></pre></td></tr></table></figure>
 </li>
 <li><p>the simple test of docker</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">docker run hello-world</div><div class="line"></div><div class="line">docker run -d -i -t --name &quot;test2&quot; ubuntu /bin/bash   # -d : background</div><div class="line">docker run -it --name &quot;test1&quot; centos /bin/cal</div><div class="line"></div><div class="line">docker ps</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">docker run hello-world</div><div class="line"></div><div class="line">docker run <span class="_">-d</span> -i -t --name <span class="string">"test2"</span> ubuntu /bin/bash   <span class="comment"># -d : background</span></div><div class="line">docker run -it --name <span class="string">"test1"</span> centos /bin/cal</div><div class="line"></div><div class="line">docker ps</div></pre></td></tr></table></figure>
 </li>
-<li><p>attach the docker process<br>docker attach hello</p>
+<li><p>attach the docker process</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker attach hello</div></pre></td></tr></table></figure>
 <ul>
 <li>to exit without stop : <c-p><c-q></c-q></c-p></li>
 </ul>
 </li>
 </ol>
 <h2 id="docker-daemon이-꺼져-있는-경우-docker-server-is-off"><a href="#docker-daemon이-꺼져-있는-경우-docker-server-is-off" class="headerlink" title="docker daemon이 꺼져 있는 경우 / docker server is off"></a>docker daemon이 꺼져 있는 경우 / docker server is off</h2><ul>
-<li>Mac에서는 일단 docker Quickstart Terminal을 찾아서 키면 자동으로 docker daemon이 켜진다.</li>
+<li>Mac에서는 일단 docker Quickstart Terminal을 찾아서 키면 자동으로 docker daemon default 세팅이 된다.</li>
+<li>이후에 아래 명령을 실행해 주면 된다.<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">eval</span> $(docker-machine env myBoxName)</div></pre></td></tr></table></figure>
+</li>
 </ul>
 <h1 id="궁금한-점들"><a href="#궁금한-점들" class="headerlink" title="궁금한 점들"></a>궁금한 점들</h1><ul>
 <li>docker를 사용해서 ubuntu / centos 등을 실행시키면 실제 파일 저장 경로라던가 하는 것들은 어떻게 되는 것인지?</li>
