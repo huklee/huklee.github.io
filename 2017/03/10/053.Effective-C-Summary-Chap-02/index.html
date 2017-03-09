@@ -3,14 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2017 | huklee&#39;s blog</title>
+    <title>Effective C++ Summary - Chap 02 | huklee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="huklee's blog">
-<meta property="og:url" content="https://huklee.github.io/archives/2017/page/2/index.html">
+    <meta name="description" content="Chap 2. 생성자, 소멸자 및 대입 연산자항목 5. C++가 은근슬쩍 만들어 호출해 버리는 함수들에 촉각을 세우자.항목 6. 컴파일러가 만들어낸 함수가 필요 없으면 확실히 이들의 사용을 금해 버리자.
+
+기본적으로 컴파일러는 class에 대해서 기본적으로 다음 4가지를 생성한다 : constructor, copy constructor,  copy assi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ Summary - Chap 02">
+<meta property="og:url" content="https://huklee.github.io/2017/03/10/053.Effective-C-Summary-Chap-02/index.html">
 <meta property="og:site_name" content="huklee's blog">
+<meta property="og:description" content="Chap 2. 생성자, 소멸자 및 대입 연산자항목 5. C++가 은근슬쩍 만들어 호출해 버리는 함수들에 촉각을 세우자.항목 6. 컴파일러가 만들어낸 함수가 필요 없으면 확실히 이들의 사용을 금해 버리자.
+
+기본적으로 컴파일러는 class에 대해서 기본적으로 다음 4가지를 생성한다 : constructor, copy constructor,  copy assi">
+<meta property="og:image" content="https://huklee.github.io/images/ECpp_Book_Cover_.png">
+<meta property="og:updated_time" content="2017-03-09T15:30:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="huklee's blog">
+<meta name="twitter:title" content="Effective C++ Summary - Chap 02">
+<meta name="twitter:description" content="Chap 2. 생성자, 소멸자 및 대입 연산자항목 5. C++가 은근슬쩍 만들어 호출해 버리는 함수들에 촉각을 세우자.항목 6. 컴파일러가 만들어낸 함수가 필요 없으면 확실히 이들의 사용을 금해 버리자.
+
+기본적으로 컴파일러는 class에 대해서 기본적으로 다음 4가지를 생성한다 : constructor, copy constructor,  copy assi">
+<meta name="twitter:image" content="https://huklee.github.io/images/ECpp_Book_Cover_.png">
     
 
     
@@ -193,378 +205,202 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2017</h1>
-            </div>
+            <section id="main"><article id="post-053.Effective-C-Summary-Chap-02" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            
+	
+		<img src="/images/ECpp_Book_Cover_.png" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/02/17/043.leetcode-validate-binary-search-tree/">leetcode_validate-binary-search-tree</a>
+        <h1 class="article-title" itemprop="name">
+            Effective C++ Summary - Chap 02
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/02/17/043.leetcode-validate-binary-search-tree/">
-            <time datetime="2017-02-17T10:52:43.000Z" itemprop="datePublished">2017-02-17</time>
+        <a href="/2017/03/10/053.Effective-C-Summary-Chap-02/">
+            <time datetime="2017-03-09T15:00:52.000Z" itemprop="datePublished">2017-03-10</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+        <a class="article-category-link" href="/categories/Programming-Language/">Programming_Language</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-Language/C/">C++</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/array/">array</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
+        <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/EC/">EC++</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/02/16/042.hexo-visitor-counter/">hexo visitor counter</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Chap-2-생성자-소멸자-및-대입-연산자"><a href="#Chap-2-생성자-소멸자-및-대입-연산자" class="headerlink" title="Chap 2. 생성자, 소멸자 및 대입 연산자"></a>Chap 2. 생성자, 소멸자 및 대입 연산자</h2><h3 id="항목-5-C-가-은근슬쩍-만들어-호출해-버리는-함수들에-촉각을-세우자"><a href="#항목-5-C-가-은근슬쩍-만들어-호출해-버리는-함수들에-촉각을-세우자" class="headerlink" title="항목 5. C++가 은근슬쩍 만들어 호출해 버리는 함수들에 촉각을 세우자."></a>항목 5. C++가 은근슬쩍 만들어 호출해 버리는 함수들에 촉각을 세우자.</h3><h3 id="항목-6-컴파일러가-만들어낸-함수가-필요-없으면-확실히-이들의-사용을-금해-버리자"><a href="#항목-6-컴파일러가-만들어낸-함수가-필요-없으면-확실히-이들의-사용을-금해-버리자" class="headerlink" title="항목 6. 컴파일러가 만들어낸 함수가 필요 없으면 확실히 이들의 사용을 금해 버리자."></a>항목 6. 컴파일러가 만들어낸 함수가 필요 없으면 확실히 이들의 사용을 금해 버리자.</h3><blockquote>
+<ul>
+<li>기본적으로 컴파일러는 class에 대해서 기본적으로 다음 4가지를 생성한다 : <code>constructor, copy constructor,  copy assignment operator, destructor</code></li>
+<li>이에 따라 의도되지 않은 <code>undefined behavior</code>의 발생에 주의하자.</li>
+<li>ex) copy of reference member</li>
+<li>컴파일러가 만들어낸 함수가 사용되지 않게 하고 싶은 경우에는 사용되지 않도록 <code>장치</code>를 해두자.</li>
+</ul>
+</blockquote>
+<p>C++ 언어에서 기본적으로 class를 생성할 경우에 아래 네 가지 함수를 정의해준다.</p>
+<blockquote>
+<ol>
+<li>constructor</li>
+<li>destructor</li>
+<li>copy constructor</li>
+<li>copy assignment operator</li>
+</ol>
+</blockquote>
+<p>코드로 보자면</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">class</span> <span class="title">Emtpy</span><span class="params">(</span></span></div><div class="line"><span class="keyword">private</span>:</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span>&amp; str_ref;</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>는 다음과 같다.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">class</span> <span class="title">Emtpty</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  Empty() &#123;...&#125;</div><div class="line">  EMpty(<span class="keyword">const</span> Emtpty&amp; rhs) &#123;...&#125;</div><div class="line">  ~Empty() &#123;...&#125;</div><div class="line">  Empty &amp;<span class="keyword">operator</span>=(<span class="keyword">const</span> Empty&amp; rhs) &#123;...&#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span>&amp; str_ref;  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>위와 같은 경우, 다음과 같은 코드를 사용하면 에러가 발생할 수 있다.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">s1</span><span class="params">(<span class="string">"hello"</span>)</span></span>;</div><div class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">s2</span><span class="params">(<span class="string">"hi"</span>)</span></span>;</div><div class="line"></div><div class="line"><span class="function">Empty <span class="title">p1</span><span class="params">(s1)</span></span>;</div><div class="line"><span class="function">Empty <span class="title">p2</span><span class="params">(s2)</span></span>;</div><div class="line"></div><div class="line">p1 = p2;  <span class="comment">// error occured</span></div></pre></td></tr></table></figure>
+<p>실제로는 아래와 같은 코드가 실행되는 것인데, <code>reference 변수는 초기화는 가능</code>하지만, <code>중간에 대입는 불가능</code>하기 때문에, 아래와 같은 코드는 컴파일 에러가 발생하게 되는 것이 일반적이다.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p1.str_ref = p2.str_ref;  <span class="comment">// error</span></div></pre></td></tr></table></figure>
+<p>위와 같은 발생 가능성 때문에 모든 constructor, destructor, copy assignment operator, copy constructor에 대해서는 <code>정의를 명시적</code>으로 해 주거나, <code>사용되지 않도록 하는 것</code>이 좋은 방법이다.</p>
+<p>사용되지 않도록 하는 방법은 아래와 같다.</p>
+<blockquote>
+<p><code>private 속성으로 함수를 선언</code>해 놓고, 구현해 놓지 않는다.<br>이 방법은 <code>컴파일 에러를 통해서 프로그래머의 에러를 사전에 막아주는 효과</code>가 있다.</p>
+</blockquote>
+<p>예를 들면 아래와 같이 해 주는 방식이다.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Uncopy&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  Uncopy() &#123;...&#125;;</div><div class="line">  ~Uncopy() &#123;...&#125;;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">  Uncopy(<span class="keyword">const</span> Uncopy&amp;);            <span class="comment">// only declaration</span></div><div class="line">  Uncopy&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Uncopy&amp;); <span class="comment">// only declaration</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>아래처럼 <code>class 상속을 통해서 해결</code>하는 방법도 있다. 다만 이렇게 하면 <code>다중상속을 고려</code>해야 하는 상황이 생길 수 있으므로, 거기에 따른 복잡성을 고려해도 괜찮은 경우에만 사용하자.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Uncopyable&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  Uncopyable() &#123;...&#125;;</div><div class="line">  ~Uncopyable() &#123;...&#125;;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">  Uncopyable(<span class="keyword">const</span> Uncopyable&amp;);            <span class="comment">// only declaration</span></div><div class="line">  Uncopyable&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Uncopyable&amp;); <span class="comment">// only declaration</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Uncopy : <span class="keyword">private</span> Uncopyable&#123;</div><div class="line">  ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/16/042.hexo-visitor-counter/">
-            <time datetime="2017-02-16T14:59:30.000Z" itemprop="datePublished">2017-02-16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/draft/">draft</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/draft/">draft</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/02/16/041.branch-and-bound/">branch and bound algorithm</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/16/041.branch-and-bound/">
-            <time datetime="2017-02-16T12:23:51.000Z" itemprop="datePublished">2017-02-16</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/NP-Hard/">NP-Hard</a>, <a class="tag-link" href="/tags/TSP/">TSP</a>, <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/draft/">draft</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/02/16/040.algorithm-test-guides/">algorithm test guides</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/16/040.algorithm-test-guides/">
-            <time datetime="2017-02-16T06:53:11.000Z" itemprop="datePublished">2017-02-16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Tips/">Tips</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/problem-solving/">problem solving</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/">1st Deepcon.info Day 2 @ Seoul</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/">
-            <time datetime="2017-02-16T02:39:45.000Z" itemprop="datePublished">2017-02-16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Conference/">Conference</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Deep-learning/">Deep learning</a>, <a class="tag-link" href="/tags/Machine-learning/">Machine learning</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/02/16/038.1st-Deepcon-info-Seoul-1st-Day/">1st Deepcon.info Day 1 @ Seoul</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/16/038.1st-Deepcon-info-Seoul-1st-Day/">
-            <time datetime="2017-02-16T01:47:11.000Z" itemprop="datePublished">2017-02-16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Conference/">Conference</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Deep-learning/">Deep learning</a>, <a class="tag-link" href="/tags/Machine-learning/">Machine learning</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/02/12/037.light-web-based-coding-tools/">light web-based coding tools</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/12/037.light-web-based-coding-tools/">
-            <time datetime="2017-02-12T14:33:47.000Z" itemprop="datePublished">2017-02-12</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Tips/">Tips</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/programming/">programming</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/02/10/036.SOLID-Design-principles/">SOLID Design principles by GoF</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/10/036.SOLID-Design-principles/">
-            <time datetime="2017-02-10T14:01:06.000Z" itemprop="datePublished">2017-02-10</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/programming/">programming</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/design-patterns/">design patterns</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/02/07/035.traverse-algorithms/">traverse algorithms</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/07/035.traverse-algorithms/">
-            <time datetime="2017-02-07T07:47:02.000Z" itemprop="datePublished">2017-02-07</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/graph/">graph</a>, <a class="tag-link" href="/tags/tree/">tree</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/">Installing Tensorflow using virtualenv on Mac</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/">
-            <time datetime="2017-02-07T04:00:18.000Z" itemprop="datePublished">2017-02-07</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Data-Science/">Data Science</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Data/">Data</a>, <a class="tag-link" href="/tags/Deep-learning/">Deep learning</a>, <a class="tag-link" href="/tags/Mac/">Mac</a>, <a class="tag-link" href="/tags/python/">python</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
 
-    <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2017/">&laquo; Prev</a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2017/page/3/">3</a><a class="page-number" href="/archives/2017/page/4/">4</a><a class="page-number" href="/archives/2017/page/5/">5</a><a class="extend next" rel="next" href="/archives/2017/page/3/">Next &raquo;</a>
-    </nav>
+    <a data-url="https://huklee.github.io/2017/03/10/053.Effective-C-Summary-Chap-02/" data-id="cj02jvhk70043l863mdnn768b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/03/10/053.Effective-C-Summary-Chap-02/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/03/10/053.Effective-C-Summary-Chap-02/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/03/05/052.2D-graphic-C-libraries/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">2D graphic C++ libraries</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -744,11 +580,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'https://huklee.github.io/2017/03/10/053.Effective-C-Summary-Chap-02/';
+        
+        this.page.identifier = '053.Effective-C-Summary-Chap-02';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
