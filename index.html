@@ -237,7 +237,21 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="Google-IoT"><a href="#Google-IoT" class="headerlink" title="Google IoT"></a>Google IoT</h2><p><div class="video-container"><iframe src="//www.youtube.com/embed/in5niUIwHMI" frameborder="0" allowfullscreen></iframe></div></p>
+            <h2 id="Google-IoT"><a href="#Google-IoT" class="headerlink" title="Google IoT"></a>Google IoT</h2><div class="video-container"><iframe src="//www.youtube.com/embed/in5niUIwHMI" frameborder="0" allowfullscreen></iframe></div>
+<p><a href="http://bcho.tistory.com/1164" target="_blank" rel="external">조대협의 구글 IoT 소개</a></p>
+<p><img src="https://cloud.google.com/solutions/images/iot-overview-architecture.png" alt=""></p>
+<p><a href="http://www.bloter.net/archives/273436" target="_blank" rel="external">coursera : 구글 클라우드 플랫폼 강좌</a></p>
+<h2 id="Facebook-IoT"><a href="#Facebook-IoT" class="headerlink" title="Facebook IoT"></a>Facebook IoT</h2><p><img src="https://blogs-images.forbes.com/janakirammsv/files/2015/04/FB_Parse.png" alt=""></p>
+<ul>
+<li><p>2013 ~ 2015 : parse에 대한 투자 집중</p>
+<ul>
+<li>BaaS (Back-end as a server) 전략의 일환<br><a href="http://verticalplatform.kr/archives/4524" target="_blank" rel="external">Facebook이 공개한 미래 전략, 그리고 주목되는 IoT 전략</a></li>
+</ul>
+</li>
+<li><p>2016 : parse 에 대한 투자 방향 급감<br><a href="https://www.fool.com/investing/general/2016/02/08/why-facebook-inc-abandoned-its-app-and-internet-of.aspx" target="_blank" rel="external">Why Facebook Inc. Abandoned Its App and Internet of Things Platform</a></p>
+</li>
+</ul>
+
         
         </div>
         <footer class="article-footer">
@@ -545,6 +559,21 @@
             
             <h2 id="C-Open-Source-libraries"><a href="#C-Open-Source-libraries" class="headerlink" title="C++ Open Source libraries"></a>C++ Open Source libraries</h2><p><a href="http://en.cppreference.com/w/cpp/links/libs" target="_blank" rel="external">A list of open source C++ libraries</a></p>
 <h2 id="C-graphics-libraries-in-2D"><a href="#C-graphics-libraries-in-2D" class="headerlink" title="C++ graphics libraries in 2D"></a>C++ graphics libraries in 2D</h2><p><a href="https://www.cairographics.org/cairomm/" target="_blank" rel="external">C++ Graphic library : Cairomm</a><br><a href="https://www.cairographics.org/documentation/cairomm/reference/image-surface_8cc-example.html" target="_blank" rel="external">Cairomm : image-surface</a><br><a href="https://www.cairographics.org/tutorial/" target="_blank" rel="external">Cairomm : tutorial</a></p>
+<p><a href="http://cimg.eu/" target="_blank" rel="external">cImag</a></p>
+<h2 id="CImg-사용법"><a href="#CImg-사용법" class="headerlink" title="CImg 사용법"></a>CImg 사용법</h2><ul>
+<li><p>컴파일 방법</p>
+<p>png를 로드하려면 libpng를 외부에서 가져와 줘야 한다. 그러기 위해서는 libpng를 미리 설치해 주어야 하고, (libzip은 기본으로 깔려 있다고 가정하자) Make에서 아래 구문을 추가해 주어야 한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-Dcimg_use_png -lpng -lz</div></pre></td></tr></table></figure>
+<p>그러면 실제로 컴파일 할 떄는 아래와 같이 된다. 그냥 한꺼번에 소스에서 포함시켜서 바로 묶어서 build 하는 법에 대해서는 조금 더 자세히 알아봐야 할 것 같다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c++ -o test_simple test_simple.cpp -I.. -Wall -Wextra -Wfatal-errors -std=c++11 -pedantic -Dcimg_use_vt100 -Dcimg_display=1 -I/usr/X11R6/include -lm -L/usr/X11R6/lib <span class="_">-l</span>X11 -lpthread -Dcimg_use_png -lpng -lz</div></pre></td></tr></table></figure>
+</li>
+<li><p>소스코드</p>
+</li>
+</ul>
+<script src="//gist.github.com/8d23a01e419c833ea75353ee9a9649dc.js"></script>
+<h3 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h3><p><a href="http://stackoverflow.com/questions/12084048/how-to-open-png-with-cimg-library-without-losing-alpha-channel" target="_blank" rel="external">when using png file format in cImg</a></p>
+<p><a href="http://stackoverflow.com/questions/32390318/cimg-failed-to-recognize-the-jpg-format" target="_blank" rel="external">when using jpeg file format in cImg</a></p>
+<p><a href="http://developinghappiness.com/?p=28" target="_blank" rel="external">Make 기반 빌드 시스템 (2): Makefile 기초</a></p>
 
         
         </div>

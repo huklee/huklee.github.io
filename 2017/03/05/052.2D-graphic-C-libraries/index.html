@@ -6,18 +6,30 @@
     <title>2D graphic C++ libraries | huklee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="C++ Open Source librariesA list of open source C++ libraries
-C++ graphics libraries in 2DC++ Graphic library : CairommCairomm : image-surfaceCairomm : tutorial">
+C++ graphics libraries in 2DC++ Graphic library : CairommCairomm : image-surfaceCairomm : tutorial
+cImag
+CImg 사용법
+컴파일 방법
+png를 로드하려면 libpng를">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2D graphic C++ libraries">
 <meta property="og:url" content="https://huklee.github.io/2017/03/05/052.2D-graphic-C-libraries/index.html">
 <meta property="og:site_name" content="huklee's blog">
 <meta property="og:description" content="C++ Open Source librariesA list of open source C++ libraries
-C++ graphics libraries in 2DC++ Graphic library : CairommCairomm : image-surfaceCairomm : tutorial">
-<meta property="og:updated_time" content="2017-03-05T08:38:52.000Z">
+C++ graphics libraries in 2DC++ Graphic library : CairommCairomm : image-surfaceCairomm : tutorial
+cImag
+CImg 사용법
+컴파일 방법
+png를 로드하려면 libpng를">
+<meta property="og:updated_time" content="2017-03-12T11:43:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2D graphic C++ libraries">
 <meta name="twitter:description" content="C++ Open Source librariesA list of open source C++ libraries
-C++ graphics libraries in 2DC++ Graphic library : CairommCairomm : image-surfaceCairomm : tutorial">
+C++ graphics libraries in 2DC++ Graphic library : CairommCairomm : image-surfaceCairomm : tutorial
+cImag
+CImg 사용법
+컴파일 방법
+png를 로드하려면 libpng를">
     
 
     
@@ -245,6 +257,21 @@ C++ graphics libraries in 2DC++ Graphic library : CairommCairomm : image-surface
             
             <h2 id="C-Open-Source-libraries"><a href="#C-Open-Source-libraries" class="headerlink" title="C++ Open Source libraries"></a>C++ Open Source libraries</h2><p><a href="http://en.cppreference.com/w/cpp/links/libs" target="_blank" rel="external">A list of open source C++ libraries</a></p>
 <h2 id="C-graphics-libraries-in-2D"><a href="#C-graphics-libraries-in-2D" class="headerlink" title="C++ graphics libraries in 2D"></a>C++ graphics libraries in 2D</h2><p><a href="https://www.cairographics.org/cairomm/" target="_blank" rel="external">C++ Graphic library : Cairomm</a><br><a href="https://www.cairographics.org/documentation/cairomm/reference/image-surface_8cc-example.html" target="_blank" rel="external">Cairomm : image-surface</a><br><a href="https://www.cairographics.org/tutorial/" target="_blank" rel="external">Cairomm : tutorial</a></p>
+<p><a href="http://cimg.eu/" target="_blank" rel="external">cImag</a></p>
+<h2 id="CImg-사용법"><a href="#CImg-사용법" class="headerlink" title="CImg 사용법"></a>CImg 사용법</h2><ul>
+<li><p>컴파일 방법</p>
+<p>png를 로드하려면 libpng를 외부에서 가져와 줘야 한다. 그러기 위해서는 libpng를 미리 설치해 주어야 하고, (libzip은 기본으로 깔려 있다고 가정하자) Make에서 아래 구문을 추가해 주어야 한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-Dcimg_use_png -lpng -lz</div></pre></td></tr></table></figure>
+<p>그러면 실제로 컴파일 할 떄는 아래와 같이 된다. 그냥 한꺼번에 소스에서 포함시켜서 바로 묶어서 build 하는 법에 대해서는 조금 더 자세히 알아봐야 할 것 같다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c++ -o test_simple test_simple.cpp -I.. -Wall -Wextra -Wfatal-errors -std=c++11 -pedantic -Dcimg_use_vt100 -Dcimg_display=1 -I/usr/X11R6/include -lm -L/usr/X11R6/lib <span class="_">-l</span>X11 -lpthread -Dcimg_use_png -lpng -lz</div></pre></td></tr></table></figure>
+</li>
+<li><p>소스코드</p>
+</li>
+</ul>
+<script src="//gist.github.com/8d23a01e419c833ea75353ee9a9649dc.js"></script>
+<h3 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h3><p><a href="http://stackoverflow.com/questions/12084048/how-to-open-png-with-cimg-library-without-losing-alpha-channel" target="_blank" rel="external">when using png file format in cImg</a></p>
+<p><a href="http://stackoverflow.com/questions/32390318/cimg-failed-to-recognize-the-jpg-format" target="_blank" rel="external">when using jpeg file format in cImg</a></p>
+<p><a href="http://developinghappiness.com/?p=28" target="_blank" rel="external">Make 기반 빌드 시스템 (2): Makefile 기초</a></p>
 
         
         </div>
