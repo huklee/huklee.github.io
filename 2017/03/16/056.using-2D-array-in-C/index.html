@@ -17,7 +17,7 @@
 정적 배열 방식 사용정적 배열은 C에서 사용하는 방식과 거의 유사하다. int 배열을 엑세스하기 위해서는 거의 필수적으로 포인터를 넘겨야 한다. 방법은 아래 세 가지 정도가 가장 많이 쓰인다.
 
 2차원의">
-<meta property="og:updated_time" content="2017-03-16T15:30:45.000Z">
+<meta property="og:updated_time" content="2017-03-16T15:32:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="using 2D array in C++">
 <meta name="twitter:description" content="C++ 에서 함수에 매개변수로 2차원 배열을 어떻게 던져주어야 하는 지에 대해서 다뤄보고자 한다. 크게 정적 배열, 동적 배열을 사용하는 방법이 가능하다.
@@ -254,11 +254,11 @@
 <li>row의 개수를 고정시켜서 활동하는 방법이다. 실제 데이터는 new를 사용하여 매핑시켜야 하므로 <code>heap 메모리</code>에 정적으로 쌓인다. row 한 축에 대해서만 컴파일 타임에서 결정되고, <code>col축 데이터는 런타임에서 크기가 결정</code>된다.</li>
 <li>단점 : delete를 사용하여 추가적인 <code>메모리 누수 방지</code>를 고려해야 한다.</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func2</span><span class="params">(<span class="keyword">int</span> *arr[CONST_ROW], <span class="keyword">int</span> num_col)</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; CONST_ROW; i++)</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; num_col; j++)</div><div class="line">      arr[i][j] = val++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> *arr[CONST_ROW];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; CONST_ROW; i++)</div><div class="line">  arr[i] = <span class="keyword">new</span> <span class="keyword">int</span>(CONST_COL);</div><div class="line">func2(arr, CONST_COL);</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> CONST_ROW = <span class="number">3</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func2</span><span class="params">(<span class="keyword">int</span> *arr[CONST_ROW], <span class="keyword">int</span> num_col)</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; CONST_ROW; i++)</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; num_col; j++)</div><div class="line">      arr[i][j] = val++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> *arr[CONST_ROW];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; CONST_ROW; i++)</div><div class="line">  arr[i] = <span class="keyword">new</span> <span class="keyword">int</span>(CONST_COL);</div><div class="line">func2(arr, CONST_COL);</div></pre></td></tr></table></figure>
 </li>
 <li><p>1차원의 배열을 2차원의 배열처럼 활용하는 방법</p>
 <ul>
-<li>1차원의 배열을 바로 2차원의 배열처럼 매핑시켜서 활용하는 방법이다. 메모리를 잡A을 때는 정적, 동적 양쪽 모두 활용하는 것이 가능하다.</li>
+<li>1차원의 배열을 바로 2차원의 배열처럼 매핑시켜서 활용하는 방법이다. 메모리를 잡을 때는 정적, 동적 양쪽 모두 활용하는 것이 가능하다.</li>
 <li>장점 : <code>row, col 양 차원 모두에 대해서 런타임에서 크기를 결정</code> 가능하다.</li>
 <li>단점 : 다만 각 데이터에 엑세스할 때 <code>arr[i*num_row + j]</code>와 같은 식으로 사용해야 하는 점에서 직관적이지 못한 단점이 있다.</li>
 </ul>
