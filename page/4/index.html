@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                55
+                56
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -194,6 +194,191 @@
 
             
             <section id="main">
+    <article id="post-027.Cracking the coding interview summary" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/01/30/027.Cracking the coding interview summary/">Cracking the coding interview summary</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/30/027.Cracking the coding interview summary/">
+            <time datetime="2017-01-29T17:22:38.000Z" itemprop="datePublished">2017-01-30</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Tips/">Tips</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Data-Structure/">Data Structure</a>, <a class="tag-link" href="/tags/algorithm/">algorithm</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Important-Data-Structure"><a href="#Important-Data-Structure" class="headerlink" title="Important Data Structure"></a>Important Data Structure</h1><ul>
+<li>array &amp; string</li>
+<li>linked Lists</li>
+<li>stack &amp; queue</li>
+<li>tree &amp; graph</li>
+</ul>
+<h1 id="Important-algorithms-amp-concepts"><a href="#Important-algorithms-amp-concepts" class="headerlink" title="Important algorithms &amp; concepts"></a>Important algorithms &amp; concepts</h1><ul>
+<li>bit manipulations</li>
+<li>probabilities</li>
+<li>OOP</li>
+<li>Recursive &amp; Dynamic Programming</li>
+<li>Sort &amp; Search</li>
+<li>Scalability &amp; memory issues</li>
+<li>Testing</li>
+</ul>
+<h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a>Knowledge</h1><ul>
+<li>C++</li>
+<li>database</li>
+<li>thread &amp; lock</li>
+</ul>
+<h2 id="Data-Structure-terms"><a href="#Data-Structure-terms" class="headerlink" title="Data Structure terms"></a>Data Structure terms</h2><h3 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h3><blockquote>
+<p><code>Tree</code> =  acyclic graph</p>
+<p><code>Binary tree</code> = tree that consists of 2-children nodes</p>
+<p><code>Binary Search Tree</code> = binary tree with the relationship between all parent(p) and left child(l), right child(r), such that l.val &lt;= p.val &lt; r.val</p>
+<p><code>Depth</code></p>
+<blockquote>
+<p>Min : <code>logn</code> // Max : <code>n</code></p>
+</blockquote>
+<p><code>Search</code></p>
+<blockquote>
+<p>Best : <code>O(logn)</code> // Wost : <code>O(n)</code></p>
+</blockquote>
+<p><code>Traverse</code></p>
+<blockquote>
+<p><code>pre-order</code> : parent -&gt; left subtree -&gt; right subtree</p>
+<p><code>in-order</code> : left subtree -&gt; parent -&gt; right subtree</p>
+<p><code>post-order</code> : left subtree -&gt; right subtree -&gt; parent</p>
+</blockquote>
+<p><code>Balanced BST</code></p>
+<blockquote>
+<p>Red-Black Tree</p>
+<p>AVL Tree</p>
+<p><a href="https://en.wikipedia.org/wiki/Treap" target="_blank" rel="external"><code>Treap</code></a> : tree + heap, randomized binary search tree</p>
+</blockquote>
+</blockquote>
+<h3 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h3><blockquote>
+<p>node implementation</p>
+<blockquote>
+<p><code>Array</code> vs <code>Dynamic memory</code></p>
+</blockquote>
+</blockquote>
+<h2 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h2><p><a href="https://en.wikipedia.org/wiki/Tree_structure" target="_blank" rel="external">Tree Data structure</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Binary_tree" target="_blank" rel="external">Binary Tree</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Binary_search_tree" target="_blank" rel="external">BST</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/01/30/027.Cracking the coding interview summary/" data-id="cj0cjz2j0001nrj63soce5wsg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/01/30/027.Cracking the coding interview summary/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/30/027.Cracking the coding interview summary/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-026.my-vim-cheat-sheet" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -262,7 +447,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/29/026.my-vim-cheat-sheet/" data-id="cj0b2qhhw001yol6321gdz7gg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/29/026.my-vim-cheat-sheet/" data-id="cj0cjz2jx002rrj634s3lii7l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -404,7 +589,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/28/023.Binary-search-problem/" data-id="cj0b2qhhc0019ol63sjlyhdiw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/28/023.Binary-search-problem/" data-id="cj0cjz2it001drj63h2iy5pvp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -552,7 +737,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/28/022.SQL-tutorials/" data-id="cj0b2qhhj001kol63hvchim49" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/28/022.SQL-tutorials/" data-id="cj0cjz2j2001qrj63iwpo5eyw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -705,7 +890,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/28/021.SQL-all-kinds-of-join-queries/" data-id="cj0b2qhh70013ol63dw79oo7y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/28/021.SQL-all-kinds-of-join-queries/" data-id="cj0cjz2iy001lrj63ozbcb623" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -852,7 +1037,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/22/020.counting-millisec-time-in-bash-on-Mac/" data-id="cj0b2qhhg001gol638dvy9eim" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/22/020.counting-millisec-time-in-bash-on-Mac/" data-id="cj0cjz2in0017rj63pqnzcliw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1032,7 +1217,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/21/019.markdown-cheat-sheet/" data-id="cj0b2qhgz000yol63vo2m79bp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/21/019.markdown-cheat-sheet/" data-id="cj0cjz2iv001grj63gabav5ww" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1165,7 +1350,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/21/018.algospot-traversal/" data-id="cj0b2qhhe001dol6390qs03hd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/21/018.algospot-traversal/" data-id="cj0cjz2ip0019rj63tfau2zc1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1379,7 +1564,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/21/017.intro-to-design-patterns/" data-id="cj0b2qhgv000vol63q0trkkkd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/21/017.intro-to-design-patterns/" data-id="cj0cjz2i9000trj6363mx4ou7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1526,7 +1711,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/19/015.How-to-use-C-STL-well/" data-id="cj0b2qhh50011ol63xqvwdhtt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/19/015.How-to-use-C-STL-well/" data-id="cj0cjz2id000vrj6344gtvqen" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1604,155 +1789,6 @@
 
 
 
-    <article id="post-025.Things-interesting" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/18/025.Things-interesting/">Things interesting</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/18/025.Things-interesting/">
-            <time datetime="2017-01-18T00:08:31.000Z" itemprop="datePublished">2017-01-18</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/etc/">etc</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/education/">education</a>, <a class="tag-link" href="/tags/etc/">etc</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="Education"><a href="#Education" class="headerlink" title="Education"></a>Education</h1><h2 id="MOOC"><a href="#MOOC" class="headerlink" title="MOOC"></a>MOOC</h2><ul>
-<li><a href="https://www.udacity.com/course/intro-to-data-science--ud359" target="_blank" rel="external">Udacity / Intro do Big data</a><ul>
-<li>Free / 2 Months</li>
-</ul>
-</li>
-<li><a href="https://www.udacity.com/course/intro-to-hadoop-and-mapreduce--ud617" target="_blank" rel="external">Udacity / Intro to Hadoop and Mapreduce</a><ul>
-<li>Free / 1 Month</li>
-</ul>
-</li>
-<li><a href="https://www.coursera.org/specializations/jhu-data-science" target="_blank" rel="external">Coursera / Data Science specialization</a><ul>
-<li>$49.00 USDper month / 3~6 months</li>
-</ul>
-</li>
-<li><a href="https://www.coursera.org/specializations/scala" target="_blank" rel="external">Coursera / Functional Programming in Scala specialization</a><ul>
-<li>$395 USD / 4~5 months</li>
-</ul>
-</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/01/18/025.Things-interesting/" data-id="cj0b2qhho001rol63kyma1huc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/01/18/025.Things-interesting/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/18/025.Things-interesting/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
@@ -1765,6 +1801,25 @@
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/03/16/056.using-2D-array-in-C/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/03/16/056.using-2D-array-in-C/" class="title">using 2D array in C++</a></p>
+                            <p class="item-date"><time datetime="2017-03-16T14:49:43.000Z" itemprop="datePublished">2017-03-16</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1842,25 +1897,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/03/01/051.introduction-to-system-design/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/03/01/051.introduction-to-system-design/" class="title">introduction to system design</a></p>
-                            <p class="item-date"><time datetime="2017-03-01T06:16:57.000Z" itemprop="datePublished">2017-03-01</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1879,7 +1915,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 

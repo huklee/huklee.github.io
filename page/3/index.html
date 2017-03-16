@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                55
+                56
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -194,6 +194,148 @@
 
             
             <section id="main">
+    <article id="post-036.SOLID-Design-principles" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/02/10/036.SOLID-Design-principles/">SOLID Design principles by GoF</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/02/10/036.SOLID-Design-principles/">
+            <time datetime="2017-02-10T14:01:06.000Z" itemprop="datePublished">2017-02-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/programming/">programming</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/design-patterns/">design patterns</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="SOLID-Design-principles-by-GoF"><a href="#SOLID-Design-principles-by-GoF" class="headerlink" title="SOLID Design principles by GoF"></a>SOLID Design principles by GoF</h1><p>There are five well-known software design principles from the book “Head First, Design Patterns”. Nothing’s absolute, but classical things are great enough to know and have a look on it.</p>
+<h2 id="S-Single-responsibility"><a href="#S-Single-responsibility" class="headerlink" title="S : Single responsibility"></a>S : Single responsibility</h2><h2 id="O-OCP-Open-Close-Principles"><a href="#O-OCP-Open-Close-Principles" class="headerlink" title="O : OCP, Open / Close Principles"></a>O : OCP, Open / Close Principles</h2><ul>
+<li>Objects should be open for extension, but closed for modification.</li>
+<li>클래스(객체)는 확장에 대해서는 열려있어야 한다. 하지만, 코드 변경에 대해서는 닫혀 있어야 한다.</li>
+</ul>
+<h2 id="L"><a href="#L" class="headerlink" title="L"></a>L</h2><h2 id="I"><a href="#I" class="headerlink" title="I"></a>I</h2><h2 id="D-Dependency-Inversion-Principles"><a href="#D-Dependency-Inversion-Principles" class="headerlink" title="D : Dependency Inversion Principles"></a>D : Dependency Inversion Principles</h2><ul>
+<li>if you want an easier life as a coder, “depend on abstractions, not concretions”</li>
+<li><p>추상화된 것에 의존하도록 만들어라. 구상 클래스에 의존하도록 만들지 않아야 한다.</p>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="https://quickleft.com/blog/solid-design-principles/" target="_blank" rel="external">SOLID design principles</a></p>
+</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/02/10/036.SOLID-Design-principles/" data-id="cj0cjz2jz002urj6371wwnq17" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/02/10/036.SOLID-Design-principles/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/10/036.SOLID-Design-principles/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-035.traverse-algorithms" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -296,7 +438,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/07/035.traverse-algorithms/" data-id="cj0b2qhih002ool63c5s3pano" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/07/035.traverse-algorithms/" data-id="cj0cjz2k1002xrj6351kjlzrb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -486,7 +628,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/" data-id="cj0b2qhif002lol63cmepn41b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/" data-id="cj0cjz2jl0028rj631jex8u4w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -619,7 +761,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/06/033.Ubuntu-TIps-Ubuntu-Desktop-certified-hardware/" data-id="cj0b2qhic002gol637ceuq3sl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/06/033.Ubuntu-TIps-Ubuntu-Desktop-certified-hardware/" data-id="cj0cjz2jp002grj63l5grf281" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -784,7 +926,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/06/032.install-Tensorflow-on-Mac-air/" data-id="cj0b2qhi9002dol63zzrxo8rp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/06/032.install-Tensorflow-on-Mac-air/" data-id="cj0cjz2ji0025rj63rzqn7r46" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -919,7 +1061,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/" data-id="cj0b2qhi70029ol630wljy5lw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/" data-id="cj0cjz2jn002drj635wxuizui" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1066,7 +1208,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/04/016-Master-theorem/" data-id="cj0b2qhha0017ol63k62xt83l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/04/016-Master-theorem/" data-id="cj0cjz2il0013rj636kina7u2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1276,7 +1418,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/01/030.Summay_Hackerrank_Gayle_Mc/" data-id="cj0b2qhi50027ol636aixb55j" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/01/030.Summay_Hackerrank_Gayle_Mc/" data-id="cj0cjz2je0021rj63ixanj7qt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1480,7 +1622,7 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/01/029.Linux+Tips/" data-id="cj0b2qhi10023ol6301boay5t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/01/029.Linux+Tips/" data-id="cj0cjz2j5001trj63w27rw75n" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1640,7 +1782,7 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/01/31/028.Install-R-Rstudio-in-CLI/" data-id="cj0b2qhhz0021ol63761acphn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/01/31/028.Install-R-Rstudio-in-CLI/" data-id="cj0cjz2jc001zrj636tg65xfu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1718,191 +1860,6 @@ bashcmd (<span class="string">'ls -al'</span>)
 
 
 
-    <article id="post-027.Cracking the coding interview summary" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/30/027.Cracking the coding interview summary/">Cracking the coding interview summary</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/30/027.Cracking the coding interview summary/">
-            <time datetime="2017-01-29T17:22:38.000Z" itemprop="datePublished">2017-01-30</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Tips/">Tips</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Data-Structure/">Data Structure</a>, <a class="tag-link" href="/tags/algorithm/">algorithm</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="Important-Data-Structure"><a href="#Important-Data-Structure" class="headerlink" title="Important Data Structure"></a>Important Data Structure</h1><ul>
-<li>array &amp; string</li>
-<li>linked Lists</li>
-<li>stack &amp; queue</li>
-<li>tree &amp; graph</li>
-</ul>
-<h1 id="Important-algorithms-amp-concepts"><a href="#Important-algorithms-amp-concepts" class="headerlink" title="Important algorithms &amp; concepts"></a>Important algorithms &amp; concepts</h1><ul>
-<li>bit manipulations</li>
-<li>probabilities</li>
-<li>OOP</li>
-<li>Recursive &amp; Dynamic Programming</li>
-<li>Sort &amp; Search</li>
-<li>Scalability &amp; memory issues</li>
-<li>Testing</li>
-</ul>
-<h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a>Knowledge</h1><ul>
-<li>C++</li>
-<li>database</li>
-<li>thread &amp; lock</li>
-</ul>
-<h2 id="Data-Structure-terms"><a href="#Data-Structure-terms" class="headerlink" title="Data Structure terms"></a>Data Structure terms</h2><h3 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h3><blockquote>
-<p><code>Tree</code> =  acyclic graph</p>
-<p><code>Binary tree</code> = tree that consists of 2-children nodes</p>
-<p><code>Binary Search Tree</code> = binary tree with the relationship between all parent(p) and left child(l), right child(r), such that l.val &lt;= p.val &lt; r.val</p>
-<p><code>Depth</code></p>
-<blockquote>
-<p>Min : <code>logn</code> // Max : <code>n</code></p>
-</blockquote>
-<p><code>Search</code></p>
-<blockquote>
-<p>Best : <code>O(logn)</code> // Wost : <code>O(n)</code></p>
-</blockquote>
-<p><code>Traverse</code></p>
-<blockquote>
-<p><code>pre-order</code> : parent -&gt; left subtree -&gt; right subtree</p>
-<p><code>in-order</code> : left subtree -&gt; parent -&gt; right subtree</p>
-<p><code>post-order</code> : left subtree -&gt; right subtree -&gt; parent</p>
-</blockquote>
-<p><code>Balanced BST</code></p>
-<blockquote>
-<p>Red-Black Tree</p>
-<p>AVL Tree</p>
-<p><a href="https://en.wikipedia.org/wiki/Treap" target="_blank" rel="external"><code>Treap</code></a> : tree + heap, randomized binary search tree</p>
-</blockquote>
-</blockquote>
-<h3 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h3><blockquote>
-<p>node implementation</p>
-<blockquote>
-<p><code>Array</code> vs <code>Dynamic memory</code></p>
-</blockquote>
-</blockquote>
-<h2 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h2><p><a href="https://en.wikipedia.org/wiki/Tree_structure" target="_blank" rel="external">Tree Data structure</a></p>
-<p><a href="https://en.wikipedia.org/wiki/Binary_tree" target="_blank" rel="external">Binary Tree</a></p>
-<p><a href="https://en.wikipedia.org/wiki/Binary_search_tree" target="_blank" rel="external">BST</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/01/30/027.Cracking the coding interview summary/" data-id="cj0b2qhhr001uol639tjlzvyh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/01/30/027.Cracking the coding interview summary/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/01/30/027.Cracking the coding interview summary/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
@@ -1915,6 +1872,25 @@ bashcmd (<span class="string">'ls -al'</span>)
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/03/16/056.using-2D-array-in-C/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/03/16/056.using-2D-array-in-C/" class="title">using 2D array in C++</a></p>
+                            <p class="item-date"><time datetime="2017-03-16T14:49:43.000Z" itemprop="datePublished">2017-03-16</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1992,25 +1968,6 @@ bashcmd (<span class="string">'ls -al'</span>)
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/03/01/051.introduction-to-system-design/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/03/01/051.introduction-to-system-design/" class="title">introduction to system design</a></p>
-                            <p class="item-date"><time datetime="2017-03-01T06:16:57.000Z" itemprop="datePublished">2017-03-01</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -2029,7 +1986,7 @@ bashcmd (<span class="string">'ls -al'</span>)
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 

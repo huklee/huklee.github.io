@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                55
+                56
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -194,6 +194,157 @@
 
             
             <section id="main">
+    <article id="post-056.using-2D-array-in-C" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/03/16/056.using-2D-array-in-C/">using 2D array in C++</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/16/056.using-2D-array-in-C/">
+            <time datetime="2017-03-16T14:49:43.000Z" itemprop="datePublished">2017-03-16</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>C++ 에서 함수에 매개변수로 2차원 배열을 어떻게 던져주어야 하는 지에 대해서 다뤄보고자 한다. 크게 <code>정적 배열</code>, <code>동적 배열</code>을 사용하는 방법이 가능하다.</p>
+<h2 id="정적-배열-방식-사용"><a href="#정적-배열-방식-사용" class="headerlink" title="정적 배열 방식 사용"></a>정적 배열 방식 사용</h2><p>정적 배열은 C에서 사용하는 방식과 거의 유사하다. int 배열을 엑세스하기 위해서는 거의 필수적으로 포인터를 넘겨야 한다. 방법은 아래 세 가지 정도가 가장 많이 쓰인다.</p>
+<ol>
+<li><p>2차원의 고정배열을 사용하는 방법</p>
+<ul>
+<li><code>고정된 배열</code>을 가지고 있다면 가장 편하게 사용할 수 있는 방법이다. 실제 데이터도 정적인 함수 내의 stack만을 사용하는 특징이 있다.</li>
+<li>단점 : 다만 <code>컴파일 타임에서 row, col 각 차원의 크기가 고정</code>되어 버린다.</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> CONST_ROW = <span class="number">3</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> CONST_COL = <span class="number">2</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> arr[CONST_ROW][CONST_COL])</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; CONST_COL; i++)</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; CONST_COL; j++)</div><div class="line">      arr[i][j] = val++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> arr[CONST_ROW][CONST_COL];</div><div class="line">func(arr);</div></pre></td></tr></table></figure>
+</li>
+<li><p>고정배열의 포인터를 활용하는 방법</p>
+<ul>
+<li>row의 개수를 고정시켜서 활동하는 방법이다. 실제 데이터는 new를 사용하여 매핑시켜야 하므로 <code>heap 메모리</code>에 정적으로 쌓인다. row 한 축에 대해서만 컴파일 타임에서 결정되고, <code>col축 데이터는 런타임에서 크기가 결정</code>된다.</li>
+<li>단점 : delete를 사용하여 추가적인 <code>메모리 누수 방지</code>를 고려해야 한다.</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func2</span><span class="params">(<span class="keyword">int</span> *arr[CONST_ROW], <span class="keyword">int</span> num_col)</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; CONST_ROW; i++)</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; num_col; j++)</div><div class="line">      arr[i][j] = val++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> *arr[CONST_ROW];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; CONST_ROW; i++)</div><div class="line">  arr[i] = <span class="keyword">new</span> <span class="keyword">int</span>(CONST_COL);</div><div class="line">func2(arr, CONST_COL);</div></pre></td></tr></table></figure>
+</li>
+<li><p>1차원의 배열을 2차원의 배열처럼 활용하는 방법</p>
+<ul>
+<li>1차원의 배열을 바로 2차원의 배열처럼 매핑시켜서 활용하는 방법이다. 메모리를 잡A을 때는 정적, 동적 양쪽 모두 활용하는 것이 가능하다.</li>
+<li>장점 : <code>row, col 양 차원 모두에 대해서 런타임에서 크기를 결정</code> 가능하다.</li>
+<li>단점 : 다만 각 데이터에 엑세스할 때 <code>arr[i*num_row + j]</code>와 같은 식으로 사용해야 하는 점에서 직관적이지 못한 단점이 있다.</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func3</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> num_row, <span class="keyword">int</span> num_col)</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num_row; i++)</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; num_col; j++)</div><div class="line">      arr[i*num_row + j] = val++;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> num_col = <span class="number">3</span>;</div><div class="line"><span class="keyword">int</span> num_row = <span class="number">2</span>;</div><div class="line"><span class="keyword">int</span> arr_static[CONST_ROW*CONST_COL];</div><div class="line"><span class="keyword">int</span> *arr_dynamic = <span class="keyword">new</span> <span class="keyword">int</span>(num_col*num_row);</div><div class="line"></div><div class="line">func3(arr_static, CONST_COL);</div><div class="line">func3(arr_dynamic, CONST_COL);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="동적-배열-방식-사용"><a href="#동적-배열-방식-사용" class="headerlink" title="동적 배열 방식 사용"></a>동적 배열 방식 사용</h2><p>동적 배열을 가장 간단한 방법은 vector를 사용하는 방법이다. <code>vector&lt; vector&lt;type&gt; &gt;</code>과 같은 식으로 사용하면 arr[i][j]와 같은 방법으로 쉽게 엑세스가 가능하다. 마찬가지로 3차원, 4차원 배열에도 같은 방식으로 응용이 가능하다. 정적 배열에서 문제가 있었던 컴파일 타임에서 배열 크기가 결정된다거나 엑세스할 때 비직관적인 방법으로 호출을 한다던가 하는 문제가 전혀 없다.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; &amp;arr)</span></span>&#123;</div><div class="line">  <span class="comment">// initialization</span></div><div class="line">  <span class="comment">// 0 1 2</span></div><div class="line">  <span class="comment">// 3 4 5</span></div><div class="line">  <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.size(); i++)</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr[i].size(); j++)</div><div class="line">          arr[i][j] = val++;</div><div class="line"></div><div class="line">  <span class="comment">// print values</span></div><div class="line">  <span class="keyword">for</span> (<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec : arr) &#123;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> n : vec)</div><div class="line">          <span class="built_in">cout</span> &lt;&lt; n &lt;&lt; <span class="string">" "</span>;</div><div class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; arr(<span class="number">3</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(<span class="number">2</span>, <span class="number">0</span>));</div><div class="line">func(arr);</div></pre></td></tr></table></figure>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="http://sunnyholic.com/93" target="_blank" rel="external">vector를 사용한 C++의 이차원 배열 사용</a></p>
+<p><a href="http://blog.naver.com/PostView.nhn?blogId=sangnam18&amp;logNo=110091958402&amp;redirect=Dlog&amp;widgetTypeCall=true" target="_blank" rel="external">C++에서 정적인 배열로 이차원 배열 구현</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/03/16/056.using-2D-array-in-C/" data-id="cj0cjz2l5004orj633gjcq557" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/03/16/056.using-2D-array-in-C/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/03/16/056.using-2D-array-in-C/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-055.github-tutorials" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -275,7 +426,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/03/15/055.github-tutorials/" data-id="cj0b2qhjt004dol63gvdpz6dr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/03/15/055.github-tutorials/" data-id="cj0cjz2l9004wrj63o1ztzksi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -420,7 +571,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/03/11/054.IoT-Solution-at-Big-4/" data-id="cj0b2qhjy004lol637ozyd6l3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/03/11/054.IoT-Solution-at-Big-4/" data-id="cj0cjz2l7004srj63vtfddwew" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -595,7 +746,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/03/10/053.Effective-C-Summary-Chap-02/" data-id="cj0b2qhjv004hol63occf2lij" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/03/10/053.Effective-C-Summary-Chap-02/" data-id="cj0cjz2l4004lrj63qqy6ut7e" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -758,7 +909,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/03/05/052.2D-graphic-C-libraries/" data-id="cj0b2qhjp0046ol63u89u135h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/03/05/052.2D-graphic-C-libraries/" data-id="cj0cjz2kv0041rj63rd62j6u0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -893,7 +1044,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/03/01/051.introduction-to-system-design/" data-id="cj0b2qhjs0049ol63xabcop80" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/03/01/051.introduction-to-system-design/" data-id="cj0cjz2l2004grj63324gas02" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1109,7 +1260,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/28/050.docker-construct-a-server-with-a-docker-file/" data-id="cj0b2qhjo0043ol63ivou8s81" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/28/050.docker-construct-a-server-with-a-docker-file/" data-id="cj0cjz2ky0049rj638iyjn9ld" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1314,7 +1465,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/28/049.how-to-docker-install/" data-id="cj0b2qhjn0040ol63rmpiuwev" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/28/049.how-to-docker-install/" data-id="cj0cjz2kp003trj634vedj2bs" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1462,7 +1613,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/25/048.python-map-reduce-filter-zip-built-in-functions/" data-id="cj0b2qhjl003wol63ytd2yc65" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/25/048.python-map-reduce-filter-zip-built-in-functions/" data-id="cj0cjz2kt003xrj63ddtrsxdo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1612,7 +1763,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/25/047.mapreduce-in-python/" data-id="cj0b2qhji003sol63g3m3uey0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/25/047.mapreduce-in-python/" data-id="cj0cjz2l0004drj63gw6rk1po" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1690,145 +1841,6 @@
 
 
 
-    <article id="post-046.github-gurus" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/19/046.github-gurus/">github gurus</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/19/046.github-gurus/">
-            <time datetime="2017-02-19T09:03:11.000Z" itemprop="datePublished">2017-02-19</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/github/">github</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/github/">github</a>, <a class="tag-link" href="/tags/gurus/">gurus</a>, <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/python/">python</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="Top-users"><a href="#Top-users" class="headerlink" title="Top users"></a>Top users</h1><h2 id="Jake-Wharton"><a href="#Jake-Wharton" class="headerlink" title="Jake Wharton"></a>Jake Wharton</h2><p> #Java #Butter_knife<br><a href="https://github.com/JakeWharton" target="_blank" rel="external">https://github.com/JakeWharton</a></p>
-<h2 id="Chris-lattner"><a href="#Chris-lattner" class="headerlink" title="Chris lattner"></a>Chris lattner</h2><p> #Swift #Apple<br><a href="https://github.com/lattner" target="_blank" rel="external">https://github.com/lattner</a></p>
-<h2 id="Chris-Banes"><a href="#Chris-Banes" class="headerlink" title="Chris Banes"></a>Chris Banes</h2><p> #Java #Anroid #Pallete<br><a href="https://github.com/chrisbanes" target="_blank" rel="external">https://github.com/chrisbanes</a></p>
-<h2 id="Takayama-Fumihiko"><a href="#Takayama-Fumihiko" class="headerlink" title="Takayama Fumihiko"></a>Takayama Fumihiko</h2><p> #C++ #Karbiner<br><a href="https://github.com/tekezo" target="_blank" rel="external">https://github.com/tekezo</a></p>
-<h2 id="Donne-Martin"><a href="#Donne-Martin" class="headerlink" title="Donne Martin"></a>Donne Martin</h2><p> #python #ipython #gitsome #saws<br><a href="https://github.com/donnemartin" target="_blank" rel="external">https://github.com/donnemartin</a></p>
-<h2 id="Kenneth-Reitz"><a href="#Kenneth-Reitz" class="headerlink" title="Kenneth Reitz"></a>Kenneth Reitz</h2><p> #python #requests #python-guide<br><a href="https://github.com/kennethreitz" target="_blank" rel="external">https://github.com/kennethreitz</a></p>
-<h2 id="Armin-Ronacher-mitsuhiko"><a href="#Armin-Ronacher-mitsuhiko" class="headerlink" title="Armin Ronacher (mitsuhiko)"></a>Armin Ronacher (mitsuhiko)</h2><p> #python #flask #pallets<br><a href="https://github.com/mitsuhiko" target="_blank" rel="external">https://github.com/mitsuhiko</a></p>
-<h2 id="Usefult-links"><a href="#Usefult-links" class="headerlink" title="Usefult links"></a>Usefult links</h2><p><a href="http://git-awards.com/users?utf8=%E2%9C%93&amp;type=world&amp;language=python" target="_blank" rel="external">python git awards</a><br><a href="http://git-awards.com/users?utf8=%E2%9C%93&amp;type=world&amp;language=java" target="_blank" rel="external">Java git awards</a><br><a href="http://git-awards.com/users?utf8=%E2%9C%93&amp;type=world&amp;language=javascript" target="_blank" rel="external">javascript git awards</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/02/19/046.github-gurus/" data-id="cj0b2qhjf003ool63xtdtrzib" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/02/19/046.github-gurus/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/19/046.github-gurus/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -1841,6 +1853,25 @@
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/03/16/056.using-2D-array-in-C/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/03/16/056.using-2D-array-in-C/" class="title">using 2D array in C++</a></p>
+                            <p class="item-date"><time datetime="2017-03-16T14:49:43.000Z" itemprop="datePublished">2017-03-16</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1918,25 +1949,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/03/01/051.introduction-to-system-design/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/03/01/051.introduction-to-system-design/" class="title">introduction to system design</a></p>
-                            <p class="item-date"><time datetime="2017-03-01T06:16:57.000Z" itemprop="datePublished">2017-03-01</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1955,7 +1967,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 

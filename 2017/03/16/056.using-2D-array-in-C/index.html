@@ -3,18 +3,27 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Swift Tutorial | huklee&#39;s blog</title>
+    <title>using 2D array in C++ | huklee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Swift TutorialSwift Tutorial pageSwift Playground">
+    <meta name="description" content="C++ 에서 함수에 매개변수로 2차원 배열을 어떻게 던져주어야 하는 지에 대해서 다뤄보고자 한다. 크게 정적 배열, 동적 배열을 사용하는 방법이 가능하다.
+정적 배열 방식 사용정적 배열은 C에서 사용하는 방식과 거의 유사하다. int 배열을 엑세스하기 위해서는 거의 필수적으로 포인터를 넘겨야 한다. 방법은 아래 세 가지 정도가 가장 많이 쓰인다.
+
+2차원의">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift Tutorial">
-<meta property="og:url" content="https://huklee.github.io/2016/11/25/002.Swift-Tutorial/index.html">
+<meta property="og:title" content="using 2D array in C++">
+<meta property="og:url" content="https://huklee.github.io/2017/03/16/056.using-2D-array-in-C/index.html">
 <meta property="og:site_name" content="huklee's blog">
-<meta property="og:description" content="Swift TutorialSwift Tutorial pageSwift Playground">
-<meta property="og:updated_time" content="2017-01-18T00:02:30.000Z">
+<meta property="og:description" content="C++ 에서 함수에 매개변수로 2차원 배열을 어떻게 던져주어야 하는 지에 대해서 다뤄보고자 한다. 크게 정적 배열, 동적 배열을 사용하는 방법이 가능하다.
+정적 배열 방식 사용정적 배열은 C에서 사용하는 방식과 거의 유사하다. int 배열을 엑세스하기 위해서는 거의 필수적으로 포인터를 넘겨야 한다. 방법은 아래 세 가지 정도가 가장 많이 쓰인다.
+
+2차원의">
+<meta property="og:updated_time" content="2017-03-16T15:30:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift Tutorial">
-<meta name="twitter:description" content="Swift TutorialSwift Tutorial pageSwift Playground">
+<meta name="twitter:title" content="using 2D array in C++">
+<meta name="twitter:description" content="C++ 에서 함수에 매개변수로 2차원 배열을 어떻게 던져주어야 하는 지에 대해서 다뤄보고자 한다. 크게 정적 배열, 동적 배열을 사용하는 방법이 가능하다.
+정적 배열 방식 사용정적 배열은 C에서 사용하는 방식과 거의 유사하다. int 배열을 엑세스하기 위해서는 거의 필수적으로 포인터를 넘겨야 한다. 방법은 아래 세 가지 정도가 가장 많이 쓰인다.
+
+2차원의">
     
 
     
@@ -197,7 +206,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-002.Swift-Tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-056.using-2D-array-in-C" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -205,7 +214,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Swift Tutorial
+            using 2D array in C++
         </h1>
     
 
@@ -214,24 +223,14 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/11/25/002.Swift-Tutorial/">
-            <time datetime="2016-11-25T08:12:10.000Z" itemprop="datePublished">2016-11-25</time>
+        <a href="/2017/03/16/056.using-2D-array-in-C/">
+            <time datetime="2017-03-16T14:49:43.000Z" itemprop="datePublished">2017-03-16</time>
         </a>
     </div>
 
 
                         
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Tutorial/">Tutorial</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tutorial/Swift/">Swift</a>
-    </div>
-
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Swift-Cocoa-AppCode/">Swift, Cocoa, AppCode</a>
-    </div>
-
                     </div>
                 
             </header>
@@ -240,7 +239,37 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="Swift-Tutorial"><a href="#Swift-Tutorial" class="headerlink" title="Swift Tutorial"></a>Swift Tutorial</h1><h2 id="Swift-Tutorial-page"><a href="#Swift-Tutorial-page" class="headerlink" title="Swift Tutorial page"></a>Swift Tutorial page</h2><h2 id="Swift-Playground"><a href="#Swift-Playground" class="headerlink" title="Swift Playground"></a>Swift Playground</h2>
+            <p>C++ 에서 함수에 매개변수로 2차원 배열을 어떻게 던져주어야 하는 지에 대해서 다뤄보고자 한다. 크게 <code>정적 배열</code>, <code>동적 배열</code>을 사용하는 방법이 가능하다.</p>
+<h2 id="정적-배열-방식-사용"><a href="#정적-배열-방식-사용" class="headerlink" title="정적 배열 방식 사용"></a>정적 배열 방식 사용</h2><p>정적 배열은 C에서 사용하는 방식과 거의 유사하다. int 배열을 엑세스하기 위해서는 거의 필수적으로 포인터를 넘겨야 한다. 방법은 아래 세 가지 정도가 가장 많이 쓰인다.</p>
+<ol>
+<li><p>2차원의 고정배열을 사용하는 방법</p>
+<ul>
+<li><code>고정된 배열</code>을 가지고 있다면 가장 편하게 사용할 수 있는 방법이다. 실제 데이터도 정적인 함수 내의 stack만을 사용하는 특징이 있다.</li>
+<li>단점 : 다만 <code>컴파일 타임에서 row, col 각 차원의 크기가 고정</code>되어 버린다.</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> CONST_ROW = <span class="number">3</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> CONST_COL = <span class="number">2</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> arr[CONST_ROW][CONST_COL])</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; CONST_COL; i++)</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; CONST_COL; j++)</div><div class="line">      arr[i][j] = val++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> arr[CONST_ROW][CONST_COL];</div><div class="line">func(arr);</div></pre></td></tr></table></figure>
+</li>
+<li><p>고정배열의 포인터를 활용하는 방법</p>
+<ul>
+<li>row의 개수를 고정시켜서 활동하는 방법이다. 실제 데이터는 new를 사용하여 매핑시켜야 하므로 <code>heap 메모리</code>에 정적으로 쌓인다. row 한 축에 대해서만 컴파일 타임에서 결정되고, <code>col축 데이터는 런타임에서 크기가 결정</code>된다.</li>
+<li>단점 : delete를 사용하여 추가적인 <code>메모리 누수 방지</code>를 고려해야 한다.</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func2</span><span class="params">(<span class="keyword">int</span> *arr[CONST_ROW], <span class="keyword">int</span> num_col)</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; CONST_ROW; i++)</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; num_col; j++)</div><div class="line">      arr[i][j] = val++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> *arr[CONST_ROW];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; CONST_ROW; i++)</div><div class="line">  arr[i] = <span class="keyword">new</span> <span class="keyword">int</span>(CONST_COL);</div><div class="line">func2(arr, CONST_COL);</div></pre></td></tr></table></figure>
+</li>
+<li><p>1차원의 배열을 2차원의 배열처럼 활용하는 방법</p>
+<ul>
+<li>1차원의 배열을 바로 2차원의 배열처럼 매핑시켜서 활용하는 방법이다. 메모리를 잡A을 때는 정적, 동적 양쪽 모두 활용하는 것이 가능하다.</li>
+<li>장점 : <code>row, col 양 차원 모두에 대해서 런타임에서 크기를 결정</code> 가능하다.</li>
+<li>단점 : 다만 각 데이터에 엑세스할 때 <code>arr[i*num_row + j]</code>와 같은 식으로 사용해야 하는 점에서 직관적이지 못한 단점이 있다.</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func3</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> num_row, <span class="keyword">int</span> num_col)</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num_row; i++)</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; num_col; j++)</div><div class="line">      arr[i*num_row + j] = val++;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> num_col = <span class="number">3</span>;</div><div class="line"><span class="keyword">int</span> num_row = <span class="number">2</span>;</div><div class="line"><span class="keyword">int</span> arr_static[CONST_ROW*CONST_COL];</div><div class="line"><span class="keyword">int</span> *arr_dynamic = <span class="keyword">new</span> <span class="keyword">int</span>(num_col*num_row);</div><div class="line"></div><div class="line">func3(arr_static, CONST_COL);</div><div class="line">func3(arr_dynamic, CONST_COL);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="동적-배열-방식-사용"><a href="#동적-배열-방식-사용" class="headerlink" title="동적 배열 방식 사용"></a>동적 배열 방식 사용</h2><p>동적 배열을 가장 간단한 방법은 vector를 사용하는 방법이다. <code>vector&lt; vector&lt;type&gt; &gt;</code>과 같은 식으로 사용하면 arr[i][j]와 같은 방법으로 쉽게 엑세스가 가능하다. 마찬가지로 3차원, 4차원 배열에도 같은 방식으로 응용이 가능하다. 정적 배열에서 문제가 있었던 컴파일 타임에서 배열 크기가 결정된다거나 엑세스할 때 비직관적인 방법으로 호출을 한다던가 하는 문제가 전혀 없다.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; &amp;arr)</span></span>&#123;</div><div class="line">  <span class="comment">// initialization</span></div><div class="line">  <span class="comment">// 0 1 2</span></div><div class="line">  <span class="comment">// 3 4 5</span></div><div class="line">  <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.size(); i++)</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr[i].size(); j++)</div><div class="line">          arr[i][j] = val++;</div><div class="line"></div><div class="line">  <span class="comment">// print values</span></div><div class="line">  <span class="keyword">for</span> (<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec : arr) &#123;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> n : vec)</div><div class="line">          <span class="built_in">cout</span> &lt;&lt; n &lt;&lt; <span class="string">" "</span>;</div><div class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; arr(<span class="number">3</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(<span class="number">2</span>, <span class="number">0</span>));</div><div class="line">func(arr);</div></pre></td></tr></table></figure>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="http://sunnyholic.com/93" target="_blank" rel="external">vector를 사용한 C++의 이차원 배열 사용</a></p>
+<p><a href="http://blog.naver.com/PostView.nhn?blogId=sangnam18&amp;logNo=110091958402&amp;redirect=Dlog&amp;widgetTypeCall=true" target="_blank" rel="external">C++에서 정적인 배열로 이차원 배열 구현</a></p>
+
         
         </div>
         <footer class="article-footer">
@@ -250,7 +279,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2016/11/25/002.Swift-Tutorial/" data-id="cj0cjz2h50006rj636s8jo9o2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/03/16/056.using-2D-array-in-C/" data-id="cj0cjz2l5004orj633gjcq557" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -318,7 +347,7 @@
 
             
     
-        <a href="https://huklee.github.io/2016/11/25/002.Swift-Tutorial/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2016/11/25/002.Swift-Tutorial/">Comments</a>
+        <a href="https://huklee.github.io/2017/03/16/056.using-2D-array-in-C/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/03/16/056.using-2D-array-in-C/">Comments</a>
     
 
         </footer>
@@ -327,19 +356,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/11/25/003.Timezone-Test/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    Timezone Test
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/11/21/001.hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/03/15/055.github-tutorials/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Hello World</div>
+            <div class="article-nav-title">github tutorials</div>
         </a>
     
 </nav>
@@ -539,9 +559,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'https://huklee.github.io/2016/11/25/002.Swift-Tutorial/';
+            this.page.url = 'https://huklee.github.io/2017/03/16/056.using-2D-array-in-C/';
         
-        this.page.identifier = '002.Swift-Tutorial';
+        this.page.identifier = '056.using-2D-array-in-C';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
