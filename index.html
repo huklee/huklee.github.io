@@ -730,7 +730,22 @@
 </li>
 </ul>
 <script src="//gist.github.com/8d23a01e419c833ea75353ee9a9649dc.js"></script>
-<h3 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h3><p><a href="http://stackoverflow.com/questions/12084048/how-to-open-png-with-cimg-library-without-losing-alpha-channel" target="_blank" rel="external">when using png file format in cImg</a></p>
+<h1 id="Image-format-source-libraries"><a href="#Image-format-source-libraries" class="headerlink" title="Image format source libraries"></a>Image format source libraries</h1><h2 id="libpng"><a href="#libpng" class="headerlink" title="libpng"></a>libpng</h2><p>png파일을 읽을 수 있는 원본 소스. C로 짜여져 있으며, binary로 받아서 빌드하기에는 그냥 사용하기에는 무척 난해한 편이다.</p>
+<p>기본적으로 mac os X 에서 사용하려면 다음 절차를 따라서 설치해주면 된다.</p>
+<ul>
+<li>open Terminal and run the following script</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
+<ul>
+<li>and press enter/return key. Wait for the command to finish.</li>
+<li>Run:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install libpng</div></pre></td></tr></table></figure>
+<p><a href="http://macappstore.org/libpng/" target="_blank" rel="external">install libpng on a Mac</a></p>
+<h3 id="example-source"><a href="#example-source" class="headerlink" title="example source"></a>example source</h3><p><a href="http://zarb.org/~gc/html/libpng.html" target="_blank" rel="external">A simple libpng example program</a></p>
+<p><a href="http://www.labbookpages.co.uk/software/imgProc/libPNG.html" target="_blank" rel="external">How to build a code using libpng library</a></p>
+<h2 id="libmng"><a href="#libmng" class="headerlink" title="libmng"></a>libmng</h2><p>mng파일 포맷을 지원하는 library. 그리 유명하진 않은 편.</p>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="http://stackoverflow.com/questions/12084048/how-to-open-png-with-cimg-library-without-losing-alpha-channel" target="_blank" rel="external">when using png file format in cImg</a></p>
 <p><a href="http://stackoverflow.com/questions/32390318/cimg-failed-to-recognize-the-jpg-format" target="_blank" rel="external">when using jpeg file format in cImg</a></p>
 <p><a href="http://developinghappiness.com/?p=28" target="_blank" rel="external">Make 기반 빌드 시스템 (2): Makefile 기초</a></p>
 
