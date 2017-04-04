@@ -298,7 +298,15 @@
 </ol>
 <h2 id="docker-daemon이-꺼져-있는-경우-docker-server-is-off"><a href="#docker-daemon이-꺼져-있는-경우-docker-server-is-off" class="headerlink" title="docker daemon이 꺼져 있는 경우 / docker server is off"></a>docker daemon이 꺼져 있는 경우 / docker server is off</h2><ul>
 <li>Mac에서는 일단 docker Quickstart Terminal을 찾아서 키면 자동으로 docker daemon default 세팅이 된다.</li>
-<li>이후에 아래 명령을 실행해 주면 된다.<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">eval</span> $(docker-machine env myBoxName)</div></pre></td></tr></table></figure>
+<li><p>이후에 아래 명령을 실행해 주면 된다.</p>
+<ol>
+<li><p>start the docker machine</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-machine start myBoxName</div></pre></td></tr></table></figure>
+</li>
+<li><p>get into the env of the docker machine</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">eval</span> $(docker-machine env myBoxName)</div></pre></td></tr></table></figure>
+</li>
+</ol>
 </li>
 </ul>
 <h1 id="궁금한-점들"><a href="#궁금한-점들" class="headerlink" title="궁금한 점들"></a>궁금한 점들</h1><ul>
