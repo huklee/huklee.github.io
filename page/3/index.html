@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                64
+                65
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -194,6 +194,158 @@
 
             
             <section id="main">
+    <article id="post-045.Skia-2D-graphic-library" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2017/02/19/045.Skia-2D-graphic-library/" itemprop="url">
+            <img src="https://skia.org/res/img/logo.png" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/02/19/045.Skia-2D-graphic-library/">Skia : 2D graphic library</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/02/19/045.Skia-2D-graphic-library/">
+            <time datetime="2017-02-19T08:52:54.000Z" itemprop="datePublished">2017-02-19</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/graphic/">graphic</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/graphic/">graphic</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Skia"><a href="#Skia" class="headerlink" title="Skia"></a>Skia</h1><h2 id="Skibitmap-overview"><a href="#Skibitmap-overview" class="headerlink" title="Skibitmap overview"></a>Skibitmap overview</h2><p>안드로이드, 크롬에서 사용되는 google에서 support하는 2D graphic library이다. 주요 지원되는 파일 종류는 BMP, GIF, ICO, jpeg, png, bmp, ebp 등이다. Google에서 관리하고 운영되는 open source이다.</p>
+<blockquote>
+<p><code>Skia is an open source 2D graphics library</code> which provides common APIs that work across a variety of hardware and software platforms. It serves as <code>the graphics engine for Google Chrome and Chrome OS, Android, Mozilla Firefox and Firefox OS</code>, and many other products.<br>Skia is <code>sponsored and managed by Google</code>, but is available for use by anyone under <code>the BSD Free Software License</code>. While engineering of the core components is done by the Skia development team, we consider contributions from any source.</p>
+</blockquote>
+<h2 id="Performance-amp-support"><a href="#Performance-amp-support" class="headerlink" title="Performance &amp; support"></a>Performance &amp; support</h2><p>방대한 그래픽 라이브러리라서 API 쓰는 방법 자체도 조금 만만치 않고, 일반 사용자용은 아닌 것으로 보인다. 대부분의 third-party가 native한 그래픽 decode library인 libpng, libjpeg, libwebp 등을 쓰고 있어서 성능은 거의 최강급으로 보인다.</p>
+<blockquote>
+<p>In skia/include/images/SkImageDecoder.h file, there is the image list decoding supported by Skia:</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> Format &#123;</div><div class="line">    kUnknown_Format,</div><div class="line">    kBMP_Format,</div><div class="line">    kGIF_Format,</div><div class="line">    kICO_Format,</div><div class="line">    kJPEG_Format,</div><div class="line">    kPNG_Format,</div><div class="line">    kWBMP_Format,</div><div class="line">    kWEBP_Format,</div><div class="line"></div><div class="line">    kLastKnownFormat = kWEBP_Format</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="간단한-사용방법"><a href="#간단한-사용방법" class="headerlink" title="간단한 사용방법"></a>간단한 사용방법</h2><p>파일을 bitmap으로 최종변환하기 위해서는 내부적으로 정의된 SkBitmap 클래스를 사용해서 decoding을 해야 한다. 추후에 샘플 코드를 작성해서 올리도록 하겠다.</p>
+<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="https://en.wikipedia.org/wiki/Skia_Graphics_Engine" target="_blank" rel="external">Skia Graphics Engine Wikipedia</a><br><a href="https://skia.org/" target="_blank" rel="external">Skia official page</a><br><a href="https://github.com/google/skia/blob/master/tests/CodecTest.cpp#L1017" target="_blank" rel="external">Sk codec test page</a><br><a href="https://github.com/google/skia/blob/master/include/core/SkBitmap.h" target="_blank" rel="external">Skbitmap test page</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/02/19/045.Skia-2D-graphic-library/" data-id="cj1ubjlxa003lpu63n5iftpx0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/02/19/045.Skia-2D-graphic-library/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/19/045.Skia-2D-graphic-library/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-044.Analytics-services-architecture" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -259,7 +411,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/18/044.Analytics-services-architecture/" data-id="cj1izrpia007puz63e1ejaro9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/18/044.Analytics-services-architecture/" data-id="cj1ubjlxk0040pu63ztv0vsr5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -410,7 +562,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/17/043.leetcode-validate-binary-search-tree/" data-id="cj1izrpir0086uz63h157qffi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/17/043.leetcode-validate-binary-search-tree/" data-id="cj1ubjlx8003hpu63au1q5utv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -542,7 +694,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/16/042.hexo-visitor-counter/" data-id="cj1izrpi7007luz63syyuv1de" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/16/042.hexo-visitor-counter/" data-id="cj1ubjlx6003fpu63t171bui8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -695,7 +847,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/16/041.branch-and-bound/" data-id="cj1izrpid007suz63wy0x4wjs" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/16/041.branch-and-bound/" data-id="cj1ubjlx1003bpu63wz0r54pm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -856,7 +1008,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/16/040.algorithm-test-guides/" data-id="cj1izrphr007cuz63w649ecub" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/16/040.algorithm-test-guides/" data-id="cj1ubjlwz0039pu63w46pdlro" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1121,7 +1273,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/" data-id="cj1izrpi4007kuz63p529nk5v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/" data-id="cj1ubjlwv0033pu6315ldzea2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1410,7 +1562,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/16/038.1st-Deepcon-info-Seoul-1st-Day/" data-id="cj1izrphw007euz63rqtfx4tk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/16/038.1st-Deepcon-info-Seoul-1st-Day/" data-id="cj1ubjlww0035pu63i9mx6k39" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1549,7 +1701,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/12/037.light-web-based-coding-tools/" data-id="cj1izrphz007huz6326g5iuc8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/12/037.light-web-based-coding-tools/" data-id="cj1ubjlws002zpu639s77w16v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1691,7 +1843,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/10/036.SOLID-Design-principles/" data-id="cj1izrpeb002suz63lnyb4yki" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/10/036.SOLID-Design-principles/" data-id="cj1ubjlwr002xpu63p0hsdzdl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1769,186 +1921,6 @@
 
 
 
-    <article id="post-035.traverse-algorithms" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/07/035.traverse-algorithms/">traverse algorithms</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/07/035.traverse-algorithms/">
-            <time datetime="2017-02-07T07:47:02.000Z" itemprop="datePublished">2017-02-07</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/graph/">graph</a>, <a class="tag-link" href="/tags/tree/">tree</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="Backtracking"><a href="#Backtracking" class="headerlink" title="Backtracking"></a>Backtracking</h2><ul>
-<li><p>특징</p>
-<ul>
-<li>주로 재귀호출 사용</li>
-<li>tree traverse, 특히 state tree traverse 문제의 해결방법  </li>
-<li>모든 가능성을 뒤져보는 행위 : 느릴 수 밖에 없음</li>
-<li>보통 지수함수 이상의 time complexity를 가진다</li>
-<li>가지치기 (Prunning)을 사용하면 효과의 향상을 가져올 수 있음 (DFS와의 차이)</li>
-</ul>
-</li>
-<li><p>rough implementation</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># recursive</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtracking</span> <span class="params">(candidate)</span>:</span></div><div class="line">  <span class="comment"># 01. Reject or accept</span></div><div class="line">  answer = []</div><div class="line">  <span class="keyword">if</span> isReject(candidate)  <span class="keyword">return</span> []</div><div class="line">  <span class="keyword">if</span> isAccept(candidate)  answer.append(candidate)</div><div class="line">  <span class="comment"># 02. Recursive call</span></div><div class="line">  subProblem = getFirstChild(candidate)</div><div class="line">  <span class="keyword">while</span> isValid(subProblem):</div><div class="line">    answer += backtracking(subProblem)</div><div class="line">    subProblem = getNextChild(candidate)</div><div class="line">  <span class="keyword">return</span> answer</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><ul>
-<li><p>특징</p>
-<ul>
-<li>recursive / iterative 둘 다 구현 가능</li>
-<li>iterative하게 구현할 경우 stack을 써서 candidate 관리</li>
-<li>Time complexity : O(V + E)</li>
-<li>Space complexity : O(V)</li>
-</ul>
-</li>
-<li><p>rough implementation ()</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># recursive</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(graph, start, visited=None)</span>:</span></div><div class="line">  <span class="comment"># 01. check visit status</span></div><div class="line">  <span class="keyword">if</span> visited == <span class="keyword">None</span>:</div><div class="line">    visited = set()</div><div class="line">  visited.add(start)</div><div class="line"></div><div class="line">  <span class="comment"># 02. do something with the start vertex</span></div><div class="line">  doSomething(start)</div><div class="line"></div><div class="line">  <span class="comment"># 03. recursive call</span></div><div class="line">  candidates = [v <span class="keyword">for</span> v <span class="keyword">in</span> grpah.getAdj(start) <span class="keyword">if</span> isVisited(v)]</div><div class="line">  <span class="keyword">for</span> v <span class="keyword">in</span> candidates:</div><div class="line">    dfs(graph, v, visited)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><ul>
-<li><p>특징</p>
-<ul>
-<li>candiate을 queue로 구현함</li>
-<li>iterative하게 구현해야함 (recursive로는 어려움)</li>
-<li>Time complexity : O(V + E)</li>
-<li>Space complexity : O(V)</li>
-</ul>
-</li>
-<li><p>rough implementation</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># iterative</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span><span class="params">(graph, start)</span>:</span></div><div class="line">  <span class="comment"># 01. initialization</span></div><div class="line">  visited, queue = set(), [start]</div><div class="line"></div><div class="line">  <span class="keyword">while</span> queue != []:</div><div class="line">    <span class="comment"># 02. do something with the start vertex</span></div><div class="line">    doSomething(start)</div><div class="line"></div><div class="line">    <span class="comment"># 03. find the candidates</span></div><div class="line">    candSet = [v <span class="keyword">in</span> graph.getAdj(start)]</div><div class="line">    <span class="keyword">for</span> cand <span class="keyword">in</span> candSet:</div><div class="line">      <span class="keyword">if</span> isVisited(v) <span class="keyword">in</span> <span class="keyword">not</span> visited:</div><div class="line">        queue.append(v)</div><div class="line">    queue.pop(<span class="number">0</span>)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="Shortest-path-finding-in-graph"><a href="#Shortest-path-finding-in-graph" class="headerlink" title="Shortest path finding in graph"></a>Shortest path finding in graph</h2><ul>
-<li>dijkstra algorithm</li>
-<li>Bellman-ford algorithm</li>
-<li>A* search</li>
-</ul>
-<h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="https://en.wikipedia.org/wiki/Backtracking" target="_blank" rel="external">Backtracking in Wikipedia</a></p>
-<p><a href="http://eddmann.com/posts/depth-first-search-and-breadth-first-search-in-python/" target="_blank" rel="external">BFS &amp; DFS in python</a></p>
-<p><a href="https://en.wikipedia.org/wiki/Depth-first_search" target="_blank" rel="external">Depth first search</a></p>
-<p><a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank" rel="external">Breadth first search</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/02/07/035.traverse-algorithms/" data-id="cj1izrpe8002ouz63km873x1q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/02/07/035.traverse-algorithms/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/07/035.traverse-algorithms/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
@@ -1961,6 +1933,25 @@
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/23/065.how-to-solve-rubik-s-cube/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://i.imgur.com/OI4kbn7.png)" alt="how to solve rubik&#39;s cube" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/04/23/065.how-to-solve-rubik-s-cube/" class="title">how to solve rubik&#39;s cube</a></p>
+                            <p class="item-date"><time datetime="2017-04-23T06:20:55.000Z" itemprop="datePublished">2017-04-23</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -2038,25 +2029,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/04/061.how-to-check-time-in-C/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming-Language/">Programming_Language</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-Language/C/">C++</a></p>
-                            <p class="item-title"><a href="/2017/04/04/061.how-to-check-time-in-C/" class="title">how to check time in C++</a></p>
-                            <p class="item-date"><time datetime="2017-04-04T13:01:37.000Z" itemprop="datePublished">2017-04-04</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -2075,7 +2047,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
