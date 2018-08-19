@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                70
+                71
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -194,6 +194,329 @@
 
             
             <section id="main">
+    <article id="post-071.Pycon-Korea-2018" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/08/18/071.Pycon-Korea-2018/">Pycon Korea 2018</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/08/18/071.Pycon-Korea-2018/">
+            <time datetime="2018-08-18T04:45:10.000Z" itemprop="datePublished">2018-08-18</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="1일차-2018-08-18-토요일"><a href="#1일차-2018-08-18-토요일" class="headerlink" title="1일차 : 2018-08-18 토요일"></a>1일차 : 2018-08-18 토요일</h1><h2 id="소설-쓰는-딥러닝-조용래"><a href="#소설-쓰는-딥러닝-조용래" class="headerlink" title="소설 쓰는 딥러닝 - 조용래"></a>소설 쓰는 딥러닝 - 조용래</h2><ul>
+<li><a href="http://pozalabs.com/" target="_blank" rel="external">POZA Labs</a> + 연세대학교 김우정</li>
+<li>딥러닝을 사용할 때 어려운 점<ul>
+<li>한국어 특성 중 교착어</li>
+<li>장기 의존성 학습 (이 전 문장에서 나왔던 내용이 후로도 영향을 미침)</li>
+<li>학습 속도</li>
+</ul>
+</li>
+<li>과정<ul>
+<li><ol>
+<li>Tokenizer</li>
+</ol>
+<ul>
+<li>KoNLPy, soynlp 사용해 보았음</li>
+<li>customized dictionary를 만들어서 판타지 소설 지명을 추가함</li>
+</ul>
+</li>
+<li><ol>
+<li>Transformer (Encoder-Decoder Framework)</li>
+</ol>
+<ul>
+<li>참고 : <a href="https://arxiv.org/pdf/1706.03762.pdf" target="_blank" rel="external">Attention is all you need</a> 논문을 기본으로 학습해 봄</li>
+<li>Attention As Alignment</li>
+<li>Attention As dictionary<br><img src="https://goo.gl/CdFfdG" alt=""></li>
+<li>Multi-Head Attention<br><img src="https://goo.gl/8H2E3J" alt=""></li>
+<li>결과적으로 소스 문장에 기반한 문장을 생성하는 것이 가능함</li>
+<li>장점 - RNN계열에 비해서 약 30배 정도 병렬적인 학습속도 개선을 얻을 수 있음</li>
+<li>단점 - 소스 문장이 길어질수록 제곱에 비례해서 속도가 느려짐</li>
+</ul>
+</li>
+<li><ol>
+<li>Memory network</li>
+</ol>
+<ul>
+<li>Question Answer 모델을 사용</li>
+<li>Memory를 만들듯이, 문장을 찾고자 하는 정보에 대한 결과로 사용함</li>
+</ul>
+</li>
+<li><ol>
+<li>Generator &amp; Rank</li>
+</ol>
+<ul>
+<li>BEAM search<ul>
+<li>여러 개의 후보 문장을 끝까지 만들어 보고, 괜찮은 문장을 평가해서 최종적으로 선택하는 방식 (단어 하나하나를 선택하는 방식이 아님)</li>
+</ul>
+</li>
+<li>Ranking<ul>
+<li>지금까지의 문장과 다른 새로운 문장에 높은 점수를 줌</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ETC - Tensorflow vs PyTorch<ul>
+<li>Static Graph vs Dynamic Graph</li>
+<li>Good for Prototyping vs Good for Debugging</li>
+</ul>
+</li>
+<li>결과<ul>
+<li>Input : 사용자가 5개의 문장을 시작으로 선택함</li>
+<li>Output : 10개의 후보 문장을 만들면 하나하나, 그 중에서 적절한 문장을 선택함</li>
+<li>KT 인공지능 소설 공모전에 출품한 작품</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="인생은-짧아요-엑셀-대신-파이썬-by-이승준"><a href="#인생은-짧아요-엑셀-대신-파이썬-by-이승준" class="headerlink" title="인생은 짧아요, 엑셀 대신 파이썬 by 이승준"></a>인생은 짧아요, 엑셀 대신 파이썬 by 이승준</h2><ul>
+<li><a href="https://www.slideshare.net/plusjune/ss-109967905" target="_blank" rel="external">https://www.slideshare.net/plusjune/ss-109967905</a></li>
+<li>RPA(Robot Process Automation)에 있어서 파이썬은 너무 좋다<ul>
+<li>엑셀시트 사용<ul>
+<li>OpenPyXL, xlwings, XlsxWriter</li>
+</ul>
+</li>
+<li>대부분의 데이터 처리는 pandas / matplotlib로 쉽게 대체가 가능하다.<ul>
+<li><a href="https://www.slideshare.net/plusjune/ss-109967905/27?src=clipshare" target="_blank" rel="external">https://www.slideshare.net/plusjune/ss-109967905/27?src=clipshare</a></li>
+</ul>
+</li>
+<li>크롤링 / 쪽지, 이메일 보내기는 Selenium + BeautifulSoup로 간단하게 가능</li>
+<li>액티브X 인증서 기반도 opencv등을 응용한 pyautogui등을 사용하면 충분히 클릭 같은 부분도 자동화가 가능하니 참고하도록 하자.</li>
+<li>보고서 생성 같은 부분도 Jinja2를 사용하면 쉽게 markdown을 바로 보고서 문서로 바꾸는 것도 가능함.</li>
+<li>이메일 자동화는 smtplib / MIMEMultipart 참고</li>
+<li>메신저 봇 자동화 python-telegram-bot</li>
+<li><a href="http://robotframework.org/" target="_blank" rel="external">Robot Framework</a> 는 이러한 모든 사무자동화 문제들을 통합적인 Framework로서 제공해 주는 툴임<ul>
+<li>브라우저 자동화</li>
+<li>엑셀 자동화</li>
+<li>데스크탑 자동화</li>
+<li>운영체제</li>
+<li>원격 접근, 제어</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="2일차-2018-08-19-일요일"><a href="#2일차-2018-08-19-일요일" class="headerlink" title="2일차 : 2018-08-19 일요일"></a>2일차 : 2018-08-19 일요일</h1><h2 id="추천-시스템을-위한-어플리케이션-서버-개발-후기-kakao-by-김광섭"><a href="#추천-시스템을-위한-어플리케이션-서버-개발-후기-kakao-by-김광섭" class="headerlink" title="추천 시스템을 위한 어플리케이션 서버 개발 후기 @ kakao by 김광섭"></a>추천 시스템을 위한 어플리케이션 서버 개발 후기 @ kakao by 김광섭</h2><ul>
+<li><a href="https://www.dropbox.com/s/l56nr4tyyeitr1x/20180818_pycon_application_server_for_recommender_system_at_kakao_rev3.pdf?dl=0" target="_blank" rel="external">Slides</a></li>
+<li>서비스 아키텍쳐<ul>
+<li>서비스 -&gt; mySQL 서비스 스키마 -&gt; 추천 엔진 데이터<br><img src="https://goo.gl/9YFSnH" alt=""></li>
+</ul>
+</li>
+<li>개발에서의 고민들<ul>
+<li>Python2 vs python3<ul>
+<li>=tornado vs Sanic의 문제였다.</li>
+<li>결국은 Python3로 바꿨음</li>
+<li>Sanic의 문법이 훨씬 가독성이 높게 나온다.</li>
+<li>성능에 있어서도 tornado대비 약 2.1배 빠른 응답속도 (uvloop 덕택)</li>
+</ul>
+</li>
+<li>데이터베이스 프로파일링<ul>
+<li>최적화의 끝은 결국 네트워크 IO가 Bottle Neck이 되더라.</li>
+<li>MongoDB의 aggregate기능으로 여러 연산 중복 실행 가능</li>
+<li>그 중 $filter 사용 결과가 우월했음.</li>
+<li>반면 groupby의 경우는 DB에서 너무 느리기도 했다.<ul>
+<li>이 경우는 App 레벨에서 처리하는 게 더 빨랐음.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>데이터 슈퍼 노드 문제<ul>
+<li>Sharding을 할 때, DB가 이상하게 죽는 문제가 있었음</li>
+<li>원인은 공통으로 사용되는 리소스가 있어서 부하가 1번 샤드에 몰리는 문제</li>
+<li>내부 DB 서비스를 사용했기 떄문에 해결이 가능했음</li>
+</ul>
+</li>
+<li>gunicorn 사용의 이점<ul>
+<li>WSGI 특성으로의 장점이 매우 컸음</li>
+<li>App 레벨에서 프로세스를 껐다 키는 것처럼 간단하게 앱 관리가 편했음</li>
+</ul>
+</li>
+<li>수치 연산<ul>
+<li>기본 라이브러리가 느리다고 의심되는 부분이 있으면 꼭 C로 짜서 대체하는 걸 고려해보자.</li>
+<li>수치 연산에 일반적으로 Numpy, Pandas 등을 사용하기는 하는데, 벡터 연산, Matrix 연산 에서는 고려해 보자.</li>
+<li>딥러닝을 적용하는 데 있어서도 Softmax 결과들을 종합하는 연산 부분을 C로 짜서 Cython으로 했더니 굉장히 개선된 경우가 있었음</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="땀내를-줄이는-Data-Preprocessing-amp-Feature-Engineering-by-박조은"><a href="#땀내를-줄이는-Data-Preprocessing-amp-Feature-Engineering-by-박조은" class="headerlink" title="땀내를 줄이는 Data Preprocessing &amp; Feature Engineering by 박조은"></a>땀내를 줄이는 Data Preprocessing &amp; Feature Engineering by 박조은</h2><ul>
+<li>Intro : Data cleansing에서 필요한 여러가지 작업에서 수월한 툴 이야기</li>
+<li>plotnine - R의 ggplot을 그대로 사용 가능함</li>
+</ul>
+<h2 id="Ready-Get-set-Go-by-김영건"><a href="#Ready-Get-set-Go-by-김영건" class="headerlink" title="Ready, Get set, Go by 김영건"></a>Ready, Get set, Go by 김영건</h2><ul>
+<li><a href="https://www.slideshare.net/scarinet/ready-get-set-run" target="_blank" rel="external">Slides</a></li>
+<li>컨퍼런스 행사에서의 스프린트 (=오픈소스를 같이 집중적으로 짜 보는 행사)</li>
+<li>스프린트의 역사는 오픈소스의 역사화 함께 함 : pycon보다 오래됨<br><img src="https://goo.gl/UmbCLX" alt=""></li>
+<li>실제 오픈소스에서의 스프린트, 특히 큰 오픈소스의 스프린트는 정말 좋다.</li>
+<li>굉장히 즐겁게 다 같이 개발을 하는 경험을 쌓을 수 있는 시간입니다.</li>
+<li>놀라운 점<ul>
+<li>스프린트의 최고 장점은 아무래도 메인테이너와 오랜 시간 같이 있을 수 있다는 것<br><img src="https://goo.gl/avLg8N" alt=""></li>
+</ul>
+</li>
+<li>현재 진행되고 있는 스프린트<ul>
+<li>pyData Sprint</li>
+<li>DjangoCon Sprint</li>
+<li>Mozilla Doc Sprint</li>
+<li>공개SW개발자센터 컨트리뷰톤</li>
+</ul>
+</li>
+<li>Worldwide pandas sprint 2018<ul>
+<li>2018-03-18 하루 동안 246 PR이 올라옴</li>
+</ul>
+</li>
+<li>스프린트에 대한 팁<ul>
+<li>왠만하면 뒷풀이는 참석하자 (스프린트는 친해지는 자리)</li>
+<li>메인테이너가 있는 스프린트에 참석하는 것이 좋긴 함</li>
+<li>10명 정도 사이즈가 좋은 것 같습니다. (도와주는 사람 많으면 20명까지도 가능)</li>
+</ul>
+</li>
+<li>10월에도 추가로 스프린트를 할 예정이니, 같이 했으면 좋겠습니다.</li>
+<li>다양한 전 세계의 파이콘에서 다양한 스프린트를 하니 그 부분도 참고하세요<ul>
+<li><a href="https://www.pycon.org/" target="_blank" rel="external">https://www.pycon.org/</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="법률-네트워크-분석-30년간의-변화-by-김재윤"><a href="#법률-네트워크-분석-30년간의-변화-by-김재윤" class="headerlink" title="법률 네트워크 분석: 30년간의 변화 by 김재윤"></a>법률 네트워크 분석: 30년간의 변화 by 김재윤</h2><ul>
+<li>법률과 프로그래밍은 굉장히 비슷한 점이 많다.</li>
+<li>법률에서의 에러<ul>
+<li>인용오류 발생 = 404 Error</li>
+<li>시행예정법률 개정 오류 = 버전 혼동</li>
+</ul>
+</li>
+<li>최근 에러 증가, 법률의 복잡성 증대 때문?<ul>
+<li>글자 1700만자, 법률간 인용 매년 7% 증가</li>
+</ul>
+</li>
+<li>Law as a network<ul>
+<li>법률 = Node, 법률간 인용 = Edge</li>
+<li>Law 법률 네트워크의 복잡성은 계속 늘어나고 있음<br><img src="https://goo.gl/k4vQ4v" alt=""></li>
+</ul>
+</li>
+<li>입법주의가 잘 유지되고 있는가가 의심된다.<ul>
+<li>현재 우리나라 법률에서는 Power law, Truncated Power Law 분포가 등장하고 있다.</li>
+<li>즉, ‘자연법칙’의 패턴이 입법에 나타나고 있다. 이는 과거의 법률이 현재의 법률에 지속적인 제약을 준다는 것을 뜻한다.</li>
+<li>입법의 통제 가능성과 가독성에 대해서 걱정할 필요</li>
+<li>US Code (=USC, 미국법률)은 Log-normal분포를 보인다.<br><img src="https://goo.gl/z2A7ng" alt=""><br><img src="https://goo.gl/wE7EWL" alt=""></li>
+</ul>
+</li>
+<li><a href="https://www.facebook.com/groups/AlphaLaw/" target="_blank" rel="external">알파로우 스터디, 싸이버스</a><ul>
+<li>다음 시즌도 계속됩니다. 참가해 주세요!<br><img src="https://goo.gl/wEZJE8" alt=""></li>
+</ul>
+</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2018/08/18/071.Pycon-Korea-2018/" data-id="cjl0msis10065nj63zpxbar8k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2018/08/18/071.Pycon-Korea-2018/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2018/08/18/071.Pycon-Korea-2018/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-070.Google-IO-Extended-2018" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -367,7 +690,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2018/06/10/070.Google-IO-Extended-2018/" data-id="cji8fiwn800641t63ob6pouit" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2018/06/10/070.Google-IO-Extended-2018/" data-id="cjl0msis5006cnj63m47tqozi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -536,7 +859,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2018/03/18/069.Block-Chain-Hackerthon/" data-id="cji8fiwn500601t63g73hub1b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2018/03/18/069.Block-Chain-Hackerthon/" data-id="cjl0msiry005ynj632416yquh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -668,7 +991,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/07/19/068.Learning-Chinese/" data-id="cji8fiwn4005x1t63x2ldqla1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/07/19/068.Learning-Chinese/" data-id="cjl0msis8006gnj63ufkqx5t3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -910,7 +1233,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/06/27/067.Spark-tutorial/" data-id="cji8fiwn1005u1t6375y8fh4t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/06/27/067.Spark-tutorial/" data-id="cjl0msis30068nj63af9o7aob" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1049,7 +1372,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/04/23/066.problem-solving-two-tower-problem/" data-id="cji8fiwn900661t637rvc6vjp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/04/23/066.problem-solving-two-tower-problem/" data-id="cjl0msirz0062nj6363s9ronz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1185,7 +1508,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/04/23/065.how-to-solve-rubik-s-cube/" data-id="cji8fiwmy005p1t63m49to29v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/04/23/065.how-to-solve-rubik-s-cube/" data-id="cjl0msirw005vnj63pzyl5r6f" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1329,7 +1652,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/04/15/064.RCPy-study-note/" data-id="cji8fiwmd005e1t63jgdyeizd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/04/15/064.RCPy-study-note/" data-id="cjl0msirp005qnj6376fostwa" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1464,7 +1787,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/04/15/062.how-to-run-R-in-jupyter-IRkernel/" data-id="cji8fiwmf005h1t63qecc4rs9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/04/15/062.how-to-run-R-in-jupyter-IRkernel/" data-id="cjl0msirj005jnj639dcv45gu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1586,7 +1909,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/04/15/063.R-tutorial/" data-id="cji8fiwmt005m1t63dhjr5kyn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/04/15/063.R-tutorial/" data-id="cjl0msirl005nnj63ouw214nj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1664,146 +1987,8 @@
 
 
 
-    <article id="post-060.docker-eco-system" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            
-	
-		<a href="/2017/04/04/060.docker-eco-system/" itemprop="url">
-            <img src="https://github.com/docker/swarm/blob/master/logo.png" class="article-banner" />
-        </a>
-	
-
-
-
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/04/04/060.docker-eco-system/">docker eco system</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/04/04/060.docker-eco-system/">
-            <time datetime="2017-04-04T13:02:56.000Z" itemprop="datePublished">2017-04-04</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="docker-swarm"><a href="#docker-swarm" class="headerlink" title="docker swarm"></a>docker swarm</h1><h1 id="how-to-start-docker-swarm-using-docker-machine"><a href="#how-to-start-docker-swarm-using-docker-machine" class="headerlink" title="how to start docker swarm using docker-machine"></a>how to start docker swarm using docker-machine</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ docker-machine start default</div><div class="line">$ <span class="built_in">eval</span> $(docker-machine env default)</div><div class="line">$ docker run swarm --help</div></pre></td></tr></table></figure>
-<p>위와 같이 하면, docker swarm이 실행되는 지를 바로 볼 수 있다.<br>간단하게 docker swarm이 설치되어 있지 않은 상황에서 자동으로 다운로드를 받는다.</p>
-<p>정상적으로 설치가 된다면 아래와 같이 나온다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Usage: swarm [OPTIONS] COMMAND [arg...]</div><div class="line"></div><div class="line">A Docker-native clustering system</div><div class="line"></div><div class="line">Version: 1.2.6 (`git rev-parse --short HEAD`)</div><div class="line"></div><div class="line">Options:</div><div class="line">  --debug			debug mode [$DEBUG]</div><div class="line">  --log-level, -l &quot;info&quot;	Log level (options: debug, info, warn, error, fatal, panic)</div><div class="line">  --experimental		enable experimental features</div><div class="line">  --help, -h			show help</div><div class="line">  --version, -v			print the version</div><div class="line"></div><div class="line">Commands:</div><div class="line">  create, c	Create a cluster</div><div class="line">  list, l	List nodes in a cluster</div><div class="line">  manage, m	Manage a docker cluster</div><div class="line">  join, j	Join a docker cluster</div><div class="line">  help		Shows a list of commands or help for one command</div><div class="line"></div><div class="line">Run &apos;swarm COMMAND --help&apos; for more information on a command.</div></pre></td></tr></table></figure>
-<p><a href="http://blog.naver.com/PostView.nhn?blogId=alice_k106&amp;logNo=220599928013&amp;parentCategoryNo=7&amp;categoryNo=&amp;viewDate=&amp;isShowPopularPosts=true&amp;from=search" target="_blank" rel="external">docker swarm 간단 소개 및 설치 가이드</a></p>
-<p><a href="https://github.com/docker/swarm" target="_blank" rel="external">docker swarm github</a>]</p>
-<p><a href="https://docs.docker.com/engine/swarm/" target="_blank" rel="external">docker swarm mode overview</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/04/04/060.docker-eco-system/" data-id="cji8fiwm600521t63c8x449r5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/04/04/060.docker-eco-system/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/04/04/060.docker-eco-system/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
 </section>
             
@@ -1814,6 +1999,25 @@
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/18/071.Pycon-Korea-2018/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/18/071.Pycon-Korea-2018/" class="title">Pycon Korea 2018</a></p>
+                            <p class="item-date"><time datetime="2018-08-18T04:45:10.000Z" itemprop="datePublished">2018-08-18</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1891,25 +2095,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/23/066.problem-solving-two-tower-problem/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/algorithms/">algorithms</a></p>
-                            <p class="item-title"><a href="/2017/04/23/066.problem-solving-two-tower-problem/" class="title">problem solving : two tower problem</a></p>
-                            <p class="item-date"><time datetime="2017-04-23T06:35:55.000Z" itemprop="datePublished">2017-04-23</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1928,7 +2113,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 

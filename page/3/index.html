@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                70
+                71
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -194,6 +194,141 @@
 
             
             <section id="main">
+    <article id="post-051.introduction-to-system-design" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/03/01/051.introduction-to-system-design/">introduction to system design</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/01/051.introduction-to-system-design/">
+            <time datetime="2017-03-01T06:16:57.000Z" itemprop="datePublished">2017-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Architecture/">Architecture</a>, <a class="tag-link" href="/tags/system-design/">system design</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Introduction-to-system-design"><a href="#Introduction-to-system-design" class="headerlink" title="Introduction to system design"></a>Introduction to system design</h1><h2 id="Theories-amp-Intro"><a href="#Theories-amp-Intro" class="headerlink" title="Theories &amp; Intro"></a>Theories &amp; Intro</h2><p><a href="https://www.youtube.com/watch?v=WrdSkqRypsg" target="_blank" rel="external">Complex System Design : 15 Design Thinking</a><br><div class="video-container"><iframe src="//www.youtube.com/embed/WrdSkqRypsg" frameborder="0" allowfullscreen></iframe></div></p>
+<p><a href="https://www.youtube.com/watch?v=ZgdS0EUmn70" target="_blank" rel="external">Intro to Architecture &amp; System Design</a><br><div class="video-container"><iframe src="//www.youtube.com/embed/ZgdS0EUmn70" frameborder="0" allowfullscreen></iframe></div></p>
+<p><a href="https://www.youtube.com/watch?v=0jjNjXcYmAU" target="_blank" rel="external">Intro to Design Pattern</a><br><div class="video-container"><iframe src="//www.youtube.com/embed/0jjNjXcYmAU" frameborder="0" allowfullscreen></iframe></div></p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><a href="https://www.youtube.com/watch?v=PliHAP5m0BE" target="_blank" rel="external">Software architecture Example : alram clock</a><br><div class="video-container"><iframe src="//www.youtube.com/embed/PliHAP5m0BE" frameborder="0" allowfullscreen></iframe></div></p>
+<p><a href="https://www.youtube.com/watch?v=fITuhLSwbt8" target="_blank" rel="external">programming interview Elevator System Design</a><br><div class="video-container"><iframe src="//www.youtube.com/embed/fITuhLSwbt8" frameborder="0" allowfullscreen></iframe></div></p>
+<p><a href="https://www.youtube.com/watch?v=mDYuJoQEowQ" target="_blank" rel="external">example : Designin Google Docs</a><br><div class="video-container"><iframe src="//www.youtube.com/embed/mDYuJoQEowQ" frameborder="0" allowfullscreen></iframe></div></p>
+<h2 id="Scalable-Architecture"><a href="#Scalable-Architecture" class="headerlink" title="Scalable Architecture"></a>Scalable Architecture</h2><p><a href="https://www.lynda.com/AWS-tutorials/Scalable-architectures/163929/187338-4.html" target="_blank" rel="external">Scalable architectures</a></p>
+<p><a href="https://dzone.com/articles/scalable-system-design-0" target="_blank" rel="external">Principles of Scalable System Design</a></p>
+<p><a href="http://highscalability.com/blog/2010/12/1/8-commonly-used-scalable-system-design-patterns.html" target="_blank" rel="external">8 Commonly Used scalable System Design patterns</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/03/01/051.introduction-to-system-design/" data-id="cjl0msiqh004enj63ynnr8rtx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/03/01/051.introduction-to-system-design/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/03/01/051.introduction-to-system-design/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-050.docker-construct-a-server-with-a-docker-file" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -332,7 +467,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/28/050.docker-construct-a-server-with-a-docker-file/" data-id="cji8fiwlm00401t63oer6jknh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/28/050.docker-construct-a-server-with-a-docker-file/" data-id="cjl0msiqg004anj6318jibyi0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -545,7 +680,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/28/049.how-to-docker-install/" data-id="cji8fiwlp00441t63aie56696" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/28/049.how-to-docker-install/" data-id="cjl0msiqe0046nj63yix3a5y3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -693,7 +828,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/25/048.python-map-reduce-filter-zip-built-in-functions/" data-id="cji8fiwll003w1t63t7ktxois" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/25/048.python-map-reduce-filter-zip-built-in-functions/" data-id="cjl0msiqc0042nj63vdu9o7yn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -843,7 +978,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/25/047.mapreduce-in-python/" data-id="cji8fiwlj003s1t63eqego9qo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/25/047.mapreduce-in-python/" data-id="cjl0msiq9003ynj63o4mjnk76" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -982,7 +1117,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/19/046.github-gurus/" data-id="cji8fiwlb003m1t636peeec9g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/19/046.github-gurus/" data-id="cjl0msiq5003unj6313281xp7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1134,7 +1269,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/19/045.Skia-2D-graphic-library/" data-id="cji8fiwlf003o1t63ginmx3wh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/19/045.Skia-2D-graphic-library/" data-id="cjl0msiq2003qnj63niw0u35m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1277,7 +1412,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/18/044.Analytics-services-architecture/" data-id="cji8fiwl9003j1t63b3wfb49k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/18/044.Analytics-services-architecture/" data-id="cjl0msipu003mnj635bn6fvdc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1428,7 +1563,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/17/043.leetcode-validate-binary-search-tree/" data-id="cji8fiwkw00371t63xlyo4kwc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/17/043.leetcode-validate-binary-search-tree/" data-id="cjl0msips003inj63pfr98gnu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1560,7 +1695,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/16/042.hexo-visitor-counter/" data-id="cji8fiwl7003g1t63z0yaw5pq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/16/042.hexo-visitor-counter/" data-id="cjl0msipb0035nj63ydmyr8to" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1638,161 +1773,8 @@
 
 
 
-    <article id="post-041.branch-and-bound" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            
-	
-		<a href="/2017/02/16/041.branch-and-bound/" itemprop="url">
-            <img src="http://cfile24.uf.tistory.com/image/140966344EFD002D172A96" class="article-banner" />
-        </a>
-	
-
-
-
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/16/041.branch-and-bound/">branch and bound algorithm</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/16/041.branch-and-bound/">
-            <time datetime="2017-02-16T12:23:51.000Z" itemprop="datePublished">2017-02-16</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/NP-Hard/">NP-Hard</a>, <a class="tag-link" href="/tags/TSP/">TSP</a>, <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/draft/">draft</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="Branch-and-bound"><a href="#Branch-and-bound" class="headerlink" title="Branch and bound"></a>Branch and bound</h1><p>NP-Hard 등의 문제를 풀 때, 가지치기를 효과적으로 하며 최적의 해를 탐색하는 기법 중 하나. Branch별로 Bound와 탐색 중에 발견된 Maxprofit을 비교하여 Prunning을 하는 기법이다. 즉, branch별로 선택하는 경우에 대한 Bound (주어진 상황에서 예상되는 최대의 결과)를 계산하여 이를 선택의 제외의 기준으로 삼는 방법이다.</p>
-<p>처음에 이해하기는 조금 헷갈리는 개념이지만, 실제로 그림을 그리면서 진행해보면 생각만큼 이해하기는 어렵지 않은 주제이다.</p>
-<p>TSP를 예를 들어서, 남은 선택 중에서 모두 최선의 선택을 한다고 가정할 경우에 나오는 예상 값을 각각 bound로 계산한다. TSP의 목표는 탐색비용의 최소화이므로, bound는 lower bound가 될 것이다. 탐색을 하면서 각 branch별로 bound를 먼저 계산하고 가장 bound가 낮은 것부터 탐색한다.</p>
-<p>순회를 계속해 진행하면서 maxprofit을 갱신해 나간다. maxprofit보다 bound가 높은 node의 경우는 더 이상 진행할 필요가 없으므로 추가로 탐색하지 않는 것을 반복한다. 끝.</p>
-<p>간단하면서도 효과가 뛰어난 NP-Hard 해결 방법 중 하나이다.</p>
-<ul>
-<li>best-first search 방법을 섞어서 사용하면 조금 더 탐색의 효율이 개선될 것으로 보인다. 검증할 필요는 있어 보이지만..</li>
-</ul>
-<h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><h2 id="구현"><a href="#구현" class="headerlink" title="구현"></a>구현</h2><h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="http://raisonde.tistory.com/130#footnote_link_130_1" target="_blank" rel="external">Branch and bound in TSP</a></p>
-<p><a href="http://zakarum.tistory.com/entry/Branch-and-Bound-with-the-0-1-Knapsack-problem-2" target="_blank" rel="external">Branch and bound in knapsack</a></p>
-<p><a href="http://zakarum.tistory.com/entry/Branch-and-Bound-with-the-0-1-Knapsack-problem-2" target="_blank" rel="external">Best-first search : greedy BFS in knapsack</a></p>
-<p><a href="https://mytechnicalarticles.files.wordpress.com/2012/03/sumofsubsets.pdf" target="_blank" rel="external">Sahaj Computer Solutions : backtracking @ knapsack problem</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/02/16/041.branch-and-bound/" data-id="cji8fiwl5003d1t63uo9vf9qx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/02/16/041.branch-and-bound/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/16/041.branch-and-bound/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
 </section>
             
@@ -1803,6 +1785,25 @@
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/18/071.Pycon-Korea-2018/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/18/071.Pycon-Korea-2018/" class="title">Pycon Korea 2018</a></p>
+                            <p class="item-date"><time datetime="2018-08-18T04:45:10.000Z" itemprop="datePublished">2018-08-18</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1880,25 +1881,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/23/066.problem-solving-two-tower-problem/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/algorithms/">algorithms</a></p>
-                            <p class="item-title"><a href="/2017/04/23/066.problem-solving-two-tower-problem/" class="title">problem solving : two tower problem</a></p>
-                            <p class="item-date"><time datetime="2017-04-23T06:35:55.000Z" itemprop="datePublished">2017-04-23</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1917,7 +1899,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 

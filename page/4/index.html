@@ -153,7 +153,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                70
+                71
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -194,6 +194,159 @@
 
             
             <section id="main">
+    <article id="post-041.branch-and-bound" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2017/02/16/041.branch-and-bound/" itemprop="url">
+            <img src="http://cfile24.uf.tistory.com/image/140966344EFD002D172A96" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/02/16/041.branch-and-bound/">branch and bound algorithm</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/02/16/041.branch-and-bound/">
+            <time datetime="2017-02-16T12:23:51.000Z" itemprop="datePublished">2017-02-16</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/NP-Hard/">NP-Hard</a>, <a class="tag-link" href="/tags/TSP/">TSP</a>, <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/draft/">draft</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Branch-and-bound"><a href="#Branch-and-bound" class="headerlink" title="Branch and bound"></a>Branch and bound</h1><p>NP-Hard 등의 문제를 풀 때, 가지치기를 효과적으로 하며 최적의 해를 탐색하는 기법 중 하나. Branch별로 Bound와 탐색 중에 발견된 Maxprofit을 비교하여 Prunning을 하는 기법이다. 즉, branch별로 선택하는 경우에 대한 Bound (주어진 상황에서 예상되는 최대의 결과)를 계산하여 이를 선택의 제외의 기준으로 삼는 방법이다.</p>
+<p>처음에 이해하기는 조금 헷갈리는 개념이지만, 실제로 그림을 그리면서 진행해보면 생각만큼 이해하기는 어렵지 않은 주제이다.</p>
+<p>TSP를 예를 들어서, 남은 선택 중에서 모두 최선의 선택을 한다고 가정할 경우에 나오는 예상 값을 각각 bound로 계산한다. TSP의 목표는 탐색비용의 최소화이므로, bound는 lower bound가 될 것이다. 탐색을 하면서 각 branch별로 bound를 먼저 계산하고 가장 bound가 낮은 것부터 탐색한다.</p>
+<p>순회를 계속해 진행하면서 maxprofit을 갱신해 나간다. maxprofit보다 bound가 높은 node의 경우는 더 이상 진행할 필요가 없으므로 추가로 탐색하지 않는 것을 반복한다. 끝.</p>
+<p>간단하면서도 효과가 뛰어난 NP-Hard 해결 방법 중 하나이다.</p>
+<ul>
+<li>best-first search 방법을 섞어서 사용하면 조금 더 탐색의 효율이 개선될 것으로 보인다. 검증할 필요는 있어 보이지만..</li>
+</ul>
+<h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><h2 id="구현"><a href="#구현" class="headerlink" title="구현"></a>구현</h2><h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><p><a href="http://raisonde.tistory.com/130#footnote_link_130_1" target="_blank" rel="external">Branch and bound in TSP</a></p>
+<p><a href="http://zakarum.tistory.com/entry/Branch-and-Bound-with-the-0-1-Knapsack-problem-2" target="_blank" rel="external">Branch and bound in knapsack</a></p>
+<p><a href="http://zakarum.tistory.com/entry/Branch-and-Bound-with-the-0-1-Knapsack-problem-2" target="_blank" rel="external">Best-first search : greedy BFS in knapsack</a></p>
+<p><a href="https://mytechnicalarticles.files.wordpress.com/2012/03/sumofsubsets.pdf" target="_blank" rel="external">Sahaj Computer Solutions : backtracking @ knapsack problem</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://huklee.github.io/2017/02/16/041.branch-and-bound/" data-id="cjl0msipq003fnj63ud0uzm2t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://huklee.github.io/2017/02/16/041.branch-and-bound/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/16/041.branch-and-bound/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-040.algorithm-test-guides" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -277,7 +430,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/16/040.algorithm-test-guides/" data-id="cji8fiwkt002z1t63ot4v5u6w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/16/040.algorithm-test-guides/" data-id="cjl0msipf0039nj63cpnhga6o" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -542,7 +695,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/" data-id="cji8fiwkv00331t634xj3yn2l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/16/039.1st-Deepcon-info-Seoul-2nd-Day/" data-id="cjl0msipj003bnj63ygrwaepe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -831,7 +984,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/16/038.1st-Deepcon-info-Seoul-1st-Day/" data-id="cji8fiwkz003a1t63s70br2y7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/16/038.1st-Deepcon-info-Seoul-1st-Day/" data-id="cjl0msip4002znj63qoue1c5l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -970,7 +1123,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/12/037.light-web-based-coding-tools/" data-id="cji8fiwkk002k1t63c4jr1qnl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/12/037.light-web-based-coding-tools/" data-id="cjl0msip0002xnj63aq1356rc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1112,7 +1265,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/10/036.SOLID-Design-principles/" data-id="cji8fiwko002r1t63p3qtf8qw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/10/036.SOLID-Design-principles/" data-id="cjl0msip90033nj632lcrfx36" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1292,7 +1445,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/07/035.traverse-algorithms/" data-id="cji8fiwkr002v1t633n7jkykp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/07/035.traverse-algorithms/" data-id="cjl0msiou002pnj63p5450k7p" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1482,7 +1635,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/" data-id="cji8fiwkm002o1t63bmpaa7ch" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/07/034.Installing-Tensorflow-using-virtualenv-on-Mac/" data-id="cjl0msioy002tnj63rkvl2bve" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1615,7 +1768,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/06/033.Ubuntu-TIps-Ubuntu-Desktop-certified-hardware/" data-id="cji8fiwki002i1t63un48vcgx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/06/033.Ubuntu-TIps-Ubuntu-Desktop-certified-hardware/" data-id="cjl0msior002mnj63haz30cck" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1780,7 +1933,7 @@
 
 </div>
 
-    <a data-url="https://huklee.github.io/2017/02/06/032.install-Tensorflow-on-Mac-air/" data-id="cji8fiwkg002e1t63f87nt7cs" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://huklee.github.io/2017/02/06/032.install-Tensorflow-on-Mac-air/" data-id="cjl0msioo002hnj63devt0tm2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1858,143 +2011,8 @@
 
 
 
-    <article id="post-031-Time-complexity-notations" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/04/031-Time-complexity-notations/">Time complexity notations</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/04/031-Time-complexity-notations/">
-            <time datetime="2017-02-04T07:57:13.000Z" itemprop="datePublished">2017-02-04</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="Time-complexity-notations"><a href="#Time-complexity-notations" class="headerlink" title="Time complexity notations"></a>Time complexity notations</h1><p>Sometimes complexed about the exact meaning of the Big-O, theta, and omega notations. I found a great and beautiful summary table of them.</p>
-<p><img src="https://i.stack.imgur.com/SZ7jy.png" alt=""></p>
-<p>For more details, check out the wikipedia pages below.</p>
-<h2 id="Useful"><a href="#Useful" class="headerlink" title="Useful"></a>Useful</h2><p><a href="https://en.wikipedia.org/wiki/Big_O_notation#Family_of_Bachmann.E2.80.93Landau_notations" target="_blank" rel="external">Algorithm Time complexity : Family of Bachman Landau notations </a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/" data-id="cji8fiwke002c1t63mp15105v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://huklee.github.io/2017/02/04/031-Time-complexity-notations/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
 </section>
             
@@ -2005,6 +2023,25 @@
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/18/071.Pycon-Korea-2018/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/18/071.Pycon-Korea-2018/" class="title">Pycon Korea 2018</a></p>
+                            <p class="item-date"><time datetime="2018-08-18T04:45:10.000Z" itemprop="datePublished">2018-08-18</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -2082,25 +2119,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/23/066.problem-solving-two-tower-problem/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/algorithms/">algorithms</a></p>
-                            <p class="item-title"><a href="/2017/04/23/066.problem-solving-two-tower-problem/" class="title">problem solving : two tower problem</a></p>
-                            <p class="item-date"><time datetime="2017-04-23T06:35:55.000Z" itemprop="datePublished">2017-04-23</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -2119,7 +2137,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
